@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const medicalHistorySchema = new mongoose.Schema({
   patient_id: { type: String, required: true },     // From SQL
   recorded_by: { type: String, required: true },    // From SQL

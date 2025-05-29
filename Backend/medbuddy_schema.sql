@@ -1,4 +1,3 @@
-
 -- users Table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -57,6 +56,21 @@ CREATE TABLE pharmacists (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- prescriptions Table
+CREATE TABLE prescriptions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    doctor_id INT,
+    patient_id INT,
+    drug_name VARCHAR(100) NOT NULL,
+    dosage VARCHAR(50) NOT NULL,
+    duration VARCHAR(50) NOT NULL,
+    notes TEXT,
+    signed_qr TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (doctor_id) REFERENCES users(id),
+    FOREIGN KEY (patient_id) REFERENCES users(id)
+);
+
 -- consultations Table
 CREATE TABLE consultations (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -80,22 +94,7 @@ CREATE TABLE consultations (
     FOREIGN KEY (prescription_id) REFERENCES prescriptions(id)
 );
 
--- prescriptions Table
-CREATE TABLE prescriptions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    doctor_id INT,
-    patient_id INT,
-    drug_name VARCHAR(100) NOT NULL,
-    dosage VARCHAR(50) NOT NULL,
-    duration VARCHAR(50) NOT NULL,
-    notes TEXT,
-    signed_qr TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (doctor_id) REFERENCES users(id),
-    FOREIGN KEY (patient_id) REFERENCES users(id)
-);
-
--- orders Table
+-- orders Table 
 CREATE TABLE orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,

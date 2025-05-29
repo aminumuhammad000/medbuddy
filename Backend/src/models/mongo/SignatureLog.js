@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const signatureLogSchema = new mongoose.Schema({
   user_id: { type: String, required: true }, // SQL user ID
   signature: String,
