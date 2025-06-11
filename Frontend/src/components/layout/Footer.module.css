@@ -1,0 +1,42 @@
+.Footer{
+    background-color: var(--background-color);
+    padding-top: 5em;
+}
+.Footer .logoContainer{
+    width: 20em;
+    margin-inline: auto;
+}
+.Footer .logoContainer image{
+    width: 100%;
+    object-fit: cover;
+}
+.copyConatiner{
+    border-top: 1px solid #ddd;
+}
+.copyConatiner,
+.copy,
+.socialMediaContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    padding: 1px 2em 1em 2em;
+}
+.Footer .text{
+    margin-top: 3em;
+    margin-bottom: 10em;
+    text-align: center;
+    opacity: 0.9;
+}
+.Footer .navList{
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 2em 0px 2em 0px;   
+}
+.Footer .navList li{
+    font-size: 1.2rem;
+    color: var(--blue-color);
+    cursor: pointer;
+}

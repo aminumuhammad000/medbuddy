@@ -1,0 +1,23 @@
+.socialCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1em;
+}
+.socialCard div {
+  width: 2em;
+  height: 2em;
+  border: 1px solid var(--blue-color);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.socialCard .twitter{
+    background-color: var(--blue-color);
+    color: var(--color-white);
+}

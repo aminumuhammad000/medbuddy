@@ -1,0 +1,19 @@
+.Team{
+    padding: 5em 4em 5em 4em;
+}
+.Team h1{
+    font-size: 2.8rem;
+    color: var(--hover-color);
+    font-weight: 600;
+}
+.Team h1 span{
+    color: var(--blue-color);
+}
+.teamCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    margin-top: 6em;
+}

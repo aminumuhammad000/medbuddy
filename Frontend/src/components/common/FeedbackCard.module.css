@@ -1,0 +1,41 @@
+.FeedbackCard{
+    display: flex;
+    gap: 5em;
+    align-items: center;
+    padding: 3em;
+    height: 17em;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px #ddd;
+    width: 80%;
+}
+.profileContianer{
+    position: relative;
+    width: 16em;
+    display: flex;
+}
+.profileContianer .blury{
+    filter: blur(1px);
+    border-radius: 10px;
+    object-fit: cover;
+    min-width: 14em;
+}
+.profileContianer .sideImage{
+    position: absolute;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 8em;
+    inset: 3em -2em 3em 9em;
+}
+.detailsContainer .name{
+    font-size: 2.2rem;
+    color: var(--hover-color);
+    width: 8em;
+}
+.detailsContainer .username{
+    margin-top: -4px;
+    color: var(--blue-color);
+}
+.detailsContainer .text{
+    width: 80%;
+}

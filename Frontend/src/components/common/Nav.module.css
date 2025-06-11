@@ -1,0 +1,41 @@
+.navContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navList{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+        color: var(--hover-color);
+ }
+ .ctaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+ }
+ .ctaContainer button{
+    background-color: var(--blue-color);
+    padding: 5px 10px;
+    width: 7em;
+    border-radius: 7px;
+    font-size: 0.7;
+    color: var(--color-white);
+    text-align: center;
+ }
+button.signIn{
+    background-color: transparent;
+    border: 1px solid var(--blue-color);
+    color: var(--blue-color);
+
+ }

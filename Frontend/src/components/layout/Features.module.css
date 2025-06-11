@@ -1,0 +1,46 @@
+.Features{
+    padding: 1em 5em 2em 5em;
+    position: relative;
+}
+.heading{
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--hover-color);
+    text-align: center;
+
+}
+hr{
+    border: 2px solid var(--blue-color);
+    display: block;
+    justify-self: center;
+    width: 7em;
+}
+.cardContainer::before{
+    content: '';
+    width: 10em;
+    height: 10em;
+    background-color: transparent;
+    border: 14px solid var(--blue-color);
+    opacity: 0.7;
+    border-radius: 50%;
+    position: absolute;
+    left: -4em;
+    z-index: -1;
+}
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 2em;
+    z-index: 5;
+}
+.heading span{
+    color: var(--blue-color);
+}
+.text{
+    margin-top: 2em;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-align: center;
+}

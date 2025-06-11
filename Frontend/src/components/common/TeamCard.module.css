@@ -1,0 +1,41 @@
+.TeamCard {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  border-radius: 10x;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 22em;
+  height: 30em;
+  max-width: 24em;
+  box-shadow: 1px 1px 3px #ddd;
+  z-index: 5;
+}
+.TeamCard::before {
+  content: "";
+  width: 8em;
+  height: 8em;
+  background-color: transparent;
+  border: 14px solid var(--blue-color);
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  left: -1em;
+  z-index: -1;
+}
+.imgProfile {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.TeamCard .name {
+  font-size: 1.4rem;
+  padding-top: 1em;
+  font-weight: 600;
+}
+.TeamCard .role {
+  margin-top: -0.3em;
+}
