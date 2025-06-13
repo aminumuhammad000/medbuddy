@@ -9,6 +9,10 @@ const Users = {
     const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
     return rows[0];
   },
+  async create(data) {
+    const [result] = await db.query('INSERT INTO users SET ?', [data]);
+    return { id: result.insertId, ...data };
+  },
   async updateByID(id, data) {
     const [result] = await db.query('UPDATE users SET ? WHERE id = ?', [data, id]);
     return result;
@@ -19,4 +23,4 @@ const Users = {
   },
 };
 
-module.exportsn = Users
+module.exports = Users;

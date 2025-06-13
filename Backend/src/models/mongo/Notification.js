@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const notificationSchema = new mongoose.Schema({
-  user_id: { type: String, required: true }, // ID from SQL DB
-  title: String,
-  message: String,
+  userId: { type: String, required: true },
+  message: { type: String, required: true },
   read: { type: Boolean, default: false },
 }, { timestamps: true });
 

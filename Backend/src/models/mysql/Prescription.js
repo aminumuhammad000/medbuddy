@@ -1,5 +1,5 @@
 
-const db = require('../db'); // Adjust the path as necessary
+const db = require('./db'); // Adjust the path as necessary
 
 const Prescriptions = {
   async getAll() {

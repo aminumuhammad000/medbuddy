@@ -1,5 +1,5 @@
 
-const db = require('../db'); // Adjust the path as necessary
+const db = require('./db'); // Adjust the path as necessary
 const Drugs = {
   async getAll() {
     const [rows] = await db.query('SELECT * FROM drugs');

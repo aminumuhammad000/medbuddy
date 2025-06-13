@@ -20,7 +20,15 @@ const AdminModel = {
     return result.insertId;
   },
 
-   async deleteAdmin(id) {
+  async updateLastActivity(user_id) {
+  const [result] = await db.query(
+    'UPDATE admins SET last_activity = NOW() WHERE user_id = ?',
+    [user_id]
+  );
+  return result.affectedRows > 0;
+},
+
+  async deleteAdmin(id) {
     const [result] = await db.query('DELETE FROM admins WHERE user_id = ?', [id]);
     return result.affectedRows > 0;
   },

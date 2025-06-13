@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const medicalHistorySchema = new mongoose.Schema({
-  patient_id: { type: String, required: true },     // From SQL
-  recorded_by: { type: String, required: true },    // From SQL
-  condition: String,
-  notes: String,
-  date: { type: Date, default: Date.now },
+  patientId: { type: String, required: true },
+  recordedBy: { type: String, required: true },
+  condition: { type: String, required: true },
+  notes: { type: String },
+  date: { type: Date, default: Date.now }
 }, { timestamps: true });
 
 module.exports = mongoose.model('MedicalHistory', medicalHistorySchema);

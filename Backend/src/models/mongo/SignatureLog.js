@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const signatureLogSchema = new mongoose.Schema({
-  user_id: { type: String, required: true }, // SQL user ID
-  signature: String,
-  action: String,
-  date: { type: Date, default: Date.now },
+  userId: { type: String, required: true },
+  signature: { type: String, required: true },
+  signedAt: { type: Date, default: Date.now },
 }, { timestamps: true });
 
 module.exports = mongoose.model('SignatureLog', signatureLogSchema);

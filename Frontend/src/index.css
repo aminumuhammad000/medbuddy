@@ -3,10 +3,28 @@
 :root{
     --blue-color: #1771B7;
     --white-color: #ffffff;
+    --background-color: #f5f8ff;
+    --hover-color: #2d2d5b;
     --text-style: 'Poppins', san-serif;
 }
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body{
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+li, button{
+    list-style: none;
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+}
+button{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+button:hover{
+    transform: scale(1.05);
 }

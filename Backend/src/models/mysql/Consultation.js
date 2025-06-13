@@ -1,5 +1,5 @@
 
-const db = require('../db'); // Adjust the path as necessary
+const db = require('../mysql/db'); // Adjust the path as necessary
 
 const Consultations = {
   async getAll() {

@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const chatMessageSchema = new mongoose.Schema({
-  user_id: { type: String, required: true }, // SQL user ID
-  message: String,
-  sent_at: { type: Date, default: Date.now },
+  session_id: { type: String, required: true },
+  user_id: { type: String, required: true },
+  message: { type: String, required: true },
 }, { timestamps: true });
 
 module.exports = mongoose.model('ChatMessage', chatMessageSchema);
