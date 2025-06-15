@@ -8,8 +8,8 @@ const authenticateToken = require('./src/middlewares/auth.middleware');
 const authorizeRoles = require('./src/middlewares/role.middleware');
 
 // Route imports
-const adminRoutes = require('./src/routes/admin.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const adminRoutes = require('./src/routes/admin.routes');
 const chatRoutes = require('./src/routes/chat.routes');
 const consultationRoutes = require('./src/routes/consultation.routes');
 const deviceRoutes = require('./src/routes/device.routes');
@@ -32,12 +32,15 @@ app.use(morgan('combined', {
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
-// app.use(morgan('dev'));
+// app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', // ✅ frontend origin
+  credentials: true               // ✅ allow credentials
+}));
 
 // Route usage
+app.use('/api/auth', authRoutes);
 app.use('/api', authenticateToken, authorizeRoles('admin'), adminRoutes);
-app.use('/api', authRoutes);
 app.use('/chat', authorizeRoles('patient', 'doctor', 'pharmacist', 'admin'), chatRoutes);
 app.use('/api', authenticateToken, consultationRoutes);
 app.use('/api', deviceRoutes);

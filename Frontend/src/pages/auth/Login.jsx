@@ -1,50 +1,84 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setRole, login, setAuthMode } from "../../features/auth/authReducer";
+import { setRole, login, setAuthMode } from "../../store/slices/authReducer";
 import style from "./Login.module.css";
 import logo2 from "../../assets/images/logos/logo2.png";
 import google from "../../assets/icons/social/google.png";
 import facebook from "../../assets/icons/social/facebook.png";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../../api/axios";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const { user, authMode } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleRoleClick = (role) => {
     dispatch(setRole(role));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
     const form = e.target;
 
-    if (authMode === "forgot") {
-      const email = form.email.value;
-      // Simulate OTP sending
-      dispatch(setAuthMode("otp"));
-      return;
+    try {
+      if (authMode === "forgot") {
+        // Implement forgot password API call here if needed
+        dispatch(setAuthMode("otp"));
+        setLoading(false);
+        return;
+      }
+
+      if (authMode === "otp") {
+        // Implement OTP verification API call here if needed
+        dispatch(setAuthMode("setPassword"));
+        setLoading(false);
+        return;
+      }
+
+      if (authMode === "setPassword") {
+        // Implement password reset API call here if needed
+        dispatch(setAuthMode("login"));
+        setLoading(false);
+        return;
+      }
+
+      if (authMode === "login") {
+        const email = form.email.value;
+        const password = form.password.value;
+        const res = await axios.post("/auth/login", { email, password });
+        dispatch(login(res.data.user));
+        navigate("/dashboard");
+        setLoading(false);
+        return;
+      }
+
+      if (authMode === "register") {
+        const payload = {
+          name: form.name.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          role: user.role,
+          password: form.password.value,
+          nhis: form.nhis?.value || "",
+          licenseNo: form.license?.value || "",
+        };
+        const res = await axios.post("/auth/register", payload);
+        dispatch(login(res.data.user));
+        navigate("/dashboard");
+        setLoading(false);
+        return;
+      }
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Something went wrong. Please try again."
+      );
+      setLoading(false);
     }
-
-    if (authMode === "otp") {
-      console.log("new Password mode");
-      dispatch(setAuthMode("setPassword"));
-      return;
-    }
-
-    if (authMode === "setPassword") {
-      dispatch(setAuthMode("login"));
-      return;
-    }
-
-    const email = form.email.value;
-    const password = form.password.value;
-
-    dispatch(login({ email }));
-
-    // Redirect after successful login
-    navigate("/dashboard"); // or wherever
   };
 
   return (
@@ -59,32 +93,38 @@ const Login = () => {
         <h1 className={style.Signup}>
           {authMode === "login"
             ? "Login"
-            : authMode === "Sign Up"
+            : authMode === "register"
             ? "Sign Up"
             : authMode === "forgot"
             ? "Forget Password"
             : authMode === "otp"
             ? "Enter OTP"
-            : "Create a new PAssword"}
+            : "Create a new Password"}
         </h1>
 
+        {error && <div className={style.error}>{error}</div>}
+        {loading && <div className={style.loading}>Loading...</div>}
+
         {authMode === "register" && (
-          <div className={style.selectConatiner}>
+          <div className={style.selectContainer}>
             <button
               className={user.role === "patient" ? style.active : ""}
               onClick={() => handleRoleClick("patient")}
+              type="button"
             >
               Join as a patient
             </button>
             <button
               className={user.role === "pharmacist" ? style.active : ""}
               onClick={() => handleRoleClick("pharmacist")}
+              type="button"
             >
               Join as a pharmacist
             </button>
             <button
               className={user.role === "doctor" ? style.active : ""}
               onClick={() => handleRoleClick("doctor")}
+              type="button"
             >
               Join as a doctor
             </button>
@@ -149,11 +189,17 @@ const Login = () => {
               </>
             )}
 
-            {(authMode === "login" || authMode === "setPassword") && (
+            {(authMode === "login" ||
+              authMode === "setPassword" ||
+              authMode === "register") && (
               <>
                 <div className={style.password}>
                   <label htmlFor="password">
-                    {authMode === "login" ? "password" : "New Password"}
+                    {authMode === "login"
+                      ? "Password"
+                      : authMode === "setPassword"
+                      ? "New Password"
+                      : "Password"}
                   </label>
                   <input
                     type="password"
@@ -167,7 +213,7 @@ const Login = () => {
 
                 {authMode === "setPassword" && (
                   <div className={style.password}>
-                    <label htmlFor="password">Comfirm password</label>
+                    <label htmlFor="password">Confirm password</label>
                     <input
                       type="password"
                       name="password"
@@ -192,43 +238,22 @@ const Login = () => {
               <>
                 <p className={style.headingText}>
                   {authMode === "otp"
-                    ? "We have sent an OTP code to your email mus****06@gmail.com Enter the OTP code below to verify."
+                    ? "We have sent an OTP code to your email. Enter the OTP code below to verify."
                     : ""}
                 </p>
 
                 <div className={style.otp}>
-                  <input
-                    type="text"
-                    name="otp"
-                    required
-                    min="1"
-                    maxLength={"1"}
-                    autoFocus={true}
-                  />
-
-                  <input
-                    type="text"
-                    name="otp"
-                    required
-                    min="1"
-                    maxLength={"1"}
-                  />
-
-                  <input
-                    type="text"
-                    name="otp"
-                    required
-                    min="1"
-                    maxLength={"1"}
-                  />
-
-                  <input
-                    type="text"
-                    name="otp"
-                    required
-                    min="1"
-                    maxLength={"1"}
-                  />
+                  {[0, 1, 2, 3].map((i) => (
+                    <input
+                      key={i}
+                      type="text"
+                      name="otp"
+                      required
+                      min="1"
+                      maxLength={"1"}
+                      autoFocus={i === 0}
+                    />
+                  ))}
                 </div>
                 <p className={style.alreadyHaveAccount}>
                   <span>Resend OTP code</span>
@@ -266,8 +291,14 @@ const Login = () => {
               </>
             )}
 
-            <button type="submit" className={style.SignupBtn}>
-              {authMode === "login"
+            <button
+              type="submit"
+              className={style.SignupBtn}
+              disabled={loading}
+            >
+              {loading
+                ? "Please wait..."
+                : authMode === "login"
                 ? "Login"
                 : authMode === "register"
                 ? "Sign up"

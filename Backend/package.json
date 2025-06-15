@@ -11,7 +11,6 @@
     "mongoose": "^8.15.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.14.1",
-    "nodemon": "^3.1.10",
     "openai": "^4.103.0",
     "readline-sync": "^1.4.10",
     "sequelize": "^6.37.7",
@@ -20,15 +19,16 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "node --run -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "Aminu Muhammad",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^3.1.10",
     "sequelize-cli": "^6.6.3"
   },
   "description": ""

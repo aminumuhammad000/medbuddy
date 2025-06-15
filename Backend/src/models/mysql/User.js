@@ -9,6 +9,10 @@ const Users = {
     const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
     return rows[0];
   },
+    async getByEmail(email) {
+    const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+    return rows[0];
+  },
   async create(data) {
     const [result] = await db.query('INSERT INTO users SET ?', [data]);
     return { id: result.insertId, ...data };
