@@ -1,0 +1,164 @@
+.Overview {
+    background-color: transparent;
+    padding: 0px 0px 0px 1.5em;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.userCard,
+.userInfo {
+    width: 15em;
+    max-width: 16em;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--color-white);
+    box-shadow: 1px 1px 3px #ddd;
+}
+
+.userCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile {
+    width: 5em;
+    height: 5em;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.profile img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details h5 {
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
+}
+
+.details h6 {
+    font-size: 0.3rem;
+}
+
+.btnUpdate {
+    margin-top: 2em;
+    background-color: var(--blue-color);
+    color: var(--color-white);
+    padding: 4px;
+    border-radius: 5px;
+    width: 7em;
+}
+
+.userInfo table {
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.userInfo table td {
+    font-size: 0.7rem;
+    padding: 5px;
+    opacity: 0.6;
+}
+
+.userInfo table td.bold,
+.userInfo h4 {
+    opacity: 1;
+    font-weight: 600;
+}
+
+.summaryDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.summaryDetails div {
+    padding: 20px;
+    width: 12em;
+    height: 10em;
+    border-radius: 20px;
+    background-color: var(--color-white);
+    box-shadow: 1px 1px 3px #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    justify-content: center;
+    align-items: center;
+}
+.summaryDetails div h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.summaryDetails div h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue-color);
+    margin-top: 0.4em;
+}
+.summaryDetails div h1 span {
+    font-size: 0.5rem;
+    color: var(--color-gray);
+}
+.consultationContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 20px;
+}
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.consultationContainer h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+.cardContainer .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.cardContainer .card svg {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+.cardContainer .card h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.cardContainer .card p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: -0.2em;
+}
+.aiChat{
+    margin-top: 2em;
+}

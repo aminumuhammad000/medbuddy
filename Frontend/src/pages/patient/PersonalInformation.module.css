@@ -1,0 +1,47 @@
+.personalInformation{
+    width: calc(100vw - 250px);
+    margin-top: 20px;
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 5px;
+    padding-bottom: 5em;
+    margin-bottom: 2em;
+}
+.infoTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+}
+.heading h2{
+    font-weight: 700;
+}
+.infoTable table{
+    width: 100%;
+    table-layout: fixed;
+}
+.infoTable table td{
+    padding-top: 7px;
+}
+.td{
+    opacity: 0.7;
+}
+.editButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 10em;
+    height: 3.5em;
+    box-shadow: 1px 1px 2px #ddd;
+}
+.accountDetails li{
+    font-size: 1.1rem;
+    padding-top: 10px;
+}

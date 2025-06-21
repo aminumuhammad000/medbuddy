@@ -1,13 +1,12 @@
 import Home from "../../components/layout/Home";
-import Login from "../auth/Login"
+// import Auth from "../auth/Auth";
 
 const HomePage = () => {
   return (
     <div>
-        <Home />
-        {/* <Login /> */}
+      <Home />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

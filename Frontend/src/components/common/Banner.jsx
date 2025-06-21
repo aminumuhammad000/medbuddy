@@ -33,7 +33,7 @@ const Banner = () => {
         </p>
 
         <div className={style.btnConatiner}>
-          <Link to="/Login">
+          <Link to="/Auth">
             <button>Get Started</button>
           </Link>
         </div>
@@ -46,7 +46,7 @@ const Banner = () => {
       </div>
 
       <div className={style.ctaContainer}>
-        <Link to="/Login">
+        <Link to="/Auth">
           <button
             className={style.active}
             onClick={() => handleRoleClick("patient")}
@@ -54,12 +54,12 @@ const Banner = () => {
             I am a patient
           </button>
         </Link>
-        <Link to="/Login">
+        <Link to="/Auth">
           <button onClick={() => handleRoleClick("pharmacist")}>
             I am a phamacist
           </button>
         </Link>
-        <Link to="/Login">
+        <Link to="/Auth">
           <button onClick={() => handleRoleClick("doctor")}>
             I am a doctor
           </button>

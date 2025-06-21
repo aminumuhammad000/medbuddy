@@ -49,10 +49,10 @@ const Nav = () => {
         </ul>
 
         <div className={style.ctaContainer}>
-          <Link to="/Login">
+          <Link to="/Auth">
             <button onClick={() => handleRoleClick("register")}>Sign Up</button>
           </Link>
-          <Link to="/Login">
+          <Link to="/Auth">
             <button
               className={style.signIn}
               onClick={() => handleRoleClick("login")}

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setRole, login, setAuthMode } from "../../store/slices/authReducer";
-import style from "./Login.module.css";
+import style from "./Auth.module.css";
 import logo2 from "../../assets/images/logos/logo2.png";
 import google from "../../assets/icons/social/google.png";
 import facebook from "../../assets/icons/social/facebook.png";
@@ -52,8 +52,15 @@ const Login = () => {
         const password = form.password.value;
         const res = await axios.post("/auth/login", { email, password });
         dispatch(login(res.data.user));
-        navigate("/dashboard");
         setLoading(false);
+
+        // Redirect based on role
+        const role = res.data.user.role;
+        if (role === "patient") navigate("/patient/dashboard");
+        else if (role === "pharmacist") navigate("/pharmacist/dashboard");
+        else if (role === "doctor") navigate("/doctor/dashboard");
+        else if (role === "admin") navigate("/admin/dashboard");
+        else navigate("/dashboard"); // fallback
         return;
       }
 

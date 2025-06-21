@@ -1,0 +1,65 @@
+.profile{
+    display: grid;
+    place-content: center;
+    width: calc(100vw - 250px);
+    padding: 0px 2em 0px 2em;
+    margin-left: 10px;
+}
+.profileHeader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profileList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+.profileList li{
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-bottom 0.3s ease;
+}
+.profileList li.active{
+  color: var(--blue-color);
+  border-bottom: 2px solid var(--blue-color);
+}
+.patientCard{
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+}
+.patientCardHeader{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.patientCardHeader img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+.idNo{
+    margin-top: -2px;
+}
+.editButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 10em;
+    height: 3.5em;
+    box-shadow: 1px 1px 2px #ddd;
+}

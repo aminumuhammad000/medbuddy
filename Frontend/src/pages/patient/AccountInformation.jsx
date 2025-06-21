@@ -1,51 +1,9 @@
-import style from "./Profile.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { setInformation } from "../../store/slices/patientNavSlice";
-import profile from "../../assets/images/profiles/profile.jpg"; // Assuming you have a profile image
-import PersonalInformation from "./PersonalInformation";
-import MedicalInformation from "./MedicalInformation";
-import AccountInformation from "./AccountInformation";
-
-const Profile = () => {
-  const dispatch = useDispatch();
-  const userInformation = useSelector(
-    (state) => state.patientNav.userInformation
-  );
-
+import style from "./PersonalInformation.module.css";
+const AccountInformation = () => {
   return (
-    <div className={style.profile}>
-      <div className={style.profileHeader}>
-        <ul className={style.profileList}>
-          <li
-            className={userInformation === "basic" ? style.active : ""}
-            onClick={() => dispatch(setInformation("basic"))}
-          >
-            Basic Information
-          </li>
-          <li
-            className={userInformation === "medical" ? style.active : ""}
-            onClick={() => dispatch(setInformation("medical"))}
-          >
-            Medical Information
-          </li>
-          <li
-            className={userInformation === "account" ? style.active : ""}
-            onClick={() => dispatch(setInformation("account"))}
-          >
-            Account & Preferences
-          </li>
-        </ul>
-      </div>
-
-      <div className={style.patientCard}>
-        <div className={style.patientCardHeader}>
-          <img src={profile} alt="" />
-          <div className={style.patientInfo}>
-            <h1>Mustapha Hussein</h1>
-            <p className={style.idNo}>208898680</p>
-          </div>
-        </div>
-
+    <div className={style.personalInformation}>
+      <div className={style.heading}>
+        <h2>Account & Preference</h2>
         <button className={style.editButton}>
           Edit{" "}
           <span>
@@ -64,17 +22,24 @@ const Profile = () => {
           </span>
         </button>
       </div>
-      <>
-        {userInformation === "basic" ? (
-          <PersonalInformation />
-        ) : userInformation === "medical" ? (
-          <MedicalInformation />
-        ) : (
-          <AccountInformation />
-        )}
-      </>
+
+      <div>
+        <ul className={style.accountDetails}>
+          <li className={style.td}>Language Preference</li>
+          <li>English</li>
+          <br />
+          <li className={style.td}>Communication Preferences</li>
+          <li>SMS, Email, Push Notifications</li>
+          <br />
+          <li className={style.td}>Password</li>
+          <li>********</li>
+          <br />
+          <li>Notification</li>
+          <li className={style.td}>Custom toggles for alerts & reminders</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-export default Profile;
+export default AccountInformation;
