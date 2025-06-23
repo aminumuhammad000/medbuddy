@@ -1,10 +1,19 @@
 import style from "./PersonalInformation.module.css";
+import { useDispatch } from "react-redux";
+import { setPage, setInformation } from "../../../store/slices/patientNavSlice";
+
 const AccountInformation = () => {
+  const dispatch = useDispatch();
+
+  const gotoUpdate = () => {
+    dispatch(setPage("updates"));
+    dispatch(setInformation("account"));
+  };
   return (
     <div className={style.personalInformation}>
       <div className={style.heading}>
         <h2>Account & Preference</h2>
-        <button className={style.editButton}>
+        <button className={style.editButton} onClick={gotoUpdate}>
           Edit{" "}
           <span>
             <svg

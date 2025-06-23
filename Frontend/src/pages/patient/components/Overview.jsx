@@ -1,5 +1,5 @@
 import style from "./Overview.module.css";
-import profile from "../../assets/images/profiles/profile.jpg";
+import profile from "../../../assets/images/profiles/profile.jpg";
 import AIChat from "./AIChat";
 const Overview = () => {
   return (

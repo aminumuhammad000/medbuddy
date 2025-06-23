@@ -1,12 +1,11 @@
 import Sidebar from "../../components/layout/Sidebar";
 import style from "./Dashboard.module.css";
-import Overview from "./Overview";
-import { useSelector, useDispatch } from "react-redux";
+import Overview from "./components/Overview";
+import { useSelector } from "react-redux";
 import Profile from "./Profile";
-// import { setPage } from "../../store/slices/patientNavSlice";
+import Updates from "./Updates";
 
 const Dashboard = () => {
-  // const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.patientNav.currentPage);
 
   return (
@@ -14,7 +13,11 @@ const Dashboard = () => {
       <div className={style.Dashboard}>
         <div className={style.nav}>
           <h2 className={style.heading}>
-            {currentPage === "dashboard" ? "Overview" : "My profile"}
+            {currentPage === "dashboard"
+              ? "Overview"
+              : currentPage === "users"
+              ? "My profile"
+              : "Edit Profile"}
           </h2>
           <div className={style.notification}>
             <svg
@@ -37,8 +40,7 @@ const Dashboard = () => {
         <div className={style.pages}>
           {currentPage === "dashboard" && <Overview />}
           {currentPage === "users" && <Profile />}
-          {/* {currentPage === "appointments" && <Appointments />} */}
-          {/* {currentPage === "medicalRecords" && <MedicalRecords />} */}
+          {currentPage === "updates" && <Updates />}
         </div>
       </div>
     </>

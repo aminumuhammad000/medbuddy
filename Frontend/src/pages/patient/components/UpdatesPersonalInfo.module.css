@@ -1,0 +1,44 @@
+.UpdatesPersonalInfo{
+    width: calc(100vw - 250px);
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.UpdatesPersonalInfo h1{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.UpdatesPersonalInfo .fullName,
+.UpdatesPersonalInfo .Email,
+.UpdatesPersonalInfo .OtherDetails{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+.UpdatesPersonalInfo .fullName div,
+.UpdatesPersonalInfo .Email div,
+.UpdatesPersonalInfo .OtherDetails div,
+.UpdateVaccine{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.UpdatesPersonalInfo .fullName div input,
+.UpdatesPersonalInfo .Email div input,
+.UpdateVaccine{
+    width: 30em;
+}
+.UpdatesPersonalInfo .OtherDetails div input{
+    width: 19em;
+}
+.UpdateAddress{
+    min-width: 60em;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

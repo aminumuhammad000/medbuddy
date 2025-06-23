@@ -1,11 +1,10 @@
 .sidebar{
     background-color: var(--blue-color);
-    /* width: 220px;    */
-     max-width: 200px;
+    max-width: 120px;
     height: 100vh;
     position: fixed;
     padding: 20px;
-    border-radius: 0px 4em 4em 0px;
+    border-radius: 0px 2em 2em 0px;
     top: 0;
     left: 0;
     bottom: unset;

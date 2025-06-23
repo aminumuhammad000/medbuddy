@@ -1,9 +1,7 @@
 .profile{
     display: grid;
     place-content: center;
-    width: calc(100vw - 250px);
-    padding: 0px 2em 0px 2em;
-    margin-left: 10px;
+    margin-left: -50px;
 }
 .profileHeader{
     width: 100%;

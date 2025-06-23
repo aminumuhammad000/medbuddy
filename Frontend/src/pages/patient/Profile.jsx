@@ -2,9 +2,9 @@ import style from "./Profile.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setInformation } from "../../store/slices/patientNavSlice";
 import profile from "../../assets/images/profiles/profile.jpg"; // Assuming you have a profile image
-import PersonalInformation from "./PersonalInformation";
-import MedicalInformation from "./MedicalInformation";
-import AccountInformation from "./AccountInformation";
+import PersonalInformation from "./components/PersonalInformation";
+import MedicalInformation from "./components/MedicalInformation";
+import AccountInformation from "./components/AccountInformation";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,10 @@ const Profile = () => {
           </div>
         </div>
 
-        <button className={style.editButton}>
+        <button
+          className={style.editButton}
+          onClick={() => dispatch(setPage("updates"))}
+        >
           Edit{" "}
           <span>
             <svg

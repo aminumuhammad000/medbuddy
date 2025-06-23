@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentPage: 'dashboard',
-  userInformation: "basic", // default page, e.g. 'home', 'profile', 'orders', etc.
+  currentPage: 'dashboard', // 'home', 'profile', 'orders',
+  userInformation: "basic",
 };
 
 const patientNavSlice = createSlice({
