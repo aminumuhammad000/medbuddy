@@ -7,6 +7,7 @@ import facebook from "../../assets/icons/social/facebook.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../api/axios";
 import { useState } from "react";
+import PasswordInput from "./components/PasswordInput";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -90,9 +91,26 @@ const Login = () => {
 
   return (
     <div className={style.Login}>
+      <div className={style.decoration}>
+        <svg
+          width="147"
+          height="265"
+          viewBox="0 0 147 265"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M125.212 176.187C53.997 191.866 42.8737 178.823 39.166 174.476C35.4582 170.128 24.335 157.086 51.0573 89.2379M125.212 176.187C98.49 244.036 105.895 252.74 113.31 261.435M125.212 176.187C151.935 108.339 140.811 95.297 137.104 90.9495C133.396 86.6021 122.273 73.5596 51.0573 89.2379M51.0573 89.2379C77.7796 21.3899 70.3641 12.6949 62.9486 3.99998M51.0573 89.2379L15.6067 95.8917C-23.1259 101.458 -29.0583 94.5024 -35 87.5356"
+            stroke="#40E0D0"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
       <Link to="/">
         <div className={style.logoContainer}>
-          <img src={logo2} alt="logo" width={100} />
+          <img src={logo2} alt="logo" />
         </div>
       </Link>
 
@@ -201,36 +219,10 @@ const Login = () => {
               authMode === "register") && (
               <>
                 <div className={style.password}>
-                  <label htmlFor="password">
-                    {authMode === "login"
-                      ? "Password"
-                      : authMode === "setPassword"
-                      ? "New Password"
-                      : "Password"}
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    required
-                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}"
-                    placeholder="Enter your Password"
-                    title="Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character, and be at least 8 characters long."
-                  />
+                  <PasswordInput />
                 </div>
 
-                {authMode === "setPassword" && (
-                  <div className={style.password}>
-                    <label htmlFor="password">Confirm password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      required
-                      pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}"
-                      placeholder="Enter your Password"
-                      title="Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character, and be at least 8 characters long."
-                    />
-                  </div>
-                )}
+                {authMode === "setPassword" && <PasswordInput />}
               </>
             )}
 

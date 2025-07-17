@@ -1,65 +1,66 @@
-.Contact{
-    display: grid;
-    place-content: center;
-    padding: 5em 2em 5em 2em;
-    background-color: var(--color-white);
+.Contact {
+  display: grid;
+  place-content: center;
+  padding: 5em 2em 5em 2em;
+  background-color: var(--color-white);
 }
-.Contact .logoContainer{
-    width: 25em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-inline: auto;
+.Contact .logoContainer {
+  width: 745px;
+  height: 153px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
 }
 
-.Contact .logoContainer img{
-    width: 100%;
-    object-fit: cover;
+.Contact .logoContainer img {
+  width: 100%;
+  object-fit: cover;
 }
-.Contact .subscribeContainer{
-    width: 52em;
-    background-color: var(--color-white);
-    border-radius: 5px;
-    box-shadow: 1px 0px 4px #ddd;
-    padding: 3em;
-    margin-top: 2em;
+.Contact .subscribeContainer {
+  width: 1244px;
+  background-color: var(--color-white);
+  border-radius: 5px;
+  box-shadow: 1px 0px 4px #ddd;
+  padding: 3em;
+  margin-top: 2em;
 }
-.Contact .subscribeContainer h1{
-    font-size: 2em;
-    text-align: center;
-    font-weight: 700;
-    color: var(--hover-color);
-    line-height: 60px;
+.Contact .subscribeContainer h1 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--hover-color);
+  line-height: 60px;
 }
-.Contact .subscribeContainer h1 span{
-    color: var(--blue-color);
+.Contact .subscribeContainer h1 span {
+  color: var(--blue-color);
 }
-.Contact .subscribeContainer p{
-    text-align: center;
-    font-size: 0.9rem;
- 
+.Contact .subscribeContainer p {
+  text-align: center;
+  font-size: 0.9rem;
 }
-.Contact .inputConatainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2em;
-    width: 30em;
-    height: 3em;
-    padding: 0px 10px 0px 10px;
-    border-radius: 5px;
-    background-color: var(--background-color);
-    margin-inline: auto;
+.Contact .inputContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  width: 734px;
+  height: 72px;
+  padding: 0px 10px 0px 24px;
+  border-radius: 8px;
+  background-color: var(--background-color);
+  margin-inline: auto;
 }
-.Contact .inputConatainer input{
-    width: 70%;
-    height: 100%;
-    outline: none;
+.Contact .inputContainer input {
+  width: 70%;
+  height: 100%;
+  outline: none;
 }
-.Contact .inputConatainer button{
-    background-color: var(--blue-color);
-    color: var(--color-white);
-    padding: 0.8em;
-    width: 25%;
-    border-radius: 10px;
+.Contact .inputContainer button {
+  background-color: var(--blue-color);
+  color: var(--color-white);
+  padding: 0.8em;
+  width: 151px;
+  height: 56px;
+  border-radius: 10px;
 }

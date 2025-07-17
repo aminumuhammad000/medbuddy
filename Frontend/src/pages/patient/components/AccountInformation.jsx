@@ -32,7 +32,7 @@ const AccountInformation = () => {
         </button>
       </div>
 
-      <div>
+      <div className={style.AccountInformation}>
         <ul className={style.accountDetails}>
           <li className={style.td}>Language Preference</li>
           <li>English</li>

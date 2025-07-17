@@ -1,26 +1,33 @@
-.FeaturesCard{
-    width: 12em;
-    border-radius: 7px;
-    border: 2px solid #fff;
-    padding: 15px;
-    height: 14em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    background-color: #fff;
-    box-shadow: 1px 1px 2px 0px #ddd;
+.FeaturesCard {
+  width: 372px;
+  height: 393px;
+  border-radius: 10px;
+  padding: 66px 63px;
+  border: 2px solid #fff;
+  gap: 16px;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 0px #ddd;
 }
-.title{
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--hover-color);
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px #ddd;
+  padding: 20px;
+  font-size: 37.5px;
+  background-color: var(--white-color);
+  color: var(--blue-color);
 }
-.text{
-    font-size: 0.8rem;
-    margin-top: -10px;
+.title {
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--hover-color);
 }
-.title, .text{
-    text-align: center;
+.text {
+  margin-top: -4px;
+  font-size: 16px;
+}
+.title,
+.text {
+  text-align: center;
 }

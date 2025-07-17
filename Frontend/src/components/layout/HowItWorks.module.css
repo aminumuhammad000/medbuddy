@@ -1,73 +1,76 @@
 .HowItWorks {
-  background-color: var(--color-white);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5em 0px 5em 0px;
   position: relative;
+  min-width: 1791px;
+  width: 100%;
+  margin-inline: auto;
+  height: 1008px;
+  background-color: var(--color-white);
+  padding: 195px 0px 200px 0px;
+  display: flex;
+  gap: 143px;
+  margin-inline: auto;
 }
 .imgContainer {
-  width: 35em;
-  height: 20em;
-  margin-left: -10%;
-}
-.imgContainer::before {
-  content: "";
-  width: 32em;
-  height: 32em;
-  background-color: var(--background-color);
-  border-radius: 50%;
-  position: absolute;
-  right: -8em;
-  top: -20px;
-  z-index: 1;
+  width: 871px;
+  height: 613px;
 }
 .imgContainer img {
   width: 100%;
   height: 100%;
-  border-top-right-radius: 40%;
-  border-bottom-right-radius: 40%;
   object-fit: cover;
 }
+.imgContainer::before {
+  content: "";
+  width: 1000px;
+  height: calc(100% - 130px);
+  background-color: var(--background-color);
+  border-radius: 50%;
+  position: absolute;
+  right: -350px;
+  top: 22px;
+  z-index: 1;
+}
 .infoContainer {
-    margin-right: 4em;
-    width: 25em;
-    z-index: 2;
+  margin-right: 4em;
+  width: 627px;
+  z-index: 2;
 }
 .heading {
-  font-size: 2.4rem;
+  font-size: 67px;
   color: var(--blue-color);
   font-weight: 700;
-  line-height: 45px;
+  line-height: 72px;
 }
 .heading span {
   color: var(--hover-color);
 }
 
 p {
-  margin-top: 1.4em;
-  font-size: 0.6rem;
+  margin-top: 72px;
   opacity: 0.8;
 }
 .table {
   table-layout: fixed;
-  margin-top: 1em;
+  margin-top: 40px;
 }
 .table td {
   padding-top: 10px;
-  font-size: 0.8rem;
   padding-right: 20px;
   opacity: 0.9;
 }
-.table td li{
+.table td li {
   display: flex;
   gap: 10px;
+  font-weight: 500;
+  color: var(--blue-color);
 }
 /* .table td */
-.makeAppiontment {
+.makeAppointment {
+  width: 211px;
+  height: 56px;
   background-color: var(--blue-color);
   padding: 7px 10px;
   color: var(--color-white);
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 8px;
+  margin-top: 49px;
 }

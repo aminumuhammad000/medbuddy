@@ -1,45 +1,39 @@
 .Overview {
-    background-color: transparent;
-    padding: 0px 0px 0px 1.5em;
+    width: 100%;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 2.5em;
 }
-
 .user {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1.3em;
 }
 
 .userCard,
 .userInfo {
-    width: 15em;
-    max-width: 16em;
+    width: 29.875em;         /* 478px / 16 */
+    border-radius: 1.25em;   /* 20px / 16 */
     border-radius: 20px;
+    border: 0.1px;
     padding: 20px;
     background-color: var(--color-white);
     box-shadow: 1px 1px 3px #ddd;
 }
 
 .userCard {
+    height: 30em; /* 480px / 16 */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-
 .profile {
-    width: 5em;
-    height: 5em;
+    width: 11.9375em;        /* 191px / 16 */
+    height: 12.4375em;       /* 199px / 16 */
     border: 1px solid #ddd;
-    border-radius: 10px;
-}
-
-.profile img {
-    width: 100%;
+    border-radius: 30px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .details {
@@ -49,21 +43,27 @@
 }
 
 .details h5 {
-    font-size: 0.8rem;
+    /* font-size: 25px; */
+    font-size: 1.5625rem; 
     padding-top: 0.4rem;
+    font-weight: 500;
 }
 
 .details h6 {
-    font-size: 0.3rem;
+    /* font-size: 20px; */
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 .btnUpdate {
+    width: 157px;
+    height: 50px;
     margin-top: 2em;
     background-color: var(--blue-color);
     color: var(--color-white);
     padding: 4px;
-    border-radius: 5px;
-    width: 7em;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 .userInfo table {
@@ -73,89 +73,93 @@
 }
 
 .userInfo table td {
-    font-size: 0.7rem;
+    font-size: 20px;
     padding: 5px;
     opacity: 0.6;
+    font-family: "Lato", sans-serif;
 }
-
-.userInfo table td.bold,
-.userInfo h4 {
-    opacity: 1;
+.userInfo h4{
+    font-size: 1.5625rem; 
     font-weight: 600;
 }
-
+.userInfo table td.bold{
+    opacity: 1;
+    font-weight: 400;
+}
 .summaryDetails {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    margin-top: 40px;
+    gap: 30px;
 }
 
 .summaryDetails div {
-    padding: 20px;
-    width: 12em;
-    height: 10em;
-    border-radius: 20px;
+    width: 17.4375em; 
+    height: 17.4375em; /* 279px / 16 */
+    height: 279px;
+    border-radius: 30px;
     background-color: var(--color-white);
     box-shadow: 1px 1px 3px #ddd;
     display: flex;
     flex-direction: column;
-    gap: 0.4em;
     justify-content: center;
     align-items: center;
 }
-.summaryDetails div h3 {
-    font-size: 1.1rem;
+.summaryDetails div .titleName {
+    font-size: 25px;
     font-weight: 600;
+    color: #222;
 }
 .summaryDetails div h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--blue-color);
     margin-top: 0.4em;
+    font-size: 40px;
+    font-weight: 600;
 }
 .summaryDetails div h1 span {
-    font-size: 0.5rem;
+    font-size: 20px;
+    font-weight: 400;
     color: var(--color-gray);
 }
 .consultationContainer{
-    width: 100%;
+    width: 897px;
+    height: 257px;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     margin-top: 2em;
     background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 50px 0px;
+    border-radius: 30px;
 }
 .cardContainer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1em;
 }
 .consultationContainer h4{
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5em;
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 30px;
 }
 .cardContainer .card {
+    margin: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-.cardContainer .card svg {
-    width: 3em;
-    height: 3em;
+.cardContainer .card  .faFileInvoice{
+    font-size: 50px;
     border-radius: 50%;
+    color: var(--blue-color);
 }
 .cardContainer .card h5 {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 700;
 }
 .cardContainer .card p {
-    font-size: 0.8rem;
+    font-size: 15px;
     opacity: 0.6;
     margin-top: -0.2em;
 }

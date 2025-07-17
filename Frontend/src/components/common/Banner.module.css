@@ -1,101 +1,103 @@
-.bannerContainer{
-    padding: 3.2em 5.5em 2em 5.5em;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative;
+.bannerContainer {
+  position: relative;
+  width: calc(100% - 81px);
+  margin-inline: auto;
+  height: 774px;
+  display: flex;
+  gap: 200px;
+  flex-wrap: wrap;
+  margin-top: 52px;
 }
-.bannerContainer::before{
-    content: '';
-    width: 17em;
-    height: 17em;
-    position: absolute;
-    border: 2em solid var(--blue-color);
-    border-radius: 50%;
-    opacity: 0.6;
-    right: 10px;
-    margin-top: 20px;
+.bannerContainer::before {
+  content: "";
+  width: calc(774px - 138px);
+  height: calc(100% - 138px);
+  position: absolute;
+  border: 4em solid var(--blue-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  right: -139px;
+  margin-top: 46px;
 }
-.bannerContainer::after{
-    content: '';
-    width: 35em;
-    height: 35em;
-    position: absolute;
-    background-color: var(--color-white);
-    border-radius: 50%;
-    right: 1em;
-    bottom: calc(-15.5em);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-    z-index: -2;
+.bannerContainer::after {
+  content: "";
+  position: absolute;
+  width: calc(632px * 2);
+  height: 1166px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  bottom: -583px;
+  right: -206px;
+  z-index: -2;
 }
-.heading{
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--blue-color);
-    line-height: 50px;
-    span{
-        color: var(--hover-color);
-    }
+.heading {
+  font-size: 90px;
+  font-weight: 700;
+  color: var(--blue-color);
+  line-height: 104px;
+  span {
+    color: var(--hover-color);
+  }
 }
-p.text{
-    font-size: 0.7rem;
-    opacity: 0.8;
-    margin-top: 0.7rem;
-    max-width: 40em;
+p.text {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-top: 35px;
+  max-width: 650px;
+  margin-bottom: 63px;
 }
-.imgContainer{
-    width: 20em;
-    max-width: 22em;
-    height: 25em;
-    margin-right: 2em;
-    z-index: 2;
+.imgContainer {
+  width: 632px;
+  height: 100%;
+  z-index: 2;
 }
-.decorationImage{
-    position: absolute;
-    width: 16em;
-    right: calc(15em);
-    bottom: calc(5em);
-    z-index: 3;
+.decorationImage {
+  position: absolute;
+  width: 550px;
+  height: 526px;
+  left: 700px;
+  bottom: 57px;
+  z-index: 3;
 }
-.imgContainer img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
-.btnConatiner{
-    margin-top: 2em;
+.btnConatiner {
+  margin-top: 2em;
 }
-.btnConatiner button{
-    background-color: var(--blue-color);
-    color: var(--color-white);
-    width: 10em;
-    padding: 7px 10px;
-    border-radius: 10px;
+.btnConatiner button {
+  background-color: var(--blue-color);
+  color: var(--color-white);
+  width: 10em;
+  padding: 7px 10px;
+  border-radius: 10px;
 }
-.ctaContainer{
-    width: 38em;
-    height: 5em;
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    box-shadow: 1px 1px 2px #ddd;
-    margin-top: -7em;
-    z-index: 10;
+.ctaContainer {
+  position: absolute;
+  width: 979px;
+  height: 157px;
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 10px;
+  gap: 88px;
+  box-shadow: 1px 1px 2px #ddd;
+  bottom: 51px;
+  z-index: 10;
 }
-.ctaContainer button{
-    border: 1px solid var(--blue-color);
-    padding: 6px 12px;
-    border-radius: 6px;
-    color: var(--blue-color);
-    width: 12em;
+.ctaContainer button {
+  width: 242px;
+  height: 67px;
+  border: 1px solid var(--blue-color);
+  padding: 19px 0px;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--blue-color);
 }
-.ctaContainer button.active{
-    background-color: var(--blue-color);
-    color: var(--color-white);
+.ctaContainer button.active {
+  background-color: var(--blue-color);
+  color: var(--color-white);
 }

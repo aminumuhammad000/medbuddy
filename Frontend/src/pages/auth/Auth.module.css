@@ -4,6 +4,15 @@
     justify-content: center;
     padding-bottom: 3em;
 }
+.decoration{
+    position: absolute;
+    left: 0;
+    top: 20em;
+    /* width: 10em; */
+}
+/* .decoration svg{
+    width: 100%;
+} */
 .logoContainer{
     padding: 20px;
     position: absolute;

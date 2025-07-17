@@ -1,41 +1,47 @@
-.FeedbackCard{
-    display: flex;
-    gap: 5em;
-    align-items: center;
-    padding: 3em;
-    height: 17em;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px #ddd;
-    width: 80%;
+.FeedbackCard {
+  width: 100%;
+  height: 388px;
+  padding: 62px 107px;
+  gap: 40px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 2px #ecebeb;
 }
-.profileContianer{
-    position: relative;
-    width: 16em;
-    display: flex;
+.profileContainer {
+  position: relative;
+  width: 16em;
+  display: flex;
 }
-.profileContianer .blury{
-    filter: blur(1px);
-    border-radius: 10px;
-    object-fit: cover;
-    min-width: 14em;
+.profileContainer .blury {
+  filter: blur(1px);
+  border-radius: 10px;
+  object-fit: cover;
+  min-width: 14em;
 }
-.profileContianer .sideImage{
-    position: absolute;
-    border-radius: 10px;
-    object-fit: cover;
-    width: 8em;
-    inset: 3em -2em 3em 9em;
+.profileContainer .sideImage {
+  position: absolute;
+  border-radius: 10px;
+  object-fit: cover;
+  width: 8em;
+  inset: 3em -2em 3em 9em;
 }
-.detailsContainer .name{
-    font-size: 2.2rem;
-    color: var(--hover-color);
-    width: 8em;
+.detailsContainer {
+  margin-left: 40px;
 }
-.detailsContainer .username{
-    margin-top: -4px;
-    color: var(--blue-color);
+.detailsContainer .name {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--hover-color);
+  width: 8em;
 }
-.detailsContainer .text{
-    width: 80%;
+.detailsContainer .username {
+  margin-top: -4px;
+  color: var(--blue-color);
+}
+.detailsContainer .text {
+  margin-top: 20px;
+  width: 80%;
+}
+.star {
+  margin-top: 20px;
 }

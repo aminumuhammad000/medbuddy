@@ -12,7 +12,6 @@ const Updates = () => {
 
   return (
     <div>
-      {/* <h1>Updates</h1> */}
       {userInformation === "basic" ? (
         <div className={style.userProfile}>
           <div className={style.imgCard}>

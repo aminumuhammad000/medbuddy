@@ -13,26 +13,28 @@ const Footer = () => {
 
       <ul className={style.navList}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" id="mediumText">
+            Home
+          </Link>
         </li>
         <li>
-          <HashLink smooth to="/#HowItWorks">
+          <HashLink smooth to="/#HowItWorks" id="mediumText">
             How it Works
           </HashLink>
         </li>
         <li>
           {" "}
-          <HashLink smooth to="/#Features">
+          <HashLink smooth to="/#Features" id="mediumText">
             Features
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#FAQs">
+          <HashLink smooth to="/#FAQs" id="mediumText">
             FAQs
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#Contact">
+          <HashLink smooth to="/#Contact" id="mediumText">
             Contact
           </HashLink>
         </li>
@@ -45,7 +47,7 @@ const Footer = () => {
       </div>
 
       <SocialMedia />
-      <p className={style.text}>
+      <p className={style.text} id="smallText">
         Li Europan lingues es membres del sam familie. Lor separat existentie es
         un myth.
       </p>

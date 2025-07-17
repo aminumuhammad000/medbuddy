@@ -1,0 +1,16 @@
+.ConsultPreview{
+    margin-top: 2em;
+    width: 100%;
+}
+.navList{
+    margin-top: 30px;
+    display: flex;
+    gap: 107px;
+}
+.navList li{
+    font-size: 35px;
+}
+
+/* Vector */
+
+

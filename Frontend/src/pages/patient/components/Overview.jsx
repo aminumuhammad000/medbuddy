@@ -1,14 +1,15 @@
 import style from "./Overview.module.css";
 import profile from "../../../assets/images/profiles/profile.jpg";
 import AIChat from "./AIChat";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
+
 const Overview = () => {
   return (
     <div className={style.Overview}>
       <div className={style.user}>
         <div className={style.userCard}>
-          <div className={style.profile}>
-            <img src={profile} alt="profile image" />
-          </div>
+          <img src={profile} alt="profile image" className={style.profile} />
           <div className={style.details}>
             <h5>Mustapha Hussein</h5>
             <h6>Age: 42</h6>
@@ -67,7 +68,7 @@ const Overview = () => {
                 fill="#FF6363"
               />
             </svg>
-            <h3>Heart</h3>
+            <h1 className={style.titleName}>Heart Rate</h1>
             <h1>
               80<span>bpm</span>
             </h1>
@@ -108,12 +109,12 @@ const Overview = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3>Temperature</h3>
+            <h1 className={style.titleName}>Temperature</h1>
             <h1>
               36.5<span>°C</span>
             </h1>
           </div>
-          <div className={style.null}>null</div>
+          <div className={style.null}></div>
         </div>
 
         <div className={style.consultationContainer}>
@@ -121,25 +122,10 @@ const Overview = () => {
           <div>
             <div className={style.cardContainer}>
               <div className={style.card}>
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 60 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="60"
-                    height="60"
-                    rx="20"
-                    fill="#D9D9D9"
-                    fill-opacity="0.15"
-                  />
-                  <path
-                    d="M35 10V20H45L35 10ZM33.3359 10H15V50H45V21.6641H33.3359V10ZM18.3359 13.3359H30V21.6719H18.3359V13.3359ZM30 41.6641H18.3359V38.3281H30V41.6641ZM41.6641 35H18.3359V31.6641H41.6719V35H41.6641ZM41.6641 25V28.3359H18.3359V25H41.6641Z"
-                    fill="#1771B7"
-                  />
-                </svg>
+                <FontAwesomeIcon
+                  icon={faFileInvoice}
+                  className={style.faFileInvoice}
+                />
 
                 <div>
                   <h5>Eye Fluoricine Test</h5>
@@ -148,25 +134,10 @@ const Overview = () => {
               </div>
 
               <div className={style.card}>
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 60 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="60"
-                    height="60"
-                    rx="20"
-                    fill="#D9D9D9"
-                    fill-opacity="0.15"
-                  />
-                  <path
-                    d="M35 10V20H45L35 10ZM33.3359 10H15V50H45V21.6641H33.3359V10ZM18.3359 13.3359H30V21.6719H18.3359V13.3359ZM30 41.6641H18.3359V38.3281H30V41.6641ZM41.6641 35H18.3359V31.6641H41.6719V35H41.6641ZM41.6641 25V28.3359H18.3359V25H41.6641Z"
-                    fill="#1771B7"
-                  />
-                </svg>
+                <FontAwesomeIcon
+                  icon={faFileInvoice}
+                  className={style.faFileInvoice}
+                />
 
                 <div>
                   <h5>Eye Fluoricine Test</h5>
@@ -175,26 +146,10 @@ const Overview = () => {
               </div>
 
               <div className={style.card}>
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 60 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="60"
-                    height="60"
-                    rx="20"
-                    fill="#D9D9D9"
-                    fill-opacity="0.15"
-                  />
-                  <path
-                    d="M35 10V20H45L35 10ZM33.3359 10H15V50H45V21.6641H33.3359V10ZM18.3359 13.3359H30V21.6719H18.3359V13.3359ZM30 41.6641H18.3359V38.3281H30V41.6641ZM41.6641 35H18.3359V31.6641H41.6719V35H41.6641ZM41.6641 25V28.3359H18.3359V25H41.6641Z"
-                    fill="#1771B7"
-                  />
-                </svg>
-
+                <FontAwesomeIcon
+                  icon={faFileInvoice}
+                  className={style.faFileInvoice}
+                />
                 <div>
                   <h5>Eye Fluoricine Test</h5>
                   <p>20th February 2025 </p>

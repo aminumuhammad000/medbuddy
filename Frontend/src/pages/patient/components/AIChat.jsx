@@ -1,4 +1,6 @@
 import styles from "./AIChat.module.css"; // Assuming you have a CSS module for styles
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 const AIChat = () => {
   return (
     <div className={styles.AIChat}>
@@ -19,13 +21,6 @@ const AIChat = () => {
             />
           </svg>
         </button>
-        {/* <ul>
-          <li>list of history</li>
-          <li>list of history</li>
-          <li>list of history</li>
-          <li>list of history</li>
-          <li>list of history</li>
-        </ul> */}
       </div>
       <div className={styles.historyContainer}>
         <p className={styles.contentTitle}>
@@ -45,34 +40,10 @@ const AIChat = () => {
           />
           <div className={styles.buttonsContainer}>
             <button className={styles.recordButton}>
-              <svg
-                width="21"
-                height="29"
-                viewBox="0 0 21 29"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5001 18.4167C9.2848 18.4167 8.25182 17.9914 7.40112 17.1407C6.55043 16.29 6.12508 15.257 6.12508 14.0417V5.29175C6.12508 4.07647 6.55043 3.04348 7.40112 2.19279C8.25182 1.3421 9.2848 0.916748 10.5001 0.916748C11.7154 0.916748 12.7483 1.3421 13.599 2.19279C14.4497 3.04348 14.8751 4.07647 14.8751 5.29175V14.0417C14.8751 15.257 14.4497 16.29 13.599 17.1407C12.7483 17.9914 11.7154 18.4167 10.5001 18.4167ZM9.04175 28.6251V24.1407C6.51397 23.8004 4.42369 22.6702 2.77091 20.7501C1.11814 18.8299 0.291748 16.5938 0.291748 14.0417H3.20841C3.20841 16.0591 3.9196 17.779 5.34196 19.2013C6.76432 20.6237 8.48369 21.3344 10.5001 21.3334C12.5165 21.3324 14.2363 20.6213 15.6597 19.1999C17.083 17.7785 17.7937 16.0591 17.7917 14.0417H20.7084C20.7084 16.5938 19.882 18.8299 18.2292 20.7501C16.5765 22.6702 14.4862 23.8004 11.9584 24.1407V28.6251H9.04175Z"
-                  fill="#1771B7"
-                />
-              </svg>
+              <FontAwesomeIcon icon={faMicrophone} className={styles.icon} />
             </button>
             <button className={styles.sendButton}>
-              <svg
-                width="28"
-                height="27"
-                viewBox="0 0 28 27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M0.961147 5.73146C0.58198 2.32771 4.08636 -0.171876 7.1824 1.29521L24.6007 9.54646C27.9374 11.1258 27.9374 15.8742 24.6007 17.4535L7.1824 25.7063C4.08636 27.1733 0.583438 24.6737 0.961147 21.27L1.66115 14.9583H13.4999C13.8867 14.9583 14.2576 14.8047 14.5311 14.5312C14.8046 14.2577 14.9582 13.8868 14.9582 13.5C14.9582 13.1132 14.8046 12.7423 14.5311 12.4688C14.2576 12.1953 13.8867 12.0417 13.4999 12.0417H1.6626L0.961147 5.73146Z"
-                  fill="#1771B7"
-                />
-              </svg>
+              <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
             </button>
           </div>
         </div>

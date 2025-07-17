@@ -4,6 +4,7 @@ import { setPage, setInformation } from "../../../store/slices/patientNavSlice";
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
+
   const gotoUpdate = () => {
     dispatch(setPage("updates"));
     dispatch(setInformation("basic"));

@@ -1,7 +1,6 @@
 .profile{
-    display: grid;
-    place-content: center;
-    margin-left: -50px;
+    width: 100%;
+    /* width: 1432px; */
 }
 .profileHeader{
     width: 100%;
@@ -13,14 +12,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 80px;
     padding: 20px;
 }
 .profileList li{
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: border-bottom 0.3s ease;
+    font-size: 1.875rem;   /* 30px / 16 = 1.875rem */
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-bottom 0.3s ease;
 }
 .profileList li.active{
   color: var(--blue-color);
@@ -28,12 +27,14 @@
 }
 .patientCard{
     width: 100%;
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--white-color);
     display: flex;
     justify-content: space-between;
+    align-items: center;  
+    margin-top: 20px;  
 }
 .patientCardHeader{
     display: flex;
@@ -41,14 +42,20 @@
     gap: 10px;
 }
 .patientCardHeader img{
-    width: 60px;
-    height: 60px;
+    width: 7.7em;      /* 123px / 16 = 7.6875em */
+    height: 7.7em;
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid #ddd;
 }
+.name{
+    font-size: 1.875rem;   /* 30px / 16 = 1.875rem */
+    font-weight: 700;
+}
 .idNo{
-    margin-top: -2px;
+    font-weight: 300;
+    font-size: 1.5625rem;  /* 25px / 16 = 1.5625rem */
+    margin-top: -0.125em;  /* -2px / 16 = -0.125em */
 }
 .editButton{
     display: flex;
@@ -57,7 +64,9 @@
     gap: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    width: 10em;
-    height: 3.5em;
+    width: 141px;
+    /* font-size: 25px; */
+    font-size: 1.5625rem; 
+    height: 58px;
     box-shadow: 1px 1px 2px #ddd;
 }

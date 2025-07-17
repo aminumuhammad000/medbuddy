@@ -1,36 +1,51 @@
-.FeedbackCard{
-    background-color: var(--color-white);
-    padding: 5em 0px 5em 0px;
-    position: relative;
+.FeedbackCard {
+  background-color: var(--color-white);
+  padding: 5em 0px 5em 0px;
+  position: relative;
+  gap: 40px;
 }
-.heading{
-    font-size: 2.8rem;
-    color: var(--blue-color);
-    font-weight: 600;
-    text-align: center;
+.heading {
+  font-size: 67px;
+  color: var(--blue-color);
+  font-weight: 600;
+  text-align: center;
 }
-.heading span{
-    color: var(--hover-color);
-}
-
-.feedBackContaine{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5em;
-    margin-top: 5em;
+.heading span {
+  color: var(--hover-color);
 }
 
-.feedBackContaine::before{
-    content: '';
-    width: 13em;
-    height: 12em;
-    background-color: transparent;
-    border: 24px solid var(--blue-color);
-    opacity: 0.7;
-    border-radius: 50%;
-    position: absolute;
-    left: -3em;
-    top: 10px;
+.feedBackContainer {
+  width: 1353px;
+  margin-inline: auto;
+  gap: 36px;
+  margin-top: 5em;
+}
+
+.feedBackContainer::before {
+  content: "";
+  width: 13em;
+  height: 12em;
+  background-color: transparent;
+  border: 24px solid var(--blue-color);
+  opacity: 0.7;
+  border-radius: 50%;
+  position: absolute;
+  left: -3em;
+  top: 10px;
+}
+.btnContainer {
+  width: 90%;
+  display: flex;
+  justify-content: end;
+  margin-top: 66px;
+}
+.viewMore {
+  width: 183px;
+  height: 66px;
+  border: 1px solid var(--blue-color);
+  background-color: var(--color-white);
+  border-radius: 10px;
+}
+.viewMore h4 {
+  color: var(--blue-color);
 }

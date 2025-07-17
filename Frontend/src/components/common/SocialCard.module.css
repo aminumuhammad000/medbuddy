@@ -8,16 +8,19 @@
 .socialCard div {
   width: 2em;
   height: 2em;
+  margin-top: 24px;
   border: 1px solid var(--blue-color);
-  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
 }
-
-.socialCard .twitter{
-    background-color: var(--blue-color);
-    color: var(--color-white);
+.socialCard .instagram,
+.socialCard .facebook {
+  color: var(--blue-color);
+}
+.socialCard .twitter {
+  background-color: var(--blue-color);
+  color: var(--color-white);
 }

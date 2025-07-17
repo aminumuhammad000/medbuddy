@@ -1,4 +1,6 @@
 import style from "./UpdatesPersonalInfo.module.css";
+import Password from "../../auth/components/PasswordInput";
+
 const UpdateAccountInfo = () => {
   return (
     <div className={style.UpdatesPersonalInfo}>
@@ -16,11 +18,7 @@ const UpdateAccountInfo = () => {
             <input type="text" name="Communication Preference" />
           </div>
         </div>
-
-        <div className={style.UpdateVaccine}>
-          <label htmlFor="Password">Password</label>
-          <input type="password" name="Password" />
-        </div>
+        <Password />
       </form>
     </div>
   );

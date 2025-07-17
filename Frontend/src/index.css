@@ -1,30 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import "tailwindcss";
-
-:root{
-    --blue-color: #1771B7;
-    --white-color: #ffffff;
-    --background-color: #f5f8ff;
-    --hover-color: #2d2d5b;
-    --text-style: 'Poppins', san-serif;
+:root {
+  --blue-color: #1771b7;
+  --white-color: #ffffff;
+  --background-color: #f5f8ff;
+  --hover-color: #2d2d5b;
+  --text-style: "Lato", san-serif;
 }
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--text-style);
 }
-body{
-    background-color: var(--background-color);
-    overflow-x: hidden;
+body {
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  font-family: "Lato", sans-serif;
 }
-li, button{
-    list-style: none;
-    font-size: 0.8rem;
-    font-family: "Open Sans", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+  opacity: 0.9;
 }
-button{
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+h1 {
+  font-size: 40px;
 }
-button:hover{
-    transform: scale(1.05);
+h2 {
+  font-size: 35px;
+}
+h3 {
+  font-size: 30;
+}
+h4,
+#mediumText {
+  font-size: 25px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 18px;
+}
+p {
+  font-size: 15px;
+}
+#flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+#flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+li,
+#mediumText {
+  list-style: none;
+  font-size: 20px;
+}
+#smallText {
+  font-size: 16px;
+}
+li,
+button {
+  list-style: none;
+  font-size: 0.8rem;
+  font-family: "Lato", sans-serif;
+  opacity: 0.9;
+}
+button {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.icon:hover,
+button:hover {
+  transform: scale(1.05);
 }

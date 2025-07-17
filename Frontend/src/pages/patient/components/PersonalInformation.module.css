@@ -1,47 +1,54 @@
-.personalInformation{
-    width: calc(100vw - 250px);
-    margin-top: 20px;
+.personalInformation {
+    width: 100%;
+    margin-top: 1.25rem;           /* 20px */
     background-color: var(--white-color);
-    padding: 20px;
-    border-radius: 5px;
+    padding: 1.25rem;              /* 20px */
+    border-radius: 0.625rem;       /* 10px */
     padding-bottom: 5em;
     margin-bottom: 2em;
 }
-.infoTable{
+.infoTable {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 0.625rem;          /* 10px */
 }
-.heading{
+.heading {
     display: flex;
     justify-content: space-between;
 }
-.heading h2{
+.heading h2 {
+    font-size: 35px; /* 2.1875rem;          /* 35px */
     font-weight: 700;
 }
-.infoTable table{
+.infoTable table {
     width: 100%;
     table-layout: fixed;
 }
-.infoTable table td{
-    padding-top: 7px;
+.infoTable table td {
+    font-size: 1.875rem;           /* 30px */
+    line-height: 2.1875rem;        /* 35px */
+    padding-top: 0.4375rem;        /* 7px */
 }
-.td{
+.td {
     opacity: 0.7;
 }
-.editButton{
+.editButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;                  /* 20px */
     border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 10em;
-    height: 3.5em;
-    box-shadow: 1px 1px 2px #ddd;
+    border-radius: 0.625rem;       /* 10px */
+    width: 8.8125rem;              /* 141px */
+    font-size: 1.5625rem;          /* 25px */
+    height: 3.625rem;              /* 58px */
+    box-shadow: 0.0625rem 0.0625rem 0.125rem #ddd; /* 1px 1px 2px */
 }
-.accountDetails li{
+.accountDetails li {
     font-size: 1.1rem;
-    padding-top: 10px;
+    padding-top: 0.625rem;         /* 10px */
+}
+.AccountInformation li {
+    font-size: 1.875rem;           /* 30px */
 }

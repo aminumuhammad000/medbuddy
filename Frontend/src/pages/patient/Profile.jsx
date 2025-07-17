@@ -41,7 +41,7 @@ const Profile = () => {
         <div className={style.patientCardHeader}>
           <img src={profile} alt="" />
           <div className={style.patientInfo}>
-            <h1>Mustapha Hussein</h1>
+            <h1 className={style.name}>Mustapha Hussein</h1>
             <p className={style.idNo}>208898680</p>
           </div>
         </div>

@@ -1,0 +1,104 @@
+.ConsultBooking{
+    width: 100%;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+.test{
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 12.5%;
+bottom: 12.5%;
+background: rgba(255, 255, 255, 0.8);
+}
+.iconsContainer{
+   display: flex; 
+   justify-content: center;
+   align-items: center;
+   gap: 40px;
+   margin-top: 30px;
+   padding: 20px;
+}
+.iconBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 188px;
+    height: 166px;
+}
+.iconDiv{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 1px 2px 4px #ccc;
+}
+.iconDiv:hover{
+    transform: scale(0.9);
+    transition: 0.3s all ease-in-out;
+}
+.icon{
+    color: var(--blue-color);
+    font-size: 60px;
+}
+.name{
+    font-size: 25px;
+}
+.iconsContainerAll {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2em;
+}
+.iconBoxAll{
+    width: 388px;
+    height: 318px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    box-shadow: 1px 1px 4px var(--blue-color);
+}
+.iconDivAll {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 2px 4px 8px #bbb;
+  background-color: var(--blue-color);
+}
+.iconDivAll .icon{
+  color: var(--color-white);
+}
+.iconDivAll .name{
+    font-size: 35px;
+}
+.amount{
+    font-size: 22px;
+    color: #1771B7CC;
+}
+.doctorListTitle{
+     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.listTitle{
+    font-size: 30px;
+}
+.moreDoctors{
+    font-size: 30px;
+    color: var(--blue-color);
+}
