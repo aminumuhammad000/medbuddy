@@ -15,9 +15,11 @@
     width: 100%;
 } */
 .logoContainer {
-  padding: 20px;
+  width: 238px;
+  height: 47px;
   position: absolute;
-  left: 2em;
+  top: 18px;
+  left: 64px;
 }
 .Container::before {
   content: "";
@@ -150,7 +152,7 @@ form div input:not(input[type="checkbox"]) {
 }
 .otp input {
   max-width: 2.4em;
-  height: 2.4em;
+  height: 75px;
   font-size: 2rem;
   text-align: center;
 }

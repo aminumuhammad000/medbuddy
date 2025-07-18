@@ -1,4 +1,4 @@
-import styles from "./AIChat.module.css"; // Assuming you have a CSS module for styles
+import styles from "./AIChat.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 const AIChat = () => {
