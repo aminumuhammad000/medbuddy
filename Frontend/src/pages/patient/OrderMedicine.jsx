@@ -1,6 +1,4 @@
 import style from "./OrderMedicine.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faFilter } from "@fortawesome/free-solid-svg-icons";
 import img1 from "../../assets/images/backgrounds/medicine-banner.png";
 import DrugCard from "./components/DrugCard";
 import drug1 from "../../assets/images/backgrounds/drug1.png";
@@ -9,10 +7,6 @@ import { useState } from "react";
 import Preview from "./components/Preview";
 import Cart from "./Cart";
 import Search from "./components/Search";
-
-// import Cart from "./Cart";
-// import { useDispatch, useSelector } from "react-redux";
-// import { fetchDrugs } from "../../store/slices/drugSlice";
 
 const drugs = [
   {
@@ -121,6 +115,7 @@ const OrderMedicine = () => {
                   src={img1}
                   alt="bannerImg"
                   className={style.medicineBanner}
+                  loading="lazy"
                 />
               </div>
 
@@ -140,7 +135,6 @@ const OrderMedicine = () => {
                     image={drug.image}
                     title={drug.title}
                     price={drug.price}
-                    // onClick={() => setSelectedDrug(drug)}
                     onClick={() => handleDrugClick(drug)}
                   />
                 ))}

@@ -11,9 +11,6 @@
   color: var(--blue-color);
 }
 .teamCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 50px;
   flex-wrap: wrap;
   margin-top: 152px;

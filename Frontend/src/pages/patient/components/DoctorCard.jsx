@@ -1,7 +1,4 @@
 import style from "./DoctorCard.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
-
 const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
   const date = new Date();
   const month = date.toLocaleString("default", { month: "long" }); // e.g. "July"
@@ -41,7 +38,7 @@ const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
           {rating}
         </div>
         <div className={style.heartIcon}>
-          <FontAwesomeIcon icon={faHeart} className={style.icon} />
+          <iconify-icon icon="fa:heart" className={style.icon} />
         </div>
       </div>
       <div className={style.cardMain}>

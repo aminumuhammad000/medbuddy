@@ -32,7 +32,7 @@ const Banner = () => {
           your health all in one place.
         </p>
 
-        <div className={style.btnConatiner}>
+        <div className={style.btnContainer}>
           <Link to="/Auth">
             <button
               style={{ width: "240px", height: "72px", fontSize: "25px" }}

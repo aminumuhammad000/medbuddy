@@ -1,7 +1,5 @@
 import style from "./Preview.module.css";
 import profile from "../../../assets/images/profiles/profile.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Preview = ({ drug, onAddToCart }) => {
   if (!drug) return null;
@@ -58,12 +56,12 @@ const Preview = ({ drug, onAddToCart }) => {
               </div>
               <div className={style.rating}>
                 {[...Array(5)].map((_, index) => (
-                  <FontAwesomeIcon
+                  <iconify-icon
                     key={index}
                     icon={faStar}
                     className={style.star}
                     color={index < 4 ? "#FFD700" : "#ccc"} // 4 stars filled, 1 empty
-                  />
+                  ></iconify-icon>
                 ))}
               </div>
             </div>

@@ -1,12 +1,10 @@
-import React from "react";
-import style from "./Search.module.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faFilter } from "@fortawesome/free-solid-svg-icons";
+import style from "./Search.module.css";
+
 const Search = () => {
   return (
-    <div className={style.searchContainer}>
+    <div className={style.searchContainer} id="flexSpaceBetween">
       <div>
-        <FontAwesomeIcon icon={faSearch} className={style.search} />{" "}
+        <iconify-icon icon="material-symbols:search" className={style.search} />
         <input
           type="search"
           name="search"
@@ -14,7 +12,10 @@ const Search = () => {
           placeholder="Search drug"
         />
       </div>
-      <FontAwesomeIcon icon={faFilter} className={style.filter} />
+      <iconify-icon
+        icon="line-md:filter-filled"
+        className={style.filter}
+      ></iconify-icon>
     </div>
   );
 };

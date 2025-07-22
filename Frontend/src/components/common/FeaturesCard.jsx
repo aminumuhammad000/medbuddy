@@ -1,14 +1,15 @@
 import style from "../../components/common/FeaturesCard.module.css";
-import { Icon } from "@iconify/react";
-const FeaturesCard = ({ icon, title, text, color, bg }) => {
+const FeaturesCard = ({ icon, title, text, bg, color }) => {
   return (
     <div
       className={style.FeaturesCard}
       id="flexColumnCenter"
-      style={{ background: { bg }, color: { color } }}
+      style={{ backgroundColor: bg, color: color }}
     >
-      <Icon icon={icon} className={style.icon} />
-      <h2 className={style.title}>{title}</h2>
+      <iconify-icon icon={icon} className={style.icon}></iconify-icon>
+      <h2 className={style.title} style={{ color: color }}>
+        {title}
+      </h2>
       <p className={style.text}>{text}</p>
     </div>
   );

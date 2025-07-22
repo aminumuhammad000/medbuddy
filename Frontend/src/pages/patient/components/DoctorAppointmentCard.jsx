@@ -1,9 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBagShopping,
-  faStar,
-  faUserGroup,
-} from "@fortawesome/free-solid-svg-icons";
 import style from "./DoctorAppointmentCard.module.css";
 const DoctorAppointmentCard = ({
   name,
@@ -33,21 +27,24 @@ const DoctorAppointmentCard = ({
       </div>
       <div className={style.footer}>
         <div className={style.experience}>
-          <FontAwesomeIcon icon={faBagShopping} className={style.icon} />
+          <iconify-icon icon="fa:bag-shopping" className={style.icon} />
           <h1 className={style.heading}>
             {experience} <span className={style.small}>Experience</span>
           </h1>
         </div>
 
         <div className={style.experience}>
-          <FontAwesomeIcon icon={faStar} className={style.icon} />
+          <iconify-icon icon="fa:star" className={style.icon} />
           <h1 className={style.heading}>
             {rating} <span className={style.small}>Rating</span>
           </h1>
         </div>
 
         <div className={style.totalPatient}>
-          <FontAwesomeIcon icon={faUserGroup} className={style.icon} />
+          <iconify-icon
+            icon="fa:user-group"
+            className={style.icon}
+          ></iconify-icon>
           <h1 className={style.heading}>
             {totalPatient} <span className={style.small}>Patients</span>
           </h1>

@@ -28,41 +28,59 @@ const Nav = () => {
 
         <ul className={style.navList} id="flexCenter">
           <li>
-            <Link to="/" id="mediumText">
+            <Link to="/" id="mediumText" className={style.Link}>
               Home
             </Link>
           </li>
           <li>
-            <HashLink smooth to="/#HowItWorks" id="mediumText">
-              How it Works
+            <HashLink
+              smooth
+              to="/#HowItWorks"
+              id="mediumText"
+              className={style.Link}
+            >
+              How it works
             </HashLink>
           </li>
           <li>
             {" "}
-            <HashLink smooth to="/#Features" id="mediumText">
+            <HashLink
+              smooth
+              to="/#Features"
+              id="mediumText"
+              className={style.Link}
+            >
               Features
             </HashLink>
           </li>
           <li>
-            <HashLink smooth to="/#FAQs" id="mediumText">
+            <HashLink smooth to="/#FAQs" id="mediumText" className={style.Link}>
               FAQs
             </HashLink>
           </li>
           <li>
-            <HashLink smooth to="/#Contact" id="mediumText">
-              Contact
+            <HashLink
+              smooth
+              to="/#Contact"
+              id="mediumText"
+              className={style.Link}
+            >
+              Contact Us
             </HashLink>
           </li>
         </ul>
 
         <div className={style.ctaContainer} id="flexCenter">
-          <Link to="/Auth">
-            <button onClick={() => handleRoleClick("register")}>Sign Up</button>
+          <Link to="/Auth" className={style.Link}>
+            <button onClick={() => handleRoleClick("register")} id="mediumText">
+              Sign Up
+            </button>
           </Link>
           <Link to="/Auth">
             <button
               className={style.signIn}
               onClick={() => handLogin("register")}
+              id="mediumText"
             >
               Sign In
             </button>

@@ -1,72 +1,72 @@
-.OrderMedicine{
-   width: 100%;
-   display: grid;
-   place-content: center;
-   margin-top: 1.25em;
-   padding-bottom: 2em;
+.OrderMedicine {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  margin-top: 1.25em;
+  padding-bottom: 2em;
 }
 
-.Banner{
-    /* width: 72.9375em; */
-    width: 90%;
-    min-height: 19.375em;
-    padding: 1.25em 3.125em;
-    background-color: var(--blue-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2.5em;
-    box-shadow: 0.0625em 0.0625em 0.25em #ddd;
-    border-radius: 1.25em;
-    color: var(--white-color);
-    margin-inline: auto;
+.Banner {
+  /* width: 72.9375em; */
+  width: 90%;
+  min-height: 19.375em;
+  padding: 1.25em 3.125em;
+  background-color: var(--blue-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5em;
+  box-shadow: 0.0625em 0.0625em 0.25em #ddd;
+  border-radius: 1.25em;
+  color: var(--white-color);
+  margin-inline: auto;
 }
-.medicineBanner{
-    width: 22.5em;
-    height: 22.5em;
+.medicineBanner {
+  width: 22.5em;
+  height: 22.5em;
 }
-.title{
-    font-size: 3.125rem;
-    font-weight: 900;
+.title {
+  font-size: 3.125rem;
+  font-weight: 900;
 }
-.description{
-    font-size: 1.875rem;
-    margin-top: 0.625em;
-    margin-bottom: 1.25em;
+.description {
+  font-size: 1.875rem;
+  margin-top: 0.625em;
+  margin-bottom: 1.25em;
 }
-.btn{
-    /* width: 16.6875em;
+.btn {
+  /* width: 16.6875em;
     height: 4.5625em; */
-    width: 267px;
-    height: 73px;
-    background-color: var(--white-color);
-    color: var(--blue-color);
-    border-radius: 0.9375em;
-    font-size: 1.875rem;
-    font-weight: 700;
+  width: 267px;
+  height: 73px;
+  background-color: var(--white-color);
+  color: var(--blue-color);
+  border-radius: 0.9375em;
+  font-size: 1.875rem;
+  font-weight: 700;
 }
 .AllDrugsContainer,
-.DrugList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1.25em;
-    gap: 1.25em;
-    margin-inline: auto;
+.DrugList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.25em;
+  gap: 1.25em;
+  margin-inline: auto;
 }
-.titleContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-inline: auto;
-    width: 100%;
-    margin-top: 1.25em;
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  width: 100%;
+  margin-top: 1.25em;
 }
 .viewAll,
-.pageTitle{
-    font-size: 1.875rem;
-    font-weight: 700;
+.pageTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
 }
-.viewAll{
-    text-decoration: underline;
+.viewAll {
+  text-decoration: underline;
 }

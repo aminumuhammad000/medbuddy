@@ -4,7 +4,7 @@ import style from "./Contact.module.css";
 const Contact = () => {
   return (
     <div className={style.Contact} id="Contact">
-      <div className={style.logoContainer}>
+      <div className={style.logoContainer} id="flexCenter">
         <img src={logo} alt="medbuddy logo" />
       </div>
       <div className={style.subscribeContainer}>
@@ -15,7 +15,7 @@ const Contact = () => {
           Li Europan lingues es membres del sam familie. Lor separat existentie
           es un myth. Por scientie, musica, sport etc.
         </p>
-        <div className={style.inputContainer}>
+        <div className={style.inputContainer} id="flexBetween">
           <input
             type="email"
             name="email"

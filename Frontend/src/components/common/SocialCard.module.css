@@ -1,7 +1,4 @@
 .socialCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
   margin-top: 1em;
 }
@@ -10,9 +7,6 @@
   height: 2em;
   margin-top: 24px;
   border: 1px solid var(--blue-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
   cursor: pointer;
 }
