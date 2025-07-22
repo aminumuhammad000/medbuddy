@@ -22,19 +22,47 @@ const HowItWorks = () => {
         <table className={style.table}>
           <tr>
             <td>
-              <li id="smallText">24/7 Support</li>
+              <li id="smallText">
+                <iconify-icon
+                  icon="fluent-mdl2:check-mark"
+                  className={style.icon}
+                  id="flexCenter"
+                ></iconify-icon>
+                24/7 Support
+              </li>
             </td>
             <td>
-              <li id="smallText">Trusted Specialist Doctor</li>
+              <li id="smallText">
+                <iconify-icon
+                  icon="fluent-mdl2:check-mark"
+                  className={style.icon}
+                  id="flexCenter"
+                ></iconify-icon>
+                Trusted Specialist Doctor
+              </li>
             </td>
           </tr>
 
           <tr>
             <td>
-              <li id="smallText">Best Vaccination</li>
+              <li id="smallText">
+                <iconify-icon
+                  icon="fluent-mdl2:check-mark"
+                  className={style.icon}
+                  id="flexCenter"
+                ></iconify-icon>
+                Best Vaccination
+              </li>
             </td>
             <td>
-              <li id="smallText">High Quality Care</li>
+              <li id="smallText">
+                <iconify-icon
+                  icon="fluent-mdl2:check-mark"
+                  className={style.icon}
+                  id="flexCenter"
+                ></iconify-icon>
+                High Quality Care
+              </li>
             </td>
           </tr>
         </table>

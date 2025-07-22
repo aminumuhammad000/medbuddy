@@ -1,46 +1,49 @@
-.UpdatesPersonalInfo{
-    width: calc(100vw - 250px);
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 6px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+.UpdatesPersonalInfo {
+  width: 100%;
+  background-color: var(--white-color);
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 62px;
 }
 
-.UpdatesPersonalInfo h1{
-    font-size: 35px;
-    font-weight: 700;
+.UpdatesPersonalInfo h1 {
+  font-weight: 700;
+}
+form {
+  width: 100%;
+  margin-top: 52px;
+  padding-bottom: 69px;
 }
 .UpdatesPersonalInfo .fullName,
 .UpdatesPersonalInfo .Email,
-.UpdatesPersonalInfo .OtherDetails{
-    width: 100%;
-    display: flex;
-    gap: 40px;
+.UpdatesPersonalInfo .OtherDetails {
+  width: 100%;
+  margin-top: 30px;
 }
 .UpdatesPersonalInfo .fullName div,
 .UpdatesPersonalInfo .Email div,
 .UpdatesPersonalInfo .OtherDetails div,
-.UpdateVaccine{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+.UpdateVaccine {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
-.UpdatesPersonalInfo .fullName div input,
-.UpdatesPersonalInfo .Email div input,
-.UpdateVaccine{
-    width: 30em;
+.UpdatesPersonalInfo .OtherDetails div input,
+select {
+  font-size: 20px;
+  height: 75px;
 }
-.UpdatesPersonalInfo .OtherDetails div input{
-    width: 19em;
-    font-size: 20px;
+select {
+  width: 100%;
+  accent-color: var(--blue-color);
+  background-color: #edededcc;
+  border-radius: 24px;
+  padding: 10px;
 }
-.UpdateAddress{
-    min-width: 60em;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+.UpdateAddress {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 30px;
 }
-

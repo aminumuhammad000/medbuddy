@@ -1,19 +1,27 @@
 .Login {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-bottom: 3em;
+}
+.backBtn {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  left: 64px;
+  top: 87px;
+  color: var(--white-color);
+  font-size: 65px;
+  border: 2px solid var(--white-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 .decoration {
   position: absolute;
-  left: 0;
-  top: 20em;
-  /* width: 10em; */
+  left: -35px;
+  bottom: unset;
 }
-/* .decoration svg{
-    width: 100%;
-} */
 .logoContainer {
   width: 238px;
   height: 47px;
@@ -21,42 +29,46 @@
   top: 18px;
   left: 64px;
 }
+.logoContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .Container::before {
   content: "";
   position: absolute;
-  width: 100vw;
-  height: 150vh;
+  min-width: 1791px;
+  width: 100%;
+  height: calc(929px * 2);
   background-color: var(--blue-color);
   border-radius: 50%;
-  top: -27em;
-  left: 0;
+  top: -929px;
   z-index: -1;
 }
 .Container {
-  background-color: var(--color-white);
-  width: 70%;
+  width: 1405px;
+  min-height: 1127px;
+  background-color: var(--white-color);
   border: 1px solid #ddd;
-  border-radius: 30px;
-  min-height: 40em;
-  margin-top: 3em;
-  padding: 20px 2em;
-  display: flex;
-  flex-direction: column;
+  border-radius: 50px;
+  margin-top: 87px;
   align-items: center;
   gap: 10px;
 }
 .Signup {
   text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 80px;
+  font-weight: 600;
+  line-height: 53px;
+  margin-top: 22px;
 }
 .selectContainer {
   width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  gap: 173px;
+  margin-top: 66px;
+  padding-bottom: 8px;
 }
+
 .selectContainer button.active {
   color: var(--blue-color);
   font-weight: 600;
@@ -64,97 +76,113 @@
   border-bottom: 2px solid var(--blue-color);
 }
 .form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  width: 995px;
+  margin-top: 36px;
+  padding-bottom: 3em;
 }
 form {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
-  margin-top: 1em;
-  padding-bottom: 1em;
+  width: 100%;
+  gap: 25px;
 }
 form .name,
 form .password,
 form .nhis,
 form .phone,
-form .email {
-  display: flex;
-  flex-direction: column;
+form .email,
+form .doc {
   align-items: baseline;
 }
 form label {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-weight: 400;
 }
 form div {
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 25px;
 }
 .emailContainer {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   width: 100%;
 }
+.DocInput,
 .emailContainer div {
   width: 100%;
 }
-form div input:not(input[type="checkbox"]) {
-  width: 100%;
-  background-color: #ddd;
-  padding: 10px;
-  outline: none;
-  border-radius: 10px;
-}
-.SignupBtn {
-  background-color: var(--blue-color);
-  color: var(--color-white);
-  height: 3em;
-  width: 20em;
-  border-radius: 20px;
-  margin-inline: auto;
-  margin-top: 2em;
-  font-size: 1.2rem;
-}
+
 .headingText {
   text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 2em;
 }
+.docLabel {
+  cursor: pointer;
+  gap: 15px;
+}
+.uploadIcon {
+  color: var(--blue-color);
+  font-size: 50px;
+}
+.docLabel,
+form div input:not(input[type="checkbox"]) {
+  width: 100%;
+  height: 75px;
+  border-radius: 24px;
+  background-color: #edededcc;
+  padding: 24px 60px;
+  opacity: 0.6;
+}
+.docLabel {
+  opacity: 1;
+}
+.docLabel span {
+  opacity: 0.6;
+}
+.check input {
+  width: 30px;
+  height: 30px;
+  accent-color: var(--blue-color);
+}
+.SignupBtn {
+  height: 80px;
+  width: 459px;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  border-radius: 30px;
+  margin-inline: auto;
+  margin-top: 64px;
+}
+
 .loginWith {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5em;
+  gap: 40px;
+  margin-top: 35px;
 }
 .loginWith .Google,
 .loginWith .Facebook {
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 .alreadyHaveAccount {
   text-align: center;
   font-size: 1rem;
-  margin-top: -0.7em;
+  margin-top: 30px;
+}
+.otp {
+  gap: 40px;
+  margin-top: 63px;
+}
+.otp input {
+  min-width: 150px;
+  min-height: 150px;
+  font-size: 40px;
+  margin-bottom: 115px;
+}
+.alreadyHaveAccount {
+  font-size: 25px;
 }
 .alreadyHaveAccount span {
   color: #f00;
   cursor: pointer;
-}
-.otp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-.otp input {
-  max-width: 2.4em;
-  height: 75px;
-  font-size: 2rem;
-  text-align: center;
 }
 @media screen and (max-width: 768px) {
   .Container {

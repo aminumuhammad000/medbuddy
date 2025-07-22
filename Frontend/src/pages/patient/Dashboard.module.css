@@ -1,29 +1,16 @@
-.MainDashboard{
-    position: absolute;
-    width: calc(100vw - 260px);
-    top: 20px;
-    left: 260px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 2em;
+.MainDashboard {
+  width: 100vw;
+  margin-top: 61px;
+  padding: 0px 50px 2em 310px;
 }
-
-.nav{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.nav {
+  width: 100%;
+  margin-inline: auto;
 }
-.heading{
-    font-size: 40px;
-    font-weight: 700;
-    opacity: 0.8;
+.heading {
+  font-weight: 700;
 }
-.bell{
-    font-size: 35px;
-    color: var(--blue-color);
-    cursor: pointer;
+.icon {
+  color: var(--blue-color);
+  cursor: pointer;
 }

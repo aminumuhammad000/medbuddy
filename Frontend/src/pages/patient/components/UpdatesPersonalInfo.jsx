@@ -1,47 +1,66 @@
 import style from "./UpdatesPersonalInfo.module.css";
 const UpdatesPersonalInfo = () => {
   return (
-    <div className={style.UpdatesPersonalInfo}>
+    <div className={style.UpdatesPersonalInfo} id="flexColumn">
       <h1>Personal Information</h1>
       <form action="">
         <div className={style.fullName}>
           <div>
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName" id="mediumText">
+              First Name
+            </label>
             <input type="text" name="first name" id="fname" />
           </div>
           <div>
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName" id="mediumText">
+              Last Name
+            </label>
             <input type="text" name="last name" id="lname" />
           </div>
         </div>
 
         <div className={style.Email}>
           <div>
-            <label htmlFor="firstName">Email Address</label>
+            <label htmlFor="firstName" id="mediumText">
+              Email Address
+            </label>
             <input type="email" name="email" id="email" />
           </div>
           <div>
-            <label htmlFor="lastName">Phone Number</label>
+            <label htmlFor="lastName" id="mediumText">
+              Phone Number
+            </label>
             <input type="tel" name="phone" id="phone" />
           </div>
         </div>
 
         <div className={style.OtherDetails}>
           <div>
-            <label htmlFor="dob">Date Of Birth</label>
-            <input type="text" name="dob" id="dob" />
+            <label htmlFor="dob" id="mediumText">
+              Date Of Birth
+            </label>
+            <select name="gender" id="mediumText">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
           <div>
-            <label htmlFor="Gender">Gender</label>
+            <label htmlFor="Gender" id="mediumText">
+              Gender
+            </label>
             <input type="text" name="gender" id="gender" />
           </div>
           <div>
-            <label htmlFor="NHISID">NHIS ID</label>
+            <label htmlFor="NHISID" id="mediumText">
+              NHIS ID
+            </label>
             <input type="text" name="NHISID" id="NHIS ID" />
           </div>
         </div>
         <div className={style.UpdateAddress}>
-          <label htmlFor="HouseAddress">House Address</label>
+          <label htmlFor="HouseAddress" id="mediumText">
+            House Address
+          </label>
           <input type="text" name="address" id="address" />
         </div>
       </form>

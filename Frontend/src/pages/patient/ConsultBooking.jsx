@@ -1,49 +1,10 @@
 import { useState } from "react";
 import style from "./ConsultBooking.module.css";
 import Search from "./components/Search";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHeart,
-  faBrain,
-  faLungs,
-  faStethoscope,
-  faUserMd,
-  faFlask,
-  faDroplet,
-  faRibbon,
-  faBone,
-  faEye,
-  faHeadphones,
-  faHeadSideVirus,
-  faNotesMedical,
-  faVenus,
-  faBaby,
-  faChild,
-  faPersonCane,
-  faSyringe,
-  faVials,
-  faShieldVirus,
-  faVirus,
-  faArrowAltCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
 import DoctorList from "./components/DoctorList";
 import doctor1 from "../../assets/images/profiles/doctor1.png";
 import doctor2 from "../../assets/images/profiles/doctor2.png";
 import ConsultPreview from "./ConsultPreview";
-
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
->
-  <path
-    fill="currentColor"
-    fill-rule="evenodd"
-    d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z"
-    clip-rule="evenodd"
-  />
-</svg>;
 
 const doctors = [
   {
@@ -129,31 +90,31 @@ const doctors = [
 ];
 
 const specialist = [
-  { name: "Cardiologist", icon: faHeart, amount: 43 },
-  { name: "Neurologist", icon: faBrain, amount: 30 },
-  { name: "Pulmonologist", icon: faLungs, amount: 9 },
-  { name: "Gastroenterologist", icon: faStethoscope, amount: 13 },
-  { name: "Nephrologist", icon: faDroplet, amount: 40 },
-  { name: "Dermatologist", icon: faUserMd, amount: 45 },
-  { name: "Endocrinologist", icon: faFlask, amount: 63 },
-  { name: "Hematologist", icon: faDroplet, amount: 23 },
-  { name: "Oncologist", icon: faRibbon, amount: 43 },
-  { name: "Rheumatologist", icon: faBone, amount: 33 },
-  { name: "Ophthalmologist", icon: faEye, amount: 43 },
-  { name: "Otolaryngologist", icon: faHeadphones, amount: 43 },
-  { name: "Psychiatrist", icon: faHeadSideVirus, amount: 11 },
-  { name: "Urologist", icon: faNotesMedical, amount: 23 },
-  { name: "Gynecologist", icon: faVenus, amount: 43 },
-  { name: "Obstetrician", icon: faBaby, amount: 43 },
-  { name: "Orthopedist", icon: faBone, amount: 10 },
-  { name: "Pediatrician", icon: faChild, amount: 43 },
-  { name: "Geriatrician", icon: faPersonCane, amount: 43 },
-  { name: "Surgeon", icon: faStethoscope, amount: 25 },
-  { name: "Radiologist", icon: faVials, amount: 8 },
-  { name: "Pathologist", icon: faVials, amount: 43 },
-  { name: "Anesthesiologist", icon: faSyringe, amount: 7 },
-  { name: "Immunologist", icon: faShieldVirus, amount: 20 },
-  { name: "Infectious Disease Specialist", icon: faVirus, amount: 43 },
+  { name: "Cardiologist", icon: "mdi:heart", amount: 43 },
+  { name: "Neurologist", icon: "mdi:brain", amount: 30 },
+  { name: "Pulmonologist", icon: "mdi:lungs", amount: 9 },
+  { name: "Gastroenterologist", icon: "mdi:stethoscope", amount: 13 },
+  { name: "Nephrologist", icon: "mdi:water", amount: 40 },
+  { name: "Dermatologist", icon: "mdi:doctor", amount: 45 },
+  { name: "Endocrinologist", icon: "mdi:flask", amount: 63 },
+  { name: "Hematologist", icon: "mdi:water", amount: 23 },
+  { name: "Oncologist", icon: "mdi:ribbon", amount: 43 },
+  { name: "Rheumatologist", icon: "mdi:bone", amount: 33 },
+  { name: "Ophthalmologist", icon: "mdi:eye", amount: 43 },
+  { name: "Otolaryngologist", icon: "mdi:headphones", amount: 43 },
+  { name: "Psychiatrist", icon: "mdi:head-cog", amount: 11 },
+  { name: "Urologist", icon: "mdi:note-text", amount: 23 },
+  { name: "Gynecologist", icon: "mdi:gender-female", amount: 43 },
+  { name: "Obstetrician", icon: "mdi:baby", amount: 43 },
+  { name: "Orthopedist", icon: "mdi:bone", amount: 10 },
+  { name: "Pediatrician", icon: "mdi:human-child", amount: 43 },
+  { name: "Geriatrician", icon: "mdi:human-cane", amount: 43 },
+  { name: "Surgeon", icon: "mdi:stethoscope", amount: 25 },
+  { name: "Radiologist", icon: "mdi:flask-empty-outline", amount: 8 },
+  { name: "Pathologist", icon: "mdi:flask-empty-outline", amount: 43 },
+  { name: "Anesthesiologist", icon: "mdi:syringe", amount: 7 },
+  { name: "Immunologist", icon: "mdi:shield", amount: 20 },
+  { name: "Infectious Disease Specialist", icon: "mdi:virus", amount: 43 },
 ];
 
 const ConsultBooking = () => {
@@ -209,7 +170,7 @@ const ConsultBooking = () => {
                   : {}
               }
             >
-              <FontAwesomeIcon
+              <iconify-icon
                 icon={item.icon}
                 className={style.icon}
                 style={
@@ -219,7 +180,7 @@ const ConsultBooking = () => {
                       }
                     : {}
                 }
-              />
+              ></iconify-icon>
             </div>
             <h3 className={style.name}>{item.name}</h3>
             {showAllSpecialties && (
@@ -240,11 +201,11 @@ const ConsultBooking = () => {
           <div
             className={showAllSpecialties ? style.iconDivAll : style.iconDiv}
           >
-            <FontAwesomeIcon
+            <iconify-icon
               icon={faArrowAltCircleRight}
               rotation={showAllSpecialties ? 180 : 0}
               className={style.icon}
-            />
+            ></iconify-icon>
           </div>
           <h3 className={style.name}>
             {showAllSpecialties ? "See less" : "See more"}

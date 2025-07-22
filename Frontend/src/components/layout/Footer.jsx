@@ -7,44 +7,33 @@ import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <div className={style.Footer}>
-      <div className={style.logoContainer}>
+      <div className={style.logoContainer} id="flexCenter">
         <img src={logo} alt="logo" />
       </div>
 
-      <ul className={style.navList}>
+      <ul className={style.navList} id="flexCenter">
         <li>
-          <Link to="/" id="mediumText">
+          <Link to="/" id="text30" className={style.Link}>
             Home
           </Link>
         </li>
         <li>
-          <HashLink smooth to="/#HowItWorks" id="mediumText">
-            How it Works
-          </HashLink>
-        </li>
-        <li>
           {" "}
-          <HashLink smooth to="/#Features" id="mediumText">
-            Features
+          <HashLink smooth to="/#Features" id="text30" className={style.Link}>
+            About Us
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#FAQs" id="mediumText">
-            FAQs
+          <HashLink smooth to="/#Contact" id="text30" className={style.Link}>
+            Contact Us
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#Contact" id="mediumText">
-            Contact
+          <HashLink smooth to="/#HowItWorks" id="text30" className={style.Link}>
+            How it works
           </HashLink>
         </li>
       </ul>
-
-      <div className={style.socialMediaContainer}>
-        <div className={style.twitter}></div>
-        <div className={style.instagram}></div>
-        <div className={style.facebook}></div>
-      </div>
 
       <SocialMedia />
       <p className={style.text} id="smallText">
@@ -52,10 +41,10 @@ const Footer = () => {
         un myth.
       </p>
 
-      <div className={style.copyConatiner}>
+      <div className={style.copyContainer} id="flexBetween">
         <p>Copyright © 2023. All rights reserved.</p>
 
-        <div className={style.copy}>
+        <div className={style.copy} id="flexCenter">
           <p>Privacy</p>
           <p>Terms and condition</p>
         </div>

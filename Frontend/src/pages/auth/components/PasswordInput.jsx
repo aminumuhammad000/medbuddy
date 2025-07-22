@@ -1,31 +1,34 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import style from "./PasswordInput.module.css";
 
-const PasswordInput = () => {
-  const [show, setShow] = useState(true);
+const PasswordInput = ({
+  label = "Password",
+  placeholder = "Enter a password",
+}) => {
+  const [show, setShow] = useState(false);
   const togglePasswordVisibility = () => {
     setShow(!show);
   };
-  const icon = show ? faEye : faEyeSlash;
+  const icon = show ? "solar:eye-outline" : "quill:eye-closed";
   const passwordType = show ? "text" : "password";
 
   return (
-    <div className={style.UpdatePassword}>
-      <label htmlFor="Password">Password</label>
+    <div className={style.UpdatePassword} id="flexColumn">
+      <label htmlFor="Password" id="mediumText">
+        {label}
+      </label>
       <div className={style.passwordContainer}>
         <input
           type={passwordType}
           name="Password"
-          placeholder="password"
+          placeholder={placeholder}
           className={style.pass}
         />
-        <FontAwesomeIcon
+        <iconify-icon
           icon={icon}
           onClick={togglePasswordVisibility}
           className={style.PassIcon}
-        />
+        ></iconify-icon>
       </div>
     </div>
   );

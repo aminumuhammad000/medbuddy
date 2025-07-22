@@ -4,7 +4,10 @@
   flex-wrap: wrap;
   height: 184px;
 }
-
+.Link {
+  color: #1c044b;
+  text-decoration: none;
+}
 .logoContainer {
   width: 176.58065795898438px;
   height: 35px;
@@ -26,12 +29,11 @@
   background-color: var(--blue-color);
   padding: 5px 10px;
   border-radius: 10px;
-  font-size: 20px;
-  color: var(--color-white);
+  color: var(--white-color);
+  border: 1px solid var(--blue-color);
   text-align: center;
 }
 button.signIn {
   background-color: transparent;
-  border: 1px solid var(--blue-color);
   color: var(--blue-color);
 }

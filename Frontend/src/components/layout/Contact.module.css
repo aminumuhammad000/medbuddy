@@ -2,14 +2,11 @@
   display: grid;
   place-content: center;
   padding: 5em 2em 5em 2em;
-  background-color: var(--color-white);
+  background-color: var(--white-color);
 }
 .Contact .logoContainer {
   width: 745px;
   height: 153px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-inline: auto;
 }
 
@@ -19,7 +16,7 @@
 }
 .Contact .subscribeContainer {
   width: 1244px;
-  background-color: var(--color-white);
+  background-color: var(--white-color);
   border-radius: 5px;
   box-shadow: 1px 0px 4px #ddd;
   padding: 3em;
@@ -37,28 +34,26 @@
 }
 .Contact .subscribeContainer p {
   text-align: center;
-  font-size: 0.9rem;
 }
 .Contact .inputContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 2em;
   width: 734px;
   height: 72px;
   padding: 0px 10px 0px 24px;
   border-radius: 8px;
-  background-color: var(--background-color);
+  background-color: #f8f8f8;
   margin-inline: auto;
 }
 .Contact .inputContainer input {
   width: 70%;
   height: 100%;
   outline: none;
+  border: none;
+  background-color: transparent;
 }
 .Contact .inputContainer button {
   background-color: var(--blue-color);
-  color: var(--color-white);
+  color: var(--white-color);
   padding: 0.8em;
   width: 151px;
   height: 56px;

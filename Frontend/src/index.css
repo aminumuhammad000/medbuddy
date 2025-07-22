@@ -1,17 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import "tailwindcss";
 :root {
   --blue-color: #1771b7;
   --white-color: #ffffff;
   --background-color: #f5f8ff;
   --hover-color: #2d2d5b;
-  --text-style: "Lato", san-serif;
 }
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: var(--text-style);
+  font-family: "Lato", sans-serif;
 }
 body {
   background-color: var(--background-color);
@@ -23,35 +21,53 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+label,
+p {
   font-family: "Lato", sans-serif;
   opacity: 0.9;
 }
-h1 {
+h1,
+#text40 {
   font-size: 40px;
 }
 h2 {
   font-size: 35px;
 }
-h3 {
-  font-size: 30;
+h3,
+#text30 {
+  font-size: 30px;
 }
 h4,
 #mediumText {
   font-size: 25px;
 }
+button,
 h5 {
   font-size: 20px;
+  background-color: transparent;
 }
+
 h6 {
   font-size: 18px;
 }
-p {
+p,
+input,
+select {
   font-size: 15px;
+  outline: none;
+  border: none;
+}
+input:user-invalid {
+  outline: 1px solid red;
 }
 #flexCenter {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+#flexAlignCenter {
+  display: flex;
   align-items: center;
 }
 #flexSpaceBetween {
@@ -63,6 +79,11 @@ p {
   display: flex;
   flex-direction: column;
 }
+#flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 #flexColumnCenter {
   display: flex;
   flex-direction: column;
@@ -70,6 +91,9 @@ p {
   align-items: center;
 }
 li,
+#Text25 {
+  font-size: 25px;
+}
 #mediumText {
   list-style: none;
   font-size: 20px;
@@ -80,13 +104,14 @@ li,
 li,
 button {
   list-style: none;
-  font-size: 0.8rem;
   font-family: "Lato", sans-serif;
   opacity: 0.9;
 }
 button {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  border: none;
+  background-color: transparent;
 }
 .icon:hover,
 button:hover {

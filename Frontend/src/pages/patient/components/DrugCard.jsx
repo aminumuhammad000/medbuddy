@@ -2,7 +2,13 @@ import style from "./DrugCard.module.css";
 const DrugCard = ({ image, title, price, onClick }) => {
   return (
     <div className={style.DrugCard}>
-      <img src={image} alt={title} className={style.img} onClick={onClick} />
+      <img
+        src={image}
+        alt={title}
+        className={style.img}
+        onClick={onClick}
+        loading="lazy"
+      />
       <p className={style.title}>{title}</p>
       <div>
         <h1 className={style.price}>

@@ -1,72 +1,57 @@
-.profile{
-    width: 100%;
-    /* width: 1432px; */
+.profile {
+  width: 100%;
 }
-.profileHeader{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.profileHeader {
+  width: 100%;
+  margin-top: 32px;
 }
-.profileList{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    padding: 20px;
+.profileList {
+  gap: 100px;
 }
-.profileList li{
-    font-size: 1.875rem;   /* 30px / 16 = 1.875rem */
-    font-weight: 500;
-    cursor: pointer;
-    transition: border-bottom 0.3s ease;
+.profileList li {
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-bottom 0.3s ease;
 }
-.profileList li.active{
+.profileList li.active {
   color: var(--blue-color);
-  border-bottom: 2px solid var(--blue-color);
+  border-bottom: 3px solid var(--blue-color);
 }
-.patientCard{
-    width: 100%;
-    padding: 20px 50px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: var(--white-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;  
-    margin-top: 20px;  
+.patientCard {
+  width: 100%;
+  padding: 20px 50px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px #0000001a;
+  background-color: var(--white-color);
+  margin-top: 44px;
 }
-.patientCardHeader{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.patientCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.patientCardHeader img{
-    width: 7.7em;      /* 123px / 16 = 7.6875em */
-    height: 7.7em;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #ddd;
+.patientCardHeader img {
+  width: 7.7em; /* 123px / 16 = 7.6875em */
+  height: 7.7em;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
 }
-.name{
-    font-size: 1.875rem;   /* 30px / 16 = 1.875rem */
-    font-weight: 700;
+.name {
+  font-weight: 700;
 }
-.idNo{
-    font-weight: 300;
-    font-size: 1.5625rem;  /* 25px / 16 = 1.5625rem */
-    margin-top: -0.125em;  /* -2px / 16 = -0.125em */
+.idNo {
+  font-weight: 300;
+  margin-top: -0.125em; /* -2px / 16 = -0.125em */
 }
-.editButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 141px;
-    /* font-size: 25px; */
-    font-size: 1.5625rem; 
-    height: 58px;
-    box-shadow: 1px 1px 2px #ddd;
+.editButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 141px;
+  height: 58px;
+  box-shadow: 1px 1px 2px #ddd;
 }

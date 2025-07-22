@@ -7,8 +7,12 @@ import facebook from "../../assets/icons/social/facebook.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../api/axios";
 import { useState } from "react";
-import PasswordInput from "./components/PasswordInput";
-
+import LoginComponent from "./components/LoginComponent";
+import Register from "./components/Register";
+import Otp from "./components/Otp";
+import ForgetPassword from "./components/ForgetPassword";
+import CreateNewPassword from "./components/CreateNewPassword";
+import frame from "../../assets/images/backgrounds/frame.png";
 const Login = () => {
   const navigate = useNavigate();
   const { user, authMode } = useSelector((state) => state.auth);
@@ -90,7 +94,7 @@ const Login = () => {
   };
 
   return (
-    <div className={style.Login}>
+    <div className={style.Login} id="flexCenter">
       <div className={style.decoration}>
         <svg
           width="147"
@@ -113,9 +117,27 @@ const Login = () => {
           <img src={logo2} alt="logo" />
         </div>
       </Link>
+      {authMode === "forgot" && (
+        <button
+          className={style.backBtn}
+          id="flexCenter"
+          onClick={() => dispatch(setAuthMode("login"))}
+        >
+          <iconify-icon icon="uil:arrow-left"></iconify-icon>
+        </button>
+      )}
+      {authMode === "otp" && (
+        <button
+          className={style.backBtn}
+          id="flexCenter"
+          onClick={() => dispatch(setAuthMode("forgot"))}
+        >
+          <iconify-icon icon="typcn:arrow-left"></iconify-icon>
+        </button>
+      )}
 
-      <div className={style.Container}>
-        <h1 className={style.Signup}>
+      <div className={style.Container} id="flexColumn">
+        <h2 className={style.Signup}>
           {authMode === "login"
             ? "Login"
             : authMode === "register"
@@ -125,17 +147,19 @@ const Login = () => {
             : authMode === "otp"
             ? "Enter OTP"
             : "Create a new Password"}
-        </h1>
+        </h2>
+        <img src={frame} alt="" />
 
         {error && <div className={style.error}>{error}</div>}
         {loading && <div className={style.loading}>Loading...</div>}
 
         {authMode === "register" && (
-          <div className={style.selectContainer}>
+          <div className={style.selectContainer} id="flexCenter">
             <button
               className={user.role === "patient" ? style.active : ""}
               onClick={() => handleRoleClick("patient")}
               type="button"
+              id="Text25"
             >
               Join as a patient
             </button>
@@ -143,6 +167,7 @@ const Login = () => {
               className={user.role === "pharmacist" ? style.active : ""}
               onClick={() => handleRoleClick("pharmacist")}
               type="button"
+              id="Text25"
             >
               Join as a pharmacist
             </button>
@@ -150,172 +175,65 @@ const Login = () => {
               className={user.role === "doctor" ? style.active : ""}
               onClick={() => handleRoleClick("doctor")}
               type="button"
+              id="Text25"
             >
               Join as a doctor
             </button>
           </div>
         )}
 
-        <div className={style.form}>
-          <form onSubmit={handleFormSubmit}>
-            {authMode === "register" && (
-              <>
-                <div className={style.name}>
-                  <label htmlFor="name">Full name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter your full name"
-                    required
-                  />
-                </div>
+        {/* form start here  */}
+        <div className={style.form} id="flexCenter">
+          <form onSubmit={handleFormSubmit} id="flexColumn">
+            {authMode === "register" && <Register />}
 
-                <div className={style.emailConatiner}>
-                  <div className={style.email}>
-                    <label htmlFor="email">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Enter your Email address"
-                      required
-                    />
-                  </div>
+            {authMode === "login" && <LoginComponent />}
 
-                  <div className={style.phone}>
-                    <label htmlFor="phone">Phone number</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Enter your Phone number"
-                      required
-                    />
-                  </div>
-                </div>
-              </>
-            )}
+            {authMode === "forgot" && <ForgetPassword />}
 
-            {(authMode === "login" || authMode === "forgot") && (
-              <>
-                <p className={style.headingText}>
-                  {authMode === "forgot"
-                    ? "Enter the email address you used to register MEDBUDDY"
-                    : ""}
-                </p>
+            {authMode === "otp" && <Otp />}
 
-                <div className={style.email}>
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your Email address"
-                    required
-                  />
-                </div>
-              </>
-            )}
-
-            {(authMode === "login" ||
-              authMode === "setPassword" ||
-              authMode === "register") && (
-              <>
-                <div className={style.password}>
-                  <PasswordInput />
-                </div>
-
-                {authMode === "setPassword" && <PasswordInput />}
-              </>
-            )}
-
-            {authMode === "login" && (
-              <div className={style.check}>
-                <input type="checkbox" />
-                <span>Remember me</span>
-              </div>
-            )}
-
-            {authMode === "otp" && (
-              <>
-                <p className={style.headingText}>
-                  {authMode === "otp"
-                    ? "We have sent an OTP code to your email. Enter the OTP code below to verify."
-                    : ""}
-                </p>
-
-                <div className={style.otp}>
-                  {[0, 1, 2, 3].map((i) => (
-                    <input
-                      key={i}
-                      type="text"
-                      name="otp"
-                      required
-                      min="1"
-                      maxLength={"1"}
-                      autoFocus={i === 0}
-                    />
-                  ))}
-                </div>
-                <p className={style.alreadyHaveAccount}>
-                  <span>Resend OTP code</span>
-                </p>
-              </>
-            )}
-            {authMode === "register" && (
-              <>
-                {user?.role === "patient" && (
-                  <div className={style.nhis}>
-                    <label htmlFor="nhis">NHIS (optional)</label>
-                    <input
-                      type="text"
-                      name="nhis"
-                      placeholder="Enter your NHIS"
-                    />
-                  </div>
-                )}
-
-                {user?.role === "doctor" && (
-                  <div className={style.nhis}>
-                    <label htmlFor="license">License Number</label>
-                    <input
-                      type="text"
-                      name="license"
-                      placeholder="Enter your License Number"
-                    />
-                  </div>
-                )}
-
-                <div className={style.check}>
-                  <input type="checkbox" required />
-                  <span>I accept the terms & conditions and privacy</span>
-                </div>
-              </>
-            )}
+            {authMode === "setPassword" && <CreateNewPassword />}
 
             <button
               type="submit"
               className={style.SignupBtn}
               disabled={loading}
             >
-              {loading
-                ? "Please wait..."
-                : authMode === "login"
-                ? "Login"
-                : authMode === "register"
-                ? "Sign up"
-                : authMode === "forgot"
-                ? "Reset password"
-                : authMode === "setPassword"
-                ? "Change Password"
-                : "Continue"}{" "}
-              &#10230;
+              <h3 id="flexCenter">
+                {" "}
+                {loading
+                  ? "Please wait..."
+                  : authMode === "login"
+                  ? "Login"
+                  : authMode === "register"
+                  ? "Sign up"
+                  : authMode === "forgot"
+                  ? "Reset password"
+                  : authMode === "setPassword"
+                  ? "Change Password"
+                  : "Continue"}{" "}
+                <span style={{ marginTop: "10px" }}>
+                  <iconify-icon icon="formkit:arrowright"></iconify-icon>
+                </span>
+              </h3>
             </button>
 
             {(authMode === "login" || authMode === "register") && (
-              <div className={style.loginWith}>
-                <div className={style.Google}>
-                  <img src={google} alt="google icon" />
+              <div className={style.loginWith} id="flexCenter">
+                <div>
+                  <img
+                    src={google}
+                    alt="google icon"
+                    className={style.Google}
+                  />
                 </div>
-                <div className={style.Facebook}>
-                  <img src={facebook} alt="facebook icon" />
+                <div>
+                  <img
+                    src={facebook}
+                    alt="facebook icon"
+                    className={style.Facebook}
+                  />
                 </div>
               </div>
             )}
@@ -331,15 +249,17 @@ const Login = () => {
                     Sign up
                   </span>
                 </p>
+
                 <p className={style.alreadyHaveAccount}>
-                  Forget my Password?{" "}
                   <span onClick={() => dispatch(setAuthMode("forgot"))}>
-                    Login with Email Link
+                    Forget Password?
                   </span>
                 </p>
               </>
-            ) : authMode === "forgot" || authMode === "otp" ? (
-              ""
+            ) : authMode === "otp" ? (
+              <p className={style.alreadyHaveAccount}>
+                <span>Resend code</span>
+              </p>
             ) : (
               <p className={style.alreadyHaveAccount}>
                 Already have an account?{" "}

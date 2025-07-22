@@ -1,10 +1,5 @@
 import FeaturesCard from "../common/FeaturesCard";
 import style from "../../components/layout/Features.module.css";
-import { Icon } from "@iconify/react";
-import robotIcon from "@iconify/icons-mdi/robot-outline";
-import accountVoiceIcon from "@iconify/icons-mdi/account-voice";
-import bellAlertIcon from "@iconify/icons-mdi/bell-alert-outline";
-import pillIcon from "@iconify/icons-mdi/pill";
 
 const Features = () => {
   return (
@@ -15,28 +10,27 @@ const Features = () => {
       <hr />
       <div className={style.cardContainer} id="flexCenter">
         <FeaturesCard
-          icon={robotIcon}
+          icon={"hugeicons:ai-dna"}
           title="AI Health Assistant"
           text="Ask anything and get health info instantly."
-          bg="#fff"
         />
 
         <FeaturesCard
-          icon={accountVoiceIcon}
+          icon={"streamline-ultimate:work-from-home-laptop-meeting"}
           title="Virtual Consultations"
           text="Talk to certified doctors and pharmacists."
-          bg="#1771b7"
-          color="#fff"
+          bg={"#1771b7"}
+          color={"white"}
         />
 
         <FeaturesCard
-          icon={bellAlertIcon}
+          icon={"line-md:bell-loop"}
           title="Smart Alerts"
           text="Refill reminders, drug recalls, and interaction warnings."
         />
 
         <FeaturesCard
-          icon={pillIcon}
+          icon={"mdi:drugs"}
           title="Order NAFDAC-Verified Drugs"
           text="Safe prescriptions delivered."
         />

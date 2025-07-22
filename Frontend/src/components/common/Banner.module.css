@@ -15,7 +15,7 @@
   position: absolute;
   border: 4em solid var(--blue-color);
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.5;
   right: -139px;
   margin-top: 46px;
 }
@@ -24,7 +24,7 @@
   position: absolute;
   width: calc(632px * 2);
   height: 1166px;
-  background-color: var(--color-white);
+  background-color: var(--white-color);
   border-radius: 50%;
   clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
   bottom: -583px;
@@ -66,12 +66,13 @@ p.text {
   object-fit: cover;
   border-radius: 4px;
 }
-.btnConatiner {
+.btnContainer {
   margin-top: 2em;
 }
-.btnConatiner button {
+.btnContainer button {
   background-color: var(--blue-color);
-  color: var(--color-white);
+  border: 1px solid var(--blue-color);
+  color: var(--white-color);
   width: 10em;
   padding: 7px 10px;
   border-radius: 10px;
@@ -80,7 +81,7 @@ p.text {
   position: absolute;
   width: 979px;
   height: 157px;
-  background-color: var(--color-white);
+  background-color: var(--white-color);
   padding: 20px;
   border-radius: 10px;
   gap: 88px;
@@ -91,6 +92,7 @@ p.text {
 .ctaContainer button {
   width: 242px;
   height: 67px;
+  background-color: var(--white-color);
   border: 1px solid var(--blue-color);
   padding: 19px 0px;
   text-align: center;
@@ -98,6 +100,7 @@ p.text {
   color: var(--blue-color);
 }
 .ctaContainer button.active {
+  border: 1px solid var(--blue-color);
   background-color: var(--blue-color);
-  color: var(--color-white);
+  color: var(--white-color);
 }

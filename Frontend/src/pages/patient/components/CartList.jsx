@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import style from "./CartList.module.css";
 
 const CartList = ({ image, title, price, amount }) => {
@@ -17,7 +15,7 @@ const CartList = ({ image, title, price, amount }) => {
 
       <div className={style.priceContainer}>
         <button>
-          <FontAwesomeIcon icon={faTrash} className={style.delete} />
+          <iconify-icon icon="fa:trash" className={style.delete} />
         </button>
         <p className={style.price}>{price}</p>
       </div>

@@ -4,7 +4,7 @@
   width: 100%;
   margin-inline: auto;
   height: 1008px;
-  background-color: var(--color-white);
+  background-color: var(--white-color);
   padding: 195px 0px 200px 0px;
   display: flex;
   gap: 143px;
@@ -64,13 +64,28 @@ p {
   font-weight: 500;
   color: var(--blue-color);
 }
+.table td li span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  text-align: center;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
 /* .table td */
 .makeAppointment {
   width: 211px;
   height: 56px;
   background-color: var(--blue-color);
   padding: 7px 10px;
-  color: var(--color-white);
+  color: var(--white-color);
   border-radius: 8px;
   margin-top: 49px;
 }

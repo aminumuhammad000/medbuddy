@@ -1,54 +1,58 @@
-.userProfile{
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 3em;
+.updates {
+  width: 100%;
 }
-.imgCard{
-    position: relative;
-    width: 7em;
-    height: 7em;
-    border-radius: 50%;
-    border: 1px solid #ddd;
+.userProfile {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  margin-top: 61px;
 }
-.imgCard img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+.imgCard {
+  position: relative;
+  width: 200px;
+  height: 191px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
 }
-.imgCard button{
-    position: absolute;
-    right: -10px;
-    bottom: -20px;
-    max-width: 3em;
+.imgCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
-.imgCard button svg{
-    width: 100%;
+.imgCard .changeProfile {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  max-width: 3em;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+  color: var(--white-color);
 }
-.btnContainer{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;  
+.btnContainer {
+  gap: 20px;
 }
-.btnContainer button{
-    padding: 10px 20px 10px 20px;
-    border: 1px solid var(--blue-color);
-    border-radius: 10px;
+.btnContainer button {
+  width: 224px;
+  height: 69px;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid var(--blue-color);
+  border-radius: 10px;
 }
-.btnContainer button.uploadNew{
-    background-color: var(--blue-color);
-    color: var(--color-white);
+.btnContainer button.uploadNew {
+  background-color: var(--blue-color);
+  color: var(--white-color);
 }
 
-.Save{
-    background-color: var(--blue-color);
-    color: var(--color-white);
-    padding: 10px 20px 10px 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    right: 0;
+.Save {
+  width: 224px;
+  height: 69px;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  border-radius: 10px;
+  position: absolute;
+  right: 49px;
 }
