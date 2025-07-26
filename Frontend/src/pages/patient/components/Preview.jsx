@@ -30,7 +30,7 @@ const Preview = ({ drug, onAddToCart }) => {
       </div>
 
       <h1 className={style.descriptionTitle}>Product Details</h1>
-      <div className={style.descriptionContainer}>
+      <div className={style.descriptionContainer} id="flexColumn">
         <div className={style.mainDetails}>
           <h1 className={style.title2}>Description</h1>
           <p className={style.description}>
@@ -41,9 +41,9 @@ const Preview = ({ drug, onAddToCart }) => {
 
         <div className={style.ratingContainer}>
           <h1 className={style.title2}>Ratings & Reviews</h1>
-          <div className={style.reviewContainer}>
-            <div className={style.ratingHead}>
-              <div className={style.profileDetails}>
+          <div className={style.reviewContainer} id="flexColumn">
+            <div className={style.ratingHead} id="flexSpaceBetween">
+              <div className={style.profileDetails} id="flexCenter">
                 <img
                   src={profile}
                   alt="profile image"
@@ -58,13 +58,13 @@ const Preview = ({ drug, onAddToCart }) => {
                 {[...Array(5)].map((_, index) => (
                   <iconify-icon
                     key={index}
-                    icon={faStar}
+                    icon={"material-symbols:star-rounded"}
                     className={style.star}
-                    color={index < 4 ? "#FFD700" : "#ccc"} // 4 stars filled, 1 empty
                   ></iconify-icon>
                 ))}
               </div>
             </div>
+
             <p className={style.ratingText}>
               Lorem ipsum dolor sit amet consectetur. Condimentum pretium at
               facilisis velit. Ante feugiat proin in risus arcu. Volutpat

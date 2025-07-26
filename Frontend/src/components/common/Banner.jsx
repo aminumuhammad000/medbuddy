@@ -14,7 +14,7 @@ const Banner = () => {
 
   return (
     <div className={style.bannerContainer}>
-      <div style={{ width: "676px" }}>
+      <div>
         <div>
           <h1 className={style.heading}>
             Your Trusted <br />
@@ -26,16 +26,18 @@ const Banner = () => {
           </h1>
         </div>
 
-        <p className={style.text}>
+        <p className={style.text} id="smallText">
           Consult doctors, order verified medications, and track your health all
           in one place Consult doctors, order verified medications, and track
           your health all in one place.
         </p>
 
         <div className={style.btnContainer}>
-          <Link to="/Auth">
+          <Link to="/Auth" className={style.link}>
             <button
-              style={{ width: "240px", height: "72px", fontSize: "25px" }}
+              style={{ width: "200px", height: "56px" }}
+              id="flexCenter"
+              onClick={() => handleRoleClick("patient")}
             >
               Get Started
             </button>
@@ -45,26 +47,26 @@ const Banner = () => {
 
       <img src={Group} alt="icons" className={style.decorationImage} />
       <div className={style.imgContainer}>
-        <img src={doctor} alt="banner image" width={632} height={774} />
+        <img src={doctor} alt="banner image" />
       </div>
 
       <div className={style.ctaContainer} id="flexCenter">
-        <Link to="/Auth">
+        <Link to="/Auth" className={style.link}>
           <button
             className={style.active}
             onClick={() => handleRoleClick("patient")}
-            id="mediumText"
+            id="flexCenter"
           >
             I am a patient
           </button>
         </Link>
-        <Link to="/Auth">
-          <button onClick={() => handleRoleClick("pharmacist")} id="mediumText">
+        <Link to="/Auth" className={style.link}>
+          <button onClick={() => handleRoleClick("pharmacist")} id="flexCenter">
             I am a phamacist
           </button>
         </Link>
-        <Link to="/Auth">
-          <button onClick={() => handleRoleClick("doctor")} id="mediumText">
+        <Link to="/Auth" className={style.link}>
+          <button onClick={() => handleRoleClick("doctor")} id="flexCenter">
             I am a doctor
           </button>
         </Link>

@@ -117,6 +117,20 @@ const Sidebar = () => {
               <h4>My Cart</h4>
             </button>
           </li>
+
+          <li className={styles.settings}>
+            <button
+              onClick={() => handlePage("settings")}
+              className={page === "ai" ? styles.active : ""}
+              id="flexAlignCenter"
+            >
+              <iconify-icon
+                icon="hugeicons:ai-dna"
+                className={styles.icon}
+              ></iconify-icon>{" "}
+              <h4>AI Consultant</h4>
+            </button>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,64 +1,57 @@
 .bannerContainer {
   position: relative;
-  width: calc(100% - 81px);
+  width: 100%;
+  height: 600px;
+  padding: 0px 81px 0px 81px;
   margin-inline: auto;
-  height: 774px;
   display: flex;
-  gap: 200px;
-  flex-wrap: wrap;
-  margin-top: 52px;
+  gap: 150px;
+  margin-top: 62px;
 }
 .bannerContainer::before {
   content: "";
-  width: calc(774px - 138px);
-  height: calc(100% - 138px);
+  width: 50.6%;
+  height: 68%;
   position: absolute;
-  border: 4em solid var(--blue-color);
+  border: 3.4em solid var(--blue-color);
   border-radius: 50%;
   opacity: 0.5;
-  right: -139px;
-  margin-top: 46px;
+  right: -300px;
+  top: 40px;
 }
 .bannerContainer::after {
   content: "";
   position: absolute;
-  width: calc(632px * 2);
-  height: 1166px;
+  width: 70%;
+  height: 140%;
   background-color: var(--white-color);
   border-radius: 50%;
   clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-  bottom: -583px;
+  bottom: -70%;
   right: -206px;
   z-index: -2;
 }
 .heading {
-  font-size: 90px;
+  font-size: 70px;
   font-weight: 700;
   color: var(--blue-color);
-  line-height: 104px;
+  line-height: 68px;
   span {
     color: var(--hover-color);
   }
 }
 p.text {
-  font-size: 16px;
   opacity: 0.8;
-  margin-top: 35px;
-  max-width: 650px;
-  margin-bottom: 63px;
+  margin-top: 25px;
+  margin-bottom: 53px;
+  width: 550px;
+}
+.link {
+  text-decoration: none;
 }
 .imgContainer {
-  width: 632px;
-  height: 100%;
+  width: 37%;
   z-index: 2;
-}
-.decorationImage {
-  position: absolute;
-  width: 550px;
-  height: 526px;
-  left: 700px;
-  bottom: 57px;
-  z-index: 3;
 }
 .imgContainer img {
   width: 100%;
@@ -66,6 +59,14 @@ p.text {
   object-fit: cover;
   border-radius: 4px;
 }
+.decorationImage {
+  position: absolute;
+  width: 31%;
+  right: 300px;
+  bottom: 40px;
+  z-index: 3;
+}
+
 .btnContainer {
   margin-top: 2em;
 }
@@ -73,31 +74,34 @@ p.text {
   background-color: var(--blue-color);
   border: 1px solid var(--blue-color);
   color: var(--white-color);
-  width: 10em;
   padding: 7px 10px;
   border-radius: 10px;
 }
 .ctaContainer {
   position: absolute;
-  width: 979px;
-  height: 157px;
+  width: 54.33%;
+  height: 120px;
   background-color: var(--white-color);
   padding: 20px;
   border-radius: 10px;
-  gap: 88px;
+  gap: 40px;
   box-shadow: 1px 1px 2px #ddd;
   bottom: 51px;
   z-index: 10;
 }
 .ctaContainer button {
-  width: 242px;
-  height: 67px;
+  font-size: 16.5px;
+  width: 180px;
+  height: 50px;
   background-color: var(--white-color);
   border: 1px solid var(--blue-color);
   padding: 19px 0px;
   text-align: center;
   border-radius: 10px;
   color: var(--blue-color);
+}
+.ctaContainer .link {
+  text-decoration: none;
 }
 .ctaContainer button.active {
   border: 1px solid var(--blue-color);

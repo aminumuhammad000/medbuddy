@@ -121,7 +121,7 @@ const ConsultBooking = () => {
   const [showAllSpecialties, setShowAllSpecialties] = useState(false);
   const [selectedSpecialist, setSelectedSpecialist] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
-
+  const [showConsultPreview, setShowConsultPreview] = useState(true);
   const visibleSpecialists = showAllSpecialties
     ? specialist
     : specialist.slice(0, 5);
@@ -134,107 +134,109 @@ const ConsultBooking = () => {
     setSelectedSpecialist(name);
   };
 
-  const clearFilter = () => {
-    setSelectedSpecialist(null);
-  };
-
   const handleDoctorClick = (doctor) => {
     setSelectedDoctor(doctor);
   };
 
-  const handleBack = () => setSelectedDoctor(null);
+  // const handleBack = () => setSelectedDoctor(null);
+
   return (
     <div className={style.ConsultBooking}>
-      <Search />
-      <div className={style.test}></div>
-      {/* Specialties Section */}
-      <div
-        className={
-          showAllSpecialties ? style.iconsContainerAll : style.iconsContainer
-        }
-      >
-        {visibleSpecialists.map((item, index) => (
-          <div
-            key={index}
-            className={showAllSpecialties ? style.iconBoxAll : style.iconBox}
-            style={{ cursor: "pointer" }}
-            onClick={() => handleSpecialistClick(item.name)}
-          >
+      <>
+        {showConsultPreview ? (
+          <ConsultPreview doc={selectedDoctor} />
+        ) : (
+          <>
+            <Search />
+            {/* Specialties Section */}
             <div
-              className={showAllSpecialties ? style.iconDivAll : style.iconDiv}
-              style={
-                selectedSpecialist === item.name
-                  ? {
-                      backgroundColor: "#1771B7",
-                    }
-                  : {}
+              className={
+                showAllSpecialties
+                  ? style.iconsContainerAll
+                  : style.iconsContainer
               }
             >
-              <iconify-icon
-                icon={item.icon}
-                className={style.icon}
-                style={
-                  selectedSpecialist === item.name
-                    ? {
-                        color: "#fff",
+              {visibleSpecialists.map((item, index) => (
+                <div
+                  key={index}
+                  className={
+                    showAllSpecialties ? style.iconBoxAll : style.iconBox
+                  }
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSpecialistClick(item.name)}
+                >
+                  <div
+                    className={
+                      showAllSpecialties ? style.iconDivAll : style.iconDiv
+                    }
+                    style={
+                      selectedSpecialist === item.name
+                        ? {
+                            backgroundColor: "#1771B7",
+                          }
+                        : {}
+                    }
+                  >
+                    <iconify-icon
+                      icon={item.icon}
+                      className={style.icon}
+                      style={
+                        selectedSpecialist === item.name
+                          ? {
+                              color: "#fff",
+                            }
+                          : {}
                       }
-                    : {}
+                    ></iconify-icon>
+                  </div>
+                  <h3 className={style.name}>{item.name}</h3>
+                  {showAllSpecialties && (
+                    <h4 className={style.amount}>{item.amount} Available</h4>
+                  )}
+                </div>
+              ))}
+
+              {/* See More/Less Toggle */}
+              <div
+                className={
+                  showAllSpecialties ? style.iconBoxAll : style.iconBox
                 }
-              ></iconify-icon>
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setShowAllSpecialties((prev) => !prev);
+                  setSelectedSpecialist(null); // reset any active filter when toggling view
+                }}
+              >
+                <div
+                  className={
+                    showAllSpecialties ? style.iconDivAll : style.iconDiv
+                  }
+                >
+                  <iconify-icon
+                    icon={
+                      showAllSpecialties ? "mdi:arrow-left" : "mdi:arrow-right"
+                    }
+                    rotation={showAllSpecialties ? 180 : 0}
+                    className={style.icon}
+                  ></iconify-icon>
+                </div>
+                <h3 className={style.name}>
+                  {showAllSpecialties ? "See less" : "See more"}
+                </h3>
+              </div>
             </div>
-            <h3 className={style.name}>{item.name}</h3>
-            {showAllSpecialties && (
-              <h4 className={style.amount}>{item.amount} Available</h4>
+
+            {!showAllSpecialties && (
+              <div>
+                <DoctorList
+                  doctors={filteredDoctors}
+                  onDoctorClick={handleDoctorClick}
+                />
+              </div>
             )}
-          </div>
-        ))}
-
-        {/* See More/Less Toggle */}
-        <div
-          className={showAllSpecialties ? style.iconBoxAll : style.iconBox}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setShowAllSpecialties((prev) => !prev);
-            setSelectedSpecialist(null); // reset any active filter when toggling view
-          }}
-        >
-          <div
-            className={showAllSpecialties ? style.iconDivAll : style.iconDiv}
-          >
-            <iconify-icon
-              icon={faArrowAltCircleRight}
-              rotation={showAllSpecialties ? 180 : 0}
-              className={style.icon}
-            ></iconify-icon>
-          </div>
-          <h3 className={style.name}>
-            {showAllSpecialties ? "See less" : "See more"}
-          </h3>
-        </div>
-      </div>
-
-      {/* Doctor List Section (hidden if showAllSpecialties === true) */}
-      {!showAllSpecialties && (
-        <div>
-          <div className={style.doctorListTitle}>
-            <h1 className={style.listTitle}>
-              {selectedSpecialist
-                ? `${selectedSpecialist} Available`
-                : "Top Doctors"}
-            </h1>
-            <button className={style.moreDoctors} onClick={clearFilter}>
-              {selectedSpecialist ? "Clear Filter" : "See more"}
-            </button>
-          </div>
-          <DoctorList
-            doctors={filteredDoctors}
-            onDoctorClick={handleDoctorClick}
-          />
-        </div>
-      )}
-
-      {/* Selected Doctor Preview */}
-      <ConsultPreview doc={selectedDoctor} />
+          </>
+        )}
+      </>
     </div>
   );
 };

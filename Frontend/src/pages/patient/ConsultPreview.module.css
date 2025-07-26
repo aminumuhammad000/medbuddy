@@ -1,16 +1,34 @@
-.ConsultPreview{
-    margin-top: 2em;
-    width: 100%;
+.ConsultPreview {
+  margin-top: 2em;
+  width: 100%;
 }
-.navList{
-    margin-top: 30px;
-    display: flex;
-    gap: 107px;
+.navList {
+  margin-top: 30px;
+  display: flex;
+  gap: 107px;
 }
-.navList li{
-    font-size: 35px;
+.navList li {
+  opacity: 0.6;
+  cursor: pointer;
+  color: #222;
 }
-
-/* Vector */
-
-
+.navList li button {
+  padding: 0px 15px 0px 15px;
+}
+.navList li.active {
+  border-bottom: 4px solid var(--blue-color);
+  opacity: 1;
+}
+.navList li.active button {
+  font-weight: 700;
+  opacity: 1;
+  color: var(--blue-color);
+}
+p {
+  margin-top: 15px;
+  max-width: 1425px;
+}
+.feedbackCard {
+  gap: 30px;
+  margin-top: 40px;
+}

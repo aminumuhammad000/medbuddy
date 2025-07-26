@@ -19,11 +19,15 @@ const FeedbackCard = ({ profile, name, username, text }) => {
       </div>
 
       <div className={style.detailsContainer}>
-        <h2 className={style.name}>{name}</h2>
-        <p className={style.username}>{username}</p>
+        <h4 className={style.name}>{name}</h4>
+        <p className={style.username} id="smallText">
+          {username}
+        </p>
 
-        <p className={style.text}>{text}</p>
-        <p className={style.star}>
+        <p className={style.text} id="smallText">
+          {text}
+        </p>
+        <p className={style.star} id="smallText">
           &#11088; &#11088; &#11088; &#11088; &#11088; <span>4.8/5</span>
         </p>
       </div>

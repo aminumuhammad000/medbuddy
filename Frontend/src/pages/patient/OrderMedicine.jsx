@@ -150,7 +150,6 @@ const OrderMedicine = () => {
                   image={drug.image}
                   title={drug.title}
                   price={drug.price}
-                  // onClick={() => setSelectedDrug(drug)}
                   onClick={() => handleDrugClick(drug)}
                 />
               ))}

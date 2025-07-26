@@ -1,32 +1,20 @@
 .TeamCard {
-  width: 505px;
-  height: 626px;
+  width: 29%;
+  height: 450px;
   background-color: var(--white-color);
   border-radius: 10px;
   padding: 25px;
   box-shadow: 1px 1px 3px #ddd;
   z-index: 5;
 }
-.TeamCard::before {
-  content: "";
-  width: 8em;
-  height: 8em;
-  background-color: transparent;
-  border: 14px solid var(--blue-color);
-  opacity: 0.2;
-  border-radius: 50%;
-  position: absolute;
-  left: -1em;
-  z-index: -1;
-}
+
 .imgProfile {
-  width: 256px;
-  height: 256px;
+  width: 156px;
+  height: 156px;
   border-radius: 50%;
   object-fit: cover;
 }
 .TeamCard .name {
-  font-size: 28px;
   padding-top: 1em;
   font-weight: 600;
 }

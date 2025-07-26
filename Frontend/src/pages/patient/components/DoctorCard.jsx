@@ -34,7 +34,7 @@ const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
     <div className={style.DoctorCard}>
       <div className={style.cardHead}>
         <div className={style.rating}>
-          <FontAwesomeIcon icon={faStar} className={style.start} />
+          <iconify-icon icon="mdi:star" className={style.start}></iconify-icon>
           {rating}
         </div>
         <div className={style.heartIcon}>
@@ -49,7 +49,7 @@ const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
         </div>
 
         <div className={style.imageContainer}>
-          <img src={profile} alt="profile image" />
+          <img src={profile} alt="profile image" loading="lazy" />
         </div>
       </div>
       <div className={style.cardFooter}>

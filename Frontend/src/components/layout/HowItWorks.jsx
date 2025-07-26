@@ -5,7 +5,7 @@ const HowItWorks = () => {
   return (
     <div className={style.HowItWorks} id="HowItWorks">
       <div className={style.imgContainer}>
-        <img src={team} alt="our team" width={500} />
+        <img src={team} alt="our team" />
       </div>
 
       <div className={style.infoContainer}>

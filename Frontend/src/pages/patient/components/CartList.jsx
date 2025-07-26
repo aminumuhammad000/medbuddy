@@ -4,7 +4,7 @@ const CartList = ({ image, title, price, amount }) => {
   return (
     <div className={style.CartList}>
       <div className={style.imgContainer}>
-        <img src={image} alt={image} />
+        <img src={image} alt={image} loading="lazy" />
       </div>
       <h2 className={style.title}>{title}</h2>
       <div className={style.controlAmount}>
