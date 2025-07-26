@@ -38,13 +38,15 @@ h3,
 #text30 {
   font-size: 30px;
 }
-h4,
-#mediumText {
+h4 {
   font-size: 25px;
+}
+#mediumText {
+  font-size: 17px;
 }
 button,
 h5 {
-  font-size: 20px;
+  font-size: 17px;
   background-color: transparent;
 }
 
@@ -90,16 +92,15 @@ input:user-invalid {
   justify-content: center;
   align-items: center;
 }
-li,
-#Text25 {
+#text25 {
   font-size: 25px;
 }
 #mediumText {
   list-style: none;
-  font-size: 20px;
+  font-size: 16.5px;
 }
 #smallText {
-  font-size: 16px;
+  font-size: 14px;
 }
 li,
 button {

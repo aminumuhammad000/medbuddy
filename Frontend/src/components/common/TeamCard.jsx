@@ -5,7 +5,7 @@ const TeamCard = ({ image, name, role }) => {
   return (
     <div className={style.TeamCard} id="flexColumnCenter">
       <img src={image} alt="profile image" className={style.imgProfile} />
-      <h1 className={style.name}>{name}</h1>
+      <h5 className={style.name}>{name}</h5>
       <p className={style.role} id="smallText">
         {role}
       </p>

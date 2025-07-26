@@ -13,23 +13,23 @@ const Footer = () => {
 
       <ul className={style.navList} id="flexCenter">
         <li>
-          <Link to="/" id="text30" className={style.Link}>
+          <Link to="/" id="text25" className={style.Link}>
             Home
           </Link>
         </li>
         <li>
           {" "}
-          <HashLink smooth to="/#Features" id="text30" className={style.Link}>
+          <HashLink smooth to="/#Features" id="text25" className={style.Link}>
             About Us
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#Contact" id="text30" className={style.Link}>
+          <HashLink smooth to="/#Contact" id="text25" className={style.Link}>
             Contact Us
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to="/#HowItWorks" id="text30" className={style.Link}>
+          <HashLink smooth to="/#HowItWorks" id="text25" className={style.Link}>
             How it works
           </HashLink>
         </li>

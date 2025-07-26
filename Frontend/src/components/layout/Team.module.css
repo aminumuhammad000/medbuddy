@@ -1,9 +1,23 @@
 .Team {
-  padding: 5em 4em 5em 4em;
+  width: 100%;
+  padding: 5em 81px 5em 81px;
   z-index: 100;
 }
+.Team::before {
+  content: "";
+  width: 8em;
+  height: 8em;
+  background-color: transparent;
+  border: 14px solid var(--blue-color);
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  left: -1em;
+  margin-top: 30em;
+  z-index: 1;
+}
 .Team h1 {
-  font-size: 67px;
+  font-size: 60px;
   color: var(--hover-color);
   font-weight: 600;
 }
@@ -14,4 +28,5 @@
   gap: 50px;
   flex-wrap: wrap;
   margin-top: 152px;
+  z-index: 1;
 }

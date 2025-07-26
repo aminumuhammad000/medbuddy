@@ -1,12 +1,12 @@
 .Contact {
+  width: 100%;
   display: grid;
   place-content: center;
-  padding: 5em 2em 5em 2em;
+  padding: 5em 81px 5em 81px;
   background-color: var(--white-color);
 }
 .Contact .logoContainer {
-  width: 745px;
-  height: 153px;
+  width: 500px;
   margin-inline: auto;
 }
 
@@ -15,7 +15,6 @@
   object-fit: cover;
 }
 .Contact .subscribeContainer {
-  width: 1244px;
   background-color: var(--white-color);
   border-radius: 5px;
   box-shadow: 1px 0px 4px #ddd;
@@ -23,7 +22,6 @@
   margin-top: 2em;
 }
 .Contact .subscribeContainer h1 {
-  font-size: 50px;
   text-align: center;
   font-weight: 700;
   color: var(--hover-color);
@@ -37,8 +35,8 @@
 }
 .Contact .inputContainer {
   margin-top: 2em;
-  width: 734px;
-  height: 72px;
+  width: 100%;
+  height: 65px;
   padding: 0px 10px 0px 24px;
   border-radius: 8px;
   background-color: #f8f8f8;
@@ -55,7 +53,7 @@
   background-color: var(--blue-color);
   color: var(--white-color);
   padding: 0.8em;
-  width: 151px;
-  height: 56px;
+  width: 120px;
+  height: 46px;
   border-radius: 10px;
 }

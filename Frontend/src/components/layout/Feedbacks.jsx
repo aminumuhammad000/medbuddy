@@ -27,9 +27,7 @@ const Feedbacks = () => {
       </div>
 
       <div className={style.btnContainer}>
-        <button className={style.viewMore}>
-          <h4>View more</h4>
-        </button>
+        <button className={style.viewMore}>View more</button>
       </div>
     </div>
   );

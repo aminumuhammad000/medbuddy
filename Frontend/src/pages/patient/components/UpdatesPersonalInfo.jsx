@@ -39,16 +39,16 @@ const UpdatesPersonalInfo = () => {
             <label htmlFor="dob" id="mediumText">
               Date Of Birth
             </label>
-            <select name="gender" id="mediumText">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
+            <input type="text" name="dob" id="dob" />
           </div>
           <div>
             <label htmlFor="Gender" id="mediumText">
               Gender
             </label>
-            <input type="text" name="gender" id="gender" />
+            <select name="gender" id="mediumText">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
           <div>
             <label htmlFor="NHISID" id="mediumText">

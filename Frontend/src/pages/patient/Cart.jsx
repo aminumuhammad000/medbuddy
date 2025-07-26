@@ -31,9 +31,9 @@ const drugs = [
 ];
 const Cart = () => {
   return (
-    <div className={style.Cart}>
+    <div className={style.Cart} id="flexSpaceBetween">
       <div className={style.cartList}>
-        <div className={style.cartTitle}>
+        <div className={style.cartTitle} id="flexSpaceBetween">
           <h3>Product</h3>
           <h3>Total</h3>
         </div>

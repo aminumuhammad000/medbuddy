@@ -6,11 +6,17 @@ const FeaturesCard = ({ icon, title, text, bg, color }) => {
       id="flexColumnCenter"
       style={{ backgroundColor: bg, color: color }}
     >
-      <iconify-icon icon={icon} className={style.icon}></iconify-icon>
-      <h2 className={style.title} style={{ color: color }}>
+      <iconify-icon
+        icon={icon}
+        className={style.icon}
+        id="flexCenter"
+      ></iconify-icon>
+      <h2 className={style.title} style={{ color: color }} id="mediumText">
         {title}
       </h2>
-      <p className={style.text}>{text}</p>
+      <p className={style.text} id="smallText">
+        {text}
+      </p>
     </div>
   );
 };

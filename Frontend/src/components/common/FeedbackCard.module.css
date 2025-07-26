@@ -1,7 +1,7 @@
 .FeedbackCard {
   width: 100%;
-  height: 388px;
-  padding: 62px 107px;
+  height: 288px;
+  padding: 20px 40px;
   gap: 40px;
   background-color: var(--color-white);
   border-radius: 8px;
@@ -9,27 +9,26 @@
 }
 .profileContainer {
   position: relative;
-  width: 16em;
+  width: 240px;
   display: flex;
 }
 .profileContainer .blury {
   filter: blur(1px);
   border-radius: 10px;
   object-fit: cover;
-  min-width: 14em;
+  min-width: 12em;
 }
 .profileContainer .sideImage {
   position: absolute;
   border-radius: 10px;
   object-fit: cover;
-  width: 8em;
+  width: 7em;
   inset: 3em -2em 3em 9em;
 }
 .detailsContainer {
   margin-left: 40px;
 }
 .detailsContainer .name {
-  font-size: 38px;
   font-weight: 700;
   color: var(--hover-color);
   width: 8em;
