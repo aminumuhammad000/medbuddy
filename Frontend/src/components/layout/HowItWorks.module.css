@@ -75,6 +75,7 @@ p {
   border-radius: 50%;
   background-color: var(--blue-color);
   color: var(--white-color);
+  font-weight: 600;
 }
 /* .table td */
 .makeAppointment {
