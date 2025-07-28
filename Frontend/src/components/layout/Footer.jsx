@@ -41,6 +41,7 @@ const Footer = () => {
         un myth.
       </p>
 
+      <hr className={style.horizontalLine} />
       <div className={style.copyContainer} id="flexBetween">
         <p>Copyright © 2023. All rights reserved.</p>
 

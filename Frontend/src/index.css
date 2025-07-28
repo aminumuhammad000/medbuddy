@@ -29,17 +29,17 @@ p {
 }
 h1,
 #text40 {
-  font-size: 40px;
+  font-size: 30px;
 }
 h2 {
-  font-size: 35px;
+  font-size: 25px;
 }
 h3,
 #text30 {
-  font-size: 30px;
+  font-size: 20px;
 }
 h4 {
-  font-size: 25px;
+  font-size: 18px;
 }
 #mediumText {
   font-size: 17px;
@@ -93,7 +93,7 @@ input:user-invalid {
   align-items: center;
 }
 #text25 {
-  font-size: 25px;
+  font-size: 18px;
 }
 #mediumText {
   list-style: none;

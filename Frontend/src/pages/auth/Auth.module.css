@@ -1,21 +1,21 @@
 .Login {
+  width: 100%;
   position: relative;
   padding-bottom: 3em;
 }
 .backBtn {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   left: 64px;
   top: 87px;
   color: var(--white-color);
   font-size: 65px;
-  border: 2px solid var(--white-color);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffffff9c;
+  box-shadow: 0 8px 32px #00000062;
 }
 .decoration {
   position: absolute;
@@ -23,8 +23,7 @@
   bottom: unset;
 }
 .logoContainer {
-  width: 238px;
-  height: 47px;
+  width: 150px;
   position: absolute;
   top: 18px;
   left: 64px;
@@ -37,16 +36,15 @@
 .Container::before {
   content: "";
   position: absolute;
-  min-width: 1791px;
   width: 100%;
-  height: calc(929px * 2);
+  height: 100%;
   background-color: var(--blue-color);
   border-radius: 50%;
-  top: -929px;
+  top: -50%;
   z-index: -1;
 }
 .Container {
-  width: 1405px;
+  width: 78%;
   min-height: 1127px;
   background-color: var(--white-color);
   border: 1px solid #ddd;
@@ -76,13 +74,13 @@
   border-bottom: 2px solid var(--blue-color);
 }
 .form {
-  width: 995px;
+  width: 70%;
   margin-top: 36px;
   padding-bottom: 3em;
 }
 form {
   width: 100%;
-  gap: 25px;
+  gap: 20px;
 }
 form .name,
 form .password,
@@ -119,15 +117,15 @@ form div {
 }
 .uploadIcon {
   color: var(--blue-color);
-  font-size: 50px;
+  font-size: 30px;
 }
 .docLabel,
 form div input:not(input[type="checkbox"]) {
   width: 100%;
-  height: 75px;
-  border-radius: 24px;
+  height: 60px;
+  border-radius: 20px;
   background-color: #edededcc;
-  padding: 24px 60px;
+  padding: 20px 40px;
   opacity: 0.6;
 }
 .docLabel {
@@ -137,13 +135,13 @@ form div input:not(input[type="checkbox"]) {
   opacity: 0.6;
 }
 .check input {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   accent-color: var(--blue-color);
 }
 .SignupBtn {
-  height: 80px;
-  width: 459px;
+  height: 60px;
+  width: 350px;
   background-color: var(--blue-color);
   color: var(--white-color);
   border-radius: 30px;
@@ -165,20 +163,20 @@ form div input:not(input[type="checkbox"]) {
 .alreadyHaveAccount {
   text-align: center;
   font-size: 1rem;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .otp {
   gap: 40px;
   margin-top: 63px;
 }
 .otp input {
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 120px;
+  min-height: 120px;
   font-size: 40px;
   margin-bottom: 115px;
 }
 .alreadyHaveAccount {
-  font-size: 25px;
+  font-size: 18px;
 }
 .alreadyHaveAccount span {
   color: #f00;
