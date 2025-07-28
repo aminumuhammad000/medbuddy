@@ -4,15 +4,16 @@
   background-color: #f8f8f8;
 }
 .Footer .logoContainer {
-  width: 100px;
+  width: 300px;
   margin-inline: auto;
 }
-.Footer .logoContainer image {
+.Footer .logoContainer img {
   width: 100%;
   object-fit: cover;
 }
-.copyContainer {
-  border-top: 1px solid #ddd;
+.horizontalLine {
+  width: 120%;
+  border: 1px solid #ddd;
 }
 .copyContainer,
 .copy,
@@ -32,7 +33,7 @@
 .Footer .navList {
   margin-inline: auto;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 40px;
   padding: 2em 0px 2em 0px;
 }
 .Footer .navList li {

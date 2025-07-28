@@ -21,6 +21,9 @@ const PasswordInput = ({
         <input
           type={passwordType}
           name="Password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$
+"
+          title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
           placeholder={placeholder}
           className={style.pass}
         />
