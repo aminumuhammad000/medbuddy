@@ -1,31 +1,44 @@
 .AIChat {
+  width: 100%;
+  min-height: 30.125rem; /* 482px */
+  height: 100%;
   position: relative;
-  padding: 1.25rem; /* 20px */
   background-color: #333;
   border-radius: 1.875rem; /* 30px */
   color: var(--white-color);
-  height: 30.125rem; /* 482px */
 }
+
 .AIChat h4 {
   margin-bottom: 1.25rem; /* 20px */
   text-align: center;
   font-weight: 600;
   opacity: 0.8;
 }
+.expand {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.expand .icon {
+  font-size: 20px;
+  color: var(--white-color);
+}
 .AIChat .historyContainer .contentTitle {
   text-align: center;
+  margin-top: 8em;
 }
 .AIChat .inputContainer {
   position: absolute;
   background-color: #f4f2f2;
-  height: 4.6875rem; /* 75px */
-  border-radius: 1.555rem; /* 24.88px */
-  width: 40.375rem; /* 646px */
-  display: flex;
-  align-items: center;
+  height: 60px;
+  border-radius: 22px;
+  min-width: 646px;
+  width: 95%;
   padding: 0 1em;
-  bottom: 1.25rem; /* 20px */
-  left: 12%;
+  bottom: 0;
+  margin-bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .AIChat .inputContainer input {
   width: 100%;
@@ -39,10 +52,17 @@
 }
 .icon {
   color: var(--blue-color);
-  font-size: 30px; /* 20px */
+  font-size: 30px;
+}
+.history {
+  height: 100%;
+  position: absolute;
+  left: 20px;
+  top: 30px;
 }
 .sidebar {
   color: var(--white-color);
   background-color: #333;
   font-size: 30px; /* 20px */
+  cursor: e-resize;
 }

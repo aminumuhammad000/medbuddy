@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import Updates from "./Updates";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage, setInformation } from "../../store/slices/patientNavSlice";
+import AIChat from "./components/AIChat";
 const Dashboard = () => {
   const currentPage = useSelector((state) => state.patientNav.currentPage);
   const userInformation = useSelector(
@@ -28,36 +29,43 @@ const Dashboard = () => {
   return (
     <div className={style.MainDashboard} id="flexColumnCenter">
       <div className={style.nav} id="flexBetween">
-        <h1 className={style.heading} id="flexCenter">
-          {currentPage === "updates" && (
-            <button
-              style={{ marginRight: "11px", marginTop: "7px" }}
-              onClick={handleBack}
-            >
-              <iconify-icon
-                icon="uil:arrow-left"
-                style={{ color: "#1771b7", fontSize: "60px" }}
-              />
-            </button>
-          )}
+        {currentPage === "ai" ? (
+          ""
+        ) : (
+          <>
+            <h1 className={style.heading} id="flexCenter">
+              {currentPage === "updates" && (
+                <button
+                  style={{ marginRight: "11px", marginTop: "7px" }}
+                  onClick={handleBack}
+                >
+                  <iconify-icon
+                    icon="uil:arrow-left"
+                    style={{ color: "#1771b7", fontSize: "60px" }}
+                  />
+                </button>
+              )}
 
-          {currentPage === "dashboard"
-            ? ""
-            : currentPage === "users"
-            ? "My profile"
-            : currentPage === "drugs"
-            ? "Order Medicine"
-            : currentPage == "consult"
-            ? "consult"
-            : "Edit Profile"}
-        </h1>
-        <div className={style.notification}>
-          <iconify-icon
-            icon="mdi:bell"
-            className={style.icon}
-            id="text40"
-          ></iconify-icon>
-        </div>
+              {currentPage === "dashboard"
+                ? ""
+                : currentPage === "users"
+                ? "My profile"
+                : currentPage === "drugs"
+                ? "Order Medicine"
+                : currentPage == "consult"
+                ? "consult"
+                : "Edit Profile"}
+            </h1>
+
+            <div className={style.notification}>
+              <iconify-icon
+                icon="mdi:bell"
+                className={style.icon}
+                id="text40"
+              ></iconify-icon>
+            </div>
+          </>
+        )}
       </div>
       <Sidebar />
 
@@ -67,6 +75,11 @@ const Dashboard = () => {
         {currentPage === "updates" && <Updates />}
         {currentPage === "drugs" && <OrderMedicine />}
         {currentPage === "consult" && <ConsultBooking />}
+        {currentPage === "ai" && (
+          <div className={style.aiContainer}>
+            <AIChat />
+          </div>
+        )}
       </>
     </div>
   );

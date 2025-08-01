@@ -63,6 +63,9 @@ select {
 input:user-invalid {
   outline: 1px solid red;
 }
+input:user-valid {
+  outline: 1px solid green;
+}
 #flexCenter {
   display: flex;
   justify-content: center;

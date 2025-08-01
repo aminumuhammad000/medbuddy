@@ -121,7 +121,7 @@ const ConsultBooking = () => {
   const [showAllSpecialties, setShowAllSpecialties] = useState(false);
   const [selectedSpecialist, setSelectedSpecialist] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
-  const [showConsultPreview, setShowConsultPreview] = useState(true);
+  const [showConsultPreview, setShowConsultPreview] = useState(false);
   const visibleSpecialists = showAllSpecialties
     ? specialist
     : specialist.slice(0, 5);
@@ -162,6 +162,7 @@ const ConsultBooking = () => {
                   className={
                     showAllSpecialties ? style.iconBoxAll : style.iconBox
                   }
+                  id="flexColumnCenter"
                   style={{ cursor: "pointer" }}
                   onClick={() => handleSpecialistClick(item.name)}
                 >
@@ -189,7 +190,7 @@ const ConsultBooking = () => {
                       }
                     ></iconify-icon>
                   </div>
-                  <h3 className={style.name}>{item.name}</h3>
+                  <h4 className={style.name}>{item.name}</h4>
                   {showAllSpecialties && (
                     <h4 className={style.amount}>{item.amount} Available</h4>
                   )}

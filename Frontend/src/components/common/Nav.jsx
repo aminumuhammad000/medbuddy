@@ -72,7 +72,7 @@ const Nav = () => {
 
         <div className={style.ctaContainer} id="flexCenter">
           <Link to="/Auth" className={style.Link}>
-            <button onClick={() => handleRoleClick("register")} id="mediumText">
+            <button onClick={() => handleRoleClick("patient")} id="mediumText">
               Sign Up
             </button>
           </Link>

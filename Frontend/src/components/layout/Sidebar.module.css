@@ -1,6 +1,7 @@
 .sidebar {
+  position: relative;
   background-color: var(--blue-color);
-  width: 260px;
+  width: 14.5%;
   height: 100vh;
   position: fixed;
   border-radius: 0 3.125rem 3.125rem 0; /* 50px */
@@ -15,29 +16,29 @@
   display: none;
 }
 .logo {
+  width: 14.5%;
   background-color: var(--blue-color);
   position: fixed;
   border-top-right-radius: 0.9375rem; /* 15px */
-  padding-bottom: 3.125rem;
+  padding-bottom: 2rem;
   z-index: 2;
 }
 .logo img {
-  width: 12.5rem; /* 200px */
-  height: 2.4375rem; /* 39px */
-  margin-top: 4.4375rem; /* 71px */
-  margin-left: 1.9375rem; /* 31px */
+  width: 150px;
+  height: 2rem;
+  margin-top: 3rem;
+  margin-left: 0.8rem;
   object-fit: contain;
   cursor: pointer;
 }
 .menu ul {
-  width: 12.5rem; /* 200px */
-  height: 38.75rem; /* 620px */
-  margin-top: 183px; /* 183px */
+  width: 100%;
+  margin-top: 130px; /* 183px */
   margin-left: 1.875rem; /* 30px */
 }
 .menu ul li {
   cursor: pointer;
-  margin-top: 3.125rem; /* 50px */
+  margin-top: 2.5rem; /* 50px */
 }
 .menu ul li button {
   background-color: transparent;
@@ -47,7 +48,7 @@
   transition: all 0.3s ease-in-out;
 }
 .menu ul li button .icon {
-  font-size: 3.125rem;
+  font-size: 40px;
 }
 .menu ul li button.active {
   opacity: 1;

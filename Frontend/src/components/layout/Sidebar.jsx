@@ -120,7 +120,7 @@ const Sidebar = () => {
 
           <li className={styles.settings}>
             <button
-              onClick={() => handlePage("settings")}
+              onClick={() => handlePage("ai")}
               className={page === "ai" ? styles.active : ""}
               id="flexAlignCenter"
             >

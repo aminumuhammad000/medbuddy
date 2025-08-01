@@ -16,7 +16,7 @@ const Updates = () => {
         <div className={style.userProfile}>
           <div className={style.imgCard}>
             <img src={profile} alt="profile image" />
-            <button className={style.changeProfile}>
+            <button className={style.changeProfile} id="flexCenter">
               <iconify-icon
                 icon="solar:camera-linear"
                 id="text30"

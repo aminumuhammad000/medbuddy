@@ -42,7 +42,7 @@ const Profile = () => {
       </div>
 
       <div className={style.patientCard} id="flexSpaceBetween">
-        <div className={style.patientCardHeader}>
+        <div className={style.patientCardHeader} id="flexAlignCenter">
           <img src={profile} alt="" loading="lazy" />
           <div className={style.patientInfo}>
             <h3 className={style.name}>Mustapha Hussein</h3>

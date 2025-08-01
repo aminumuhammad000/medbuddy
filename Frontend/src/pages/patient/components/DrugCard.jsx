@@ -9,12 +9,16 @@ const DrugCard = ({ image, title, price, onClick }) => {
         onClick={onClick}
         loading="lazy"
       />
-      <p className={style.title}>{title}</p>
+      <p className={style.title} id="mediumText">
+        {title}
+      </p>
       <div>
-        <h1 className={style.price}>
-          {price} <span>{price}</span>
-        </h1>
-        <p className={style.discount}>Get 10% off</p>
+        <h3 className={style.price}>
+          {price} <span id="smallText">{price}</span>
+        </h3>
+        <p className={style.discount} id="smallText">
+          Get 10% off
+        </p>
         <button className={style.addCart}>Add to Cart +</button>
       </div>
     </div>
