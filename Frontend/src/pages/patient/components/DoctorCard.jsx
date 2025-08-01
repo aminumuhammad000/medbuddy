@@ -38,7 +38,7 @@ const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
           {rating}
         </div>
         <div className={style.heartIcon}>
-          <iconify-icon icon="fa:heart" className={style.icon} />
+          <iconify-icon icon="iconamoon:heart-light" className={style.icon} />
         </div>
       </div>
       <div className={style.cardMain}>
@@ -64,8 +64,10 @@ const DoctorCard = ({ name, specialist, rating, price, slot, profile }) => {
         <ul className={style.week}>
           {days.map((day, index) => (
             <li key={index}>
-              <span>{day.slice(0, 4)}</span>
-              <span className={style.weekNumber}>{day.slice(4)}</span>
+              <span id="smallText">{day.slice(0, 4)}</span>
+              <span className={style.weekNumber} id="smallText">
+                {day.slice(4)}
+              </span>
             </li>
           ))}
         </ul>

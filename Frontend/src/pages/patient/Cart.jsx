@@ -50,21 +50,21 @@ const Cart = () => {
           ))}
         </div>
       </div>
-      <div className={style.orderSummary}>
+      <div className={style.orderSummary} id="flexColumn">
         <div>
           <h1 className={style.checkoutTitle}>Order Summary</h1>
-          <div className={style.subtotal}>
+          <div className={style.subtotal} id="flexSpaceBetween">
             <h3>Subtotal</h3>
             <h3 className={style.bold}>{"₦ 100,000"}</h3>
           </div>
-          <div className={style.delivery}>
+          <div className={style.delivery}  id="flexSpaceBetween">
             <h3>Delivery</h3>
             <h3 className={style.bold}>{"₦ 1000"}</h3>
           </div>
         </div>
 
         <div className={style.checkoutContainer}>
-          <div className={style.total}>
+          <div className={style.total} id="flexSpaceBetween">
             <h3>Total</h3>
             <h3 className={style.bold}>{"₦ 101,000"}</h3>
           </div>

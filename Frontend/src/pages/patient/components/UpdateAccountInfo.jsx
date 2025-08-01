@@ -11,13 +11,21 @@ const UpdateAccountInfo = () => {
             <label htmlFor="Language Preference" id="mediumText">
               Language Preference
             </label>
-            <input type="text" name="Language Preference" />
+            <input
+              type="text"
+              name="Language Preference"
+              placeholder="Langauge Preference"
+            />
           </div>
           <div>
             <label htmlFor="Communication Preference" id="mediumText">
               Communication Preference
             </label>
-            <input type="text" name="Communication Preference" />
+            <input
+              type="text"
+              name="Communication Preference"
+              placeholder="Communication Preference"
+            />
           </div>
         </div>
         <br />

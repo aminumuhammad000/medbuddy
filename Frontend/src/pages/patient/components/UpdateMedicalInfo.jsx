@@ -10,13 +10,21 @@ const UpdateMedicalInfo = () => {
             <label htmlFor="Known Allergies" id="mediumText">
               Known Allergies
             </label>
-            <input type="text" name="Known Allergies" />
+            <input
+              type="text"
+              name="Known Allergies"
+              placeholder="Know Allergies"
+            />
           </div>
           <div>
             <label htmlFor="Chronic Condition" id="mediumText">
               Chronic Condition
             </label>
-            <input type="text" name="Chronic Condition" />
+            <input
+              type="text"
+              name="Chronic Condition"
+              placeholder="Chronic Condition"
+            />
           </div>
         </div>
 
@@ -25,13 +33,17 @@ const UpdateMedicalInfo = () => {
             <label htmlFor="Current Medication" id="mediumText">
               Current Medication
             </label>
-            <input type="text" name="Current Medication" />
+            <input
+              type="text"
+              name="Current Medication"
+              placeholder="Current Medication"
+            />
           </div>
           <div>
             <label htmlFor="Blood Type" id="mediumText">
               Blood Type
             </label>
-            <input type="text" name="Blood Type" />
+            <input type="text" name="Blood Type" placeholder="Blood Type" />
           </div>
         </div>
 
@@ -42,7 +54,11 @@ const UpdateMedicalInfo = () => {
           <label htmlFor="Vaccination Record " id="mediumText">
             Vaccination Record{" "}
           </label>
-          <input type="text" name="Vaccination Record " />
+          <input
+            type="text"
+            name="Vaccination Record"
+            placeholder="Vaccination Record"
+          />
         </div>
       </form>
     </div>

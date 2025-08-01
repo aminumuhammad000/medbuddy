@@ -1,36 +1,29 @@
 .Cart {
   width: 100%;
-  gap: 70px;
-  padding: 0px 50px 0px 50px;
-  /* flex-wrap: wrap; */
+  gap: 50px;
+  margin-top: -60px;
 }
 .orderSummary {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  width: 512px;
-  height: 1061px;
+  width: 350px;
+  height: 600px;
   background-color: var(--blue-color);
-  border-radius: 50px;
-  padding: 50px;
+  border-radius: 35px;
+  padding: 30px;
   color: var(--white-color);
-}
-.cartList {
-  margin-top: -250px;
+  margin-top: 100px;
 }
 .drugList {
-  margin-top: 43px;
+  margin-top: 30px;
 }
 .cartTitle {
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
 }
 .cartTitle h3 {
-  font-size: 25px;
   font-weight: 400;
 }
 .checkoutTitle {
-  font-size: 40px;
   font-weight: 700;
   padding-bottom: 40px;
   border-bottom: 1px solid #ddd;
@@ -39,23 +32,19 @@
 .delivery,
 .total {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-bottom: 20px;
 }
 .subtotal {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .subtotal,
 .delivery {
   border-bottom: 1px solid #ddd;
-  margin-top: 2em;
+  margin-top: 1.2em;
 }
 .subtotal h3,
 .delivery h3,
 .total h3 {
-  font-size: 30px;
 }
 .bold {
   font-weight: 900;
@@ -63,13 +52,12 @@
 .total {
   border-top: 1px solid #ddd;
   padding-top: 20px;
-  padding-bottom: 6em;
+  padding-bottom: 4em;
 }
 .checkout {
   width: 100%;
   background-color: var(--white-color);
-  height: 89px;
+  height: 60px;
   border-radius: 10px;
-  font-size: 30px;
   color: var(--blue-color);
 }

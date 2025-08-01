@@ -26,13 +26,11 @@
   margin-top: 44px;
 }
 .patientCardHeader {
-  display: flex;
-  align-items: center;
   gap: 10px;
 }
 .patientCardHeader img {
-  width: 7.7em; /* 123px / 16 = 7.6875em */
-  height: 7.7em;
+  width: 5em; /* 123px / 16 = 7.6875em */
+  height: 5em;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid #ddd;
@@ -42,7 +40,8 @@
 }
 .idNo {
   font-weight: 300;
-  margin-top: -0.125em; /* -2px / 16 = -0.125em */
+  margin-top: 2px;
+  opacity: 0.6;
 }
 .editButton {
   display: flex;
@@ -51,7 +50,7 @@
   gap: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  width: 141px;
-  height: 58px;
+  width: 100px;
+  height: 40px;
   box-shadow: 1px 1px 2px #ddd;
 }

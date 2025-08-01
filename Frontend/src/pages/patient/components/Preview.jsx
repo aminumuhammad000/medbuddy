@@ -1,9 +1,14 @@
 import style from "./Preview.module.css";
 import profile from "../../../assets/images/profiles/profile.jpg";
-
+import {useState} from "react"
 const Preview = ({ drug, onAddToCart }) => {
+  const [amount, setAmount] = useState(0)
   if (!drug) return null;
-
+  const handleDecrement = () =>{
+    if(!amount <= 0){
+      setAmount(amount-1)
+    }
+  }
   return (
     <div className={style.Preview}>
       <div className={style.container}>
@@ -14,13 +19,13 @@ const Preview = ({ drug, onAddToCart }) => {
           <h1 className={style.title}>{drug.title}</h1>
           <div className={style.priceContainer}>
             <h1 className={style.price}>
-              {drug.price} <span>{drug.price}</span>
+              {drug.price} <span id="mediumText">{drug.price}</span>
               <p className={style.discount}>Get 10% off</p>
             </h1>
             <div className={style.controlContainer}>
-              <button className={style.dec}>-</button>
-              <h2>1</h2>
-              <button className={style.inc}>+</button>
+              <button className={style.dec} onClick={handleDecrement}>-</button>
+              <h2>{amount}</h2>
+              <button className={style.inc} onClick={() => setAmount(amount+1)}>+</button>
             </div>
           </div>
           <button className={style.addToCart} onClick={onAddToCart}>
@@ -33,7 +38,7 @@ const Preview = ({ drug, onAddToCart }) => {
       <div className={style.descriptionContainer} id="flexColumn">
         <div className={style.mainDetails}>
           <h1 className={style.title2}>Description</h1>
-          <p className={style.description}>
+          <p className={style.description} id="medimText">
             {drug.description ||
               "Lorem ipsum dolor sit amet consectetur. Condimentum pretium at facilisis velit. Ante feugiat proin in risus arcu. Volutpat lobortis integer et scelerisque id amet. Pellentesque metus cursus dolor nulla non. Velit aliquam suscipit hendrerit pulvinar. Sollicitudin nibh in felis turpis."}
           </p>
@@ -51,7 +56,7 @@ const Preview = ({ drug, onAddToCart }) => {
                 />
                 <div>
                   <h4 className={style.name}>Mustapha Hussein</h4>
-                  <p className={style.date}>19th June, 2025</p>
+                  <p className={style.date} id="smallText">19th June, 2025</p>
                 </div>
               </div>
               <div className={style.rating}>
@@ -65,7 +70,7 @@ const Preview = ({ drug, onAddToCart }) => {
               </div>
             </div>
 
-            <p className={style.ratingText}>
+            <p className={style.ratingText} id="mediumText">
               Lorem ipsum dolor sit amet consectetur. Condimentum pretium at
               facilisis velit. Ante feugiat proin in risus arcu. Volutpat
               lobortis integer et scelerisque id amet. Pellentesque metus cursus

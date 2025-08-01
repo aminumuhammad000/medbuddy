@@ -2,33 +2,20 @@
   width: 100%;
   margin-top: 20px;
 }
-.test {
-  position: absolute;
-  left: 12.5%;
-  right: 12.5%;
-  top: 12.5%;
-  bottom: 12.5%;
-  background: rgba(255, 255, 255, 0.8);
-}
 .iconsContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-top: 30px;
   padding: 20px;
 }
 .iconBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 188px;
   height: 166px;
+  gap: 7px;
 }
 .iconDiv {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: var(--white-color);
   display: flex;
@@ -43,32 +30,29 @@
 }
 .icon {
   color: var(--blue-color);
-  font-size: 60px;
+  font-size: 40px;
 }
 .name {
-  font-size: 25px;
+  font-weight: 500;
+  opacity: 0.6;
 }
 .iconsContainerAll {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1rem;
   margin-top: 2em;
 }
 .iconBoxAll {
-  width: 388px;
-  height: 318px;
+  width: 300px;
+  height: 280px;
   border-radius: 30px;
-  display: flex;
-  flex-direction: column;
   gap: 20px;
-  justify-content: center;
-  align-items: center;
   background-color: var(--white-color);
   box-shadow: 1px 1px 4px var(--blue-color);
 }
 .iconDivAll {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,10 +63,6 @@
 .iconDivAll .icon {
   color: var(--white-color);
 }
-.iconDivAll .name {
-  font-size: 35px;
-}
 .amount {
-  font-size: 22px;
   color: #1771b7cc;
 }

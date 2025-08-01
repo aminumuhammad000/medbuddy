@@ -102,10 +102,10 @@ const OrderMedicine = () => {
           <Search />
           {!viewAll && (
             <>
-              <div className={style.Banner}>
+              <div className={style.Banner} id="flexSpaceBetween">
                 <div className={style.detailsContainer}>
                   <h1 className={style.title}>Order with Prescription</h1>
-                  <p className={style.description}>
+                  <p className={style.description} id="mediumText">
                     Upload a prescription and a pharmacist will arrange your
                     medicine for you.
                   </p>
@@ -119,16 +119,17 @@ const OrderMedicine = () => {
                 />
               </div>
 
-              <div className={style.titleContainer}>
-                <h1 className={style.pageTitle}>Hot Seller</h1>
+              <div className={style.titleContainer} id="flexSpaceBetween">
+                <h3 className={style.pageTitle}>Hot Seller</h3>
                 <button
                   className={style.viewAll}
                   onClick={() => setViewAll(true)}
+                  id="text30"
                 >
                   View all
                 </button>
               </div>
-              <div className={style.DrugList}>
+              <div className={style.DrugList} id="flexCenter">
                 {drugs.slice(0, 3).map((drug, idx) => (
                   <DrugCard
                     key={idx}
@@ -143,7 +144,7 @@ const OrderMedicine = () => {
           )}
 
           {viewAll && (
-            <div className={style.AllDrugsContainer}>
+            <div className={style.AllDrugsContainer} id="flexCenter">
               {drugs.map((drug, idx) => (
                 <DrugCard
                   key={idx}

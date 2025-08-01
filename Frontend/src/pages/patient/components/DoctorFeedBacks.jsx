@@ -10,16 +10,15 @@ const DoctorFeedBacks = ({
   return (
     <div className={style.DoctorFeedBacks} id="flexColumn">
       <div className={style.cardHead} id="flexSpaceBetween">
-        <div id="flexCenter" style={{ gap: "12px" }}>
+        <div id="flexCenter">
           <img src={profile} alt="" className={style.img} />
-          <div style={{ marginTop: "-17px" }}>
-            <p
-              id="mediumText"
-              style={{ fontWeight: "700", fontStyle: "regular" }}
-            >
+          <div className={style.nameContainer} id="flexColumn">
+            <p className={style.name} id="mediumText">
               {name}
             </p>
-            <p style={{ color: "#30B2FF" }}>{username}</p>
+            <p className={style.username} id="smallText">
+              {username}
+            </p>
           </div>
         </div>
         <div id="flexCenter" className={style.starContainer}>
@@ -31,28 +30,30 @@ const DoctorFeedBacks = ({
           <iconify-icon
             icon="mdi:star"
             className={style.icon}
-            id="mediumText"
+            id="smallText"
           ></iconify-icon>
           <iconify-icon
             icon="mdi:star"
             className={style.icon}
-            id="mediumText"
+            id="smallText"
           ></iconify-icon>
           <iconify-icon
             icon="mdi:star"
             className={style.icon}
-            id="mediumText"
+            id="smallText"
           ></iconify-icon>
           <iconify-icon
             icon="mdi:star"
             className={style.icon}
-            id="mediumText"
+            id="smallText"
           ></iconify-icon>
         </div>
       </div>
-      <p id="smallText">{comment}</p>
+      <p className={style.comment} id="smallText">
+        {comment}
+      </p>
 
-      <p id="smallText">
+      <p className={style.date} id="smallText">
         {consultType} {date}
       </p>
     </div>

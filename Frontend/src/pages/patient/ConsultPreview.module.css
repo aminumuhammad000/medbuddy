@@ -13,10 +13,10 @@
   color: #222;
 }
 .navList li button {
-  padding: 0px 15px 0px 15px;
+  padding: 0px 12px 0px 12px;
 }
 .navList li.active {
-  border-bottom: 4px solid var(--blue-color);
+  border-bottom: 2px solid var(--blue-color);
   opacity: 1;
 }
 .navList li.active button {
@@ -26,7 +26,7 @@
 }
 p {
   margin-top: 15px;
-  max-width: 1425px;
+  max-width: 1000px;
 }
 .feedbackCard {
   gap: 30px;

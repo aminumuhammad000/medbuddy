@@ -1,6 +1,6 @@
 .Preview {
   width: 100%;
-  margin-top: 2em;
+  margin-inline: auto;
 }
 .container {
   width: 100%;
@@ -9,8 +9,8 @@
   gap: 2em;
 }
 .imgContainer {
-  width: 734px;
-  height: 460px;
+  width: 450px;
+  height: 320px;
   border-radius: 20px;
   background: #a9a9a914;
   display: flex;
@@ -19,15 +19,12 @@
   box-shadow: 1px 1px 2px #ddd;
 }
 .imgContainer img {
-  width: 350px;
-  height: 485px;
+  width: 60%;
 }
 .details {
-  width: 578px;
-  /* height: 460px; */
+  width: 350px;
 }
 .details .title {
-  font-size: 35px;
   font-weight: 700;
 }
 .priceContainer,
@@ -38,40 +35,34 @@
   margin-top: 30px;
 }
 .priceContainer .price {
-  font-size: 35px;
   font-weight: 900;
 }
 .priceContainer .price span {
-  font-size: 15px;
   opacity: 0.6;
   text-decoration: line-through;
 }
 .discount {
   color: #087420;
-  font-size: 20px;
-  margin-top: -6px;
+  margin-top: 2px;
 }
 .controlContainer {
   gap: 20px;
 }
 .controlContainer h2 {
-  font-size: 30px;
   font-weight: 900;
 }
 .controlContainer button {
-  width: 57px;
-  height: 57px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 3px solid #222;
-  font-size: 30px;
   font-weight: 900;
 }
 .addToCart {
   background-color: var(--blue-color);
   color: var(--white-color);
-  font-size: 30px;
   width: 100%;
-  height: 85px;
+  height: 55px;
   border-radius: 10px;
   margin-top: 50px;
 }
@@ -97,8 +88,7 @@
   margin-bottom: 23px;
 }
 .mainDetails .description {
-  width: 1273px;
-  font-size: 30px;
+  width: 100%;
   margin-top: -2px;
 }
 .reviewContainer {
@@ -112,12 +102,10 @@
   gap: 10px;
 }
 .name {
-  font-size: 20px;
   font-weight: 400;
 }
 .date {
-  margin-top: -3px;
-  font-size: 15px;
+  margin-top: 3px;
 }
 .profileImage {
   width: 60px;
