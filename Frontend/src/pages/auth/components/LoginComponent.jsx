@@ -1,5 +1,4 @@
 import style from "../Auth.module.css";
-import { setAuthMode } from "../../../store/slices/authReducer";
 import PasswordInput from "./PasswordInput";
 const Login = () => {
   return (

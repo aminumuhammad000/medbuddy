@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./PasswordInput.module.css";
 
 const PasswordInput = ({
-  label = "Password",
+  label = "password",
   placeholder = "Enter a password",
 }) => {
   const [show, setShow] = useState(false);
@@ -14,15 +14,14 @@ const PasswordInput = ({
 
   return (
     <div className={style.UpdatePassword} id="flexColumn">
-      <label htmlFor="Password" id="mediumText">
+      <label htmlFor="password" id="mediumText">
         {label}
       </label>
       <div className={style.passwordContainer}>
         <input
           type={passwordType}
-          name="Password"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$
-"
+          name="password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
           title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
           placeholder={placeholder}
           className={style.pass}

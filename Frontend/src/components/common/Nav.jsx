@@ -79,7 +79,7 @@ const Nav = () => {
           <Link to="/Auth">
             <button
               className={style.signIn}
-              onClick={() => handLogin("register")}
+              onClick={() => handLogin("patient")}
               id="mediumText"
             >
               Sign In

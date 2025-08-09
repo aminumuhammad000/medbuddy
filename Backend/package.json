@@ -10,7 +10,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.0",
     "morgan": "^1.10.0",
-    "mysql2": "^3.14.1",
+    "nodemailer": "^7.0.5",
     "openai": "^4.103.0",
     "readline-sync": "^1.4.10",
     "sequelize": "^6.37.7",
@@ -19,11 +19,11 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "app.js",
-"scripts": {
-  "start": "node app.js",
-  "dev": "nodemon app.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "Aminu Muhammad",
   "license": "ISC",
