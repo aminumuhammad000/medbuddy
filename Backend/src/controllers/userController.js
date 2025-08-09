@@ -7,8 +7,8 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // your email
-    pass: process.env.EMAIL_PASS, // your app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -108,15 +108,6 @@ exports.forgotPassword = async (req, res) => {
     const { email } = req.body;
     const otpCode = Math.floor(1000 + Math.random() * 9000).toString();
 
-    const transporter = nodemailer.createTransport({
-      host: "sandbox.smtp.mailtrap.io",
-      port: 2525,
-      auth: {
-        user: process.env.EMAIL_USER, // your Mailtrap user
-        pass: process.env.EMAIL_PASS, // your Mailtrap password
-      },
-    });
-
     const user = await User.findOneAndUpdate(
       { "auth.email": email },
       {
@@ -138,7 +129,7 @@ exports.forgotPassword = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Your OTP Code",
-      text: `Your OTP code is: ${otpCode}`,
+      text: `Hello User Your OTP code is: ${otpCode}`,
     });
 
     // TODO: Send otpCode to user's email using a mail service
