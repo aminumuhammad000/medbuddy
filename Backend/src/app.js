@@ -11,13 +11,14 @@ connectDB();
 
 // Middleware
 app.use(
-  morgan("combined", {
-    stream: { write: (msg) => logger.info(msg.trim()) },
+  morgan("dev", {
+    stream: { write: (msg) => console.log(msg.trim()) },
   })
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(cors());
+
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://medbuddy-cpvv.onrender.com"], // ✅ frontend origin

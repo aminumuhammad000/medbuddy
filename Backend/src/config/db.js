@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI, {
+      maxPoolSize: 10, // 10 concurrent sockets
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
     console.log("Connecting to:", process.env.MONGO_URI);
     console.log("MongoDB Connected");
   } catch (error) {

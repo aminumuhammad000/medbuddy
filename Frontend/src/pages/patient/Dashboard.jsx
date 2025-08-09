@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "../../store/slices/authReducer";
 import style from "./Dashboard.module.css";
 import Sidebar from "../../components/layout/Sidebar";
 import Overview from "./components/Overview";
@@ -5,15 +9,38 @@ import OrderMedicine from "./OrderMedicine";
 import ConsultBooking from "./ConsultBooking";
 import Profile from "./Profile";
 import Updates from "./Updates";
-import { useDispatch, useSelector } from "react-redux";
 import { setPage, setInformation } from "../../store/slices/patientNavSlice";
 import AIChat from "./components/AIChat";
+
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLogged } = useSelector((state) => state.auth);
   const currentPage = useSelector((state) => state.patientNav.currentPage);
   const userInformation = useSelector(
     (state) => state.patientNav.userInformation
   );
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // let ignore = false;
+    const token = localStorage.getItem("token");
+    if (!token || !isLogged) {
+      navigate("/auth");
+      return;
+    }
+
+    dispatch(getProfile())
+      .unwrap()
+      .catch((err) => {
+        if (err?.status !== 304) {
+          console.error("Profile fetch error:", err);
+        }
+      });
+
+    // return () => {
+    //   ignore = true;
+    // };
+  }, [dispatch, isLogged, navigate]);
 
   const handleBack = () => {
     if (userInformation === "basic") {
@@ -26,6 +53,7 @@ const Dashboard = () => {
       dispatch(setPage("users"));
     }
   };
+
   return (
     <div className={style.MainDashboard} id="flexColumnCenter">
       <div className={style.nav} id="flexBetween">
@@ -52,8 +80,8 @@ const Dashboard = () => {
                 ? "My profile"
                 : currentPage === "drugs"
                 ? "Order Medicine"
-                : currentPage == "consult"
-                ? "consult"
+                : currentPage === "consult"
+                ? "Consult"
                 : "Edit Profile"}
             </h1>
 

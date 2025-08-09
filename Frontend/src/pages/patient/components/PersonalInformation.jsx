@@ -1,8 +1,10 @@
 import style from "./PersonalInformation.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPage, setInformation } from "../../../store/slices/patientNavSlice";
 
 const PersonalInformation = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
 
   const gotoUpdate = () => {
@@ -33,8 +35,8 @@ const PersonalInformation = () => {
               <td className={style.td}>Last Name</td>
             </tr>
             <tr>
-              <td>Mustapha</td>
-              <td>Hussein</td>
+              <td>{user?.auth?.name.split(" ")[0] || "N/A"}</td>
+              <td>{user?.auth?.name.split(" ")[1] || "N/A"}</td>
             </tr>
             <br />
 
@@ -44,8 +46,8 @@ const PersonalInformation = () => {
             </tr>
 
             <tr>
-              <td>mustyoseni060@gmail.com</td>
-              <td>+234 123456789</td>
+              <td>{user?.auth.email || "N/A"}</td>
+              <td>{user?.auth.phone || "N/A"}</td>
             </tr>
             <br />
             <tr>
@@ -53,8 +55,8 @@ const PersonalInformation = () => {
               <td className={style.td}>Gender</td>
             </tr>
             <tr>
-              <td>6/10/2025</td>
-              <td>Male</td>
+              <td>{user?.profile?.dob || "N/A"}</td>
+              <td>{user?.profile?.gender || "N/A"}</td>
             </tr>
             <br />
             <tr>
@@ -63,8 +65,8 @@ const PersonalInformation = () => {
             </tr>
 
             <tr>
-              <td>No.12, Tarauni, Kano, Nigeria</td>
-              <td>1234567890</td>
+              <td>{user?.profile?.house_address || "N/A"}</td>
+              <td>{user?.auth?.nhis_id || "N/A"}</td>
             </tr>
           </table>
         </div>

@@ -19,8 +19,7 @@ Register a new user.
 ```json
 {
   "usertype": "patient",
-  "fname": "John",
-  "lname": "Doe",
+  "name": "Doe",
   "email": "john@example.com",
   "phone": "08012345678",
   "password": "secret123",
@@ -68,8 +67,7 @@ Register a new user.
 
 ```json
 {
-  "fname": "John",
-  "lname": "Doe",
+  "name": "John Doe",
   "email": "john@example.com",
   "phone": "08012345678",
   "dob": "1990-01-01",

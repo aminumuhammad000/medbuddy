@@ -1,8 +1,9 @@
 import style from "./PersonalInformation.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPage, setInformation } from "../../../store/slices/patientNavSlice";
 
 const AccountInformation = () => {
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const gotoUpdate = () => {
@@ -28,16 +29,19 @@ const AccountInformation = () => {
       <div className={style.AccountInformation}>
         <ul className={style.accountDetails}>
           <li className={style.td}>Language Preference</li>
-          <li>English</li>
+          <li>{user?.profile?.language_preference || "English"}</li>
           <br />
           <li className={style.td}>Communication Preferences</li>
-          <li>SMS, Email, Push Notifications</li>
+          <li>{user?.profile?.communication_preference || "Email"}</li>
           <br />
           <li className={style.td}>Password</li>
           <li>********</li>
           <br />
           <li>Notification</li>
-          <li className={style.td}>Custom toggles for alerts & reminders</li>
+          <li className={style.td}>
+            {user?.notification?.email ||
+              "Custom toggles for alerts & reminders"}
+          </li>
         </ul>
       </div>
     </div>

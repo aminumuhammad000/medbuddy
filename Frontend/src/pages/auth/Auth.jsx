@@ -1,24 +1,75 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setRole, login, setAuthMode } from "../../store/slices/authReducer";
+import { useEffect, useRef, useState } from "react";
 import style from "./Auth.module.css";
+import {
+  setRole,
+  setAuthMode,
+  registerUser,
+  loginUser,
+  forgotPassword,
+  verifyOtp,
+  updatePassword,
+  clearStatus,
+  resendOtp,
+} from "../../store/slices/authReducer";
+
+import frame from "../../assets/images/backgrounds/frame.png";
 import logo2 from "../../assets/images/logos/logo2.png";
-import google from "../../assets/icons/social/google.png";
-import facebook from "../../assets/icons/social/facebook.png";
+
 import { Link, useNavigate } from "react-router-dom";
-import axios from "../../api/axios";
-import { useState } from "react";
 import LoginComponent from "./components/LoginComponent";
 import Register from "./components/Register";
 import Otp from "./components/Otp";
 import ForgetPassword from "./components/ForgetPassword";
 import CreateNewPassword from "./components/CreateNewPassword";
-import frame from "../../assets/images/backgrounds/frame.png";
+import Loading from "./components/Loading";
+import GoogleLogin from "./components/GoogleLogin";
+import AlertContainer from "./components/AlertContainer";
+
 const Login = () => {
+  const [otpEmail, setOtpEmail] = useState("");
   const navigate = useNavigate();
-  const { user, authMode } = useSelector((state) => state.auth);
+  const { user, authMode, loading, error, success, isLogged } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const shouldRedirect = useRef(false);
+
+  useEffect(() => {
+    dispatch(clearStatus());
+  }, [authMode, dispatch]);
+
+  useEffect(() => {
+    if (!success) return;
+
+    switch (authMode) {
+      case "login":
+        if (user?.usertype === "patient") navigate("/patient/dashboard");
+        else if (user?.usertype === "pharmacist")
+          navigate("/pharmacist/dashboard");
+        else if (user?.usertype === "doctor") navigate("/doctor/dashboard");
+        else if (user?.usertype === "admin") navigate("/admin/dashboard");
+        else navigate("/dashboard");
+        break;
+
+      case "register":
+        shouldRedirect.current = true;
+        break;
+
+      case "forgot":
+        dispatch(clearStatus());
+        dispatch(setAuthMode("otp"));
+        break;
+
+      case "setPassword":
+        dispatch(clearStatus());
+        dispatch(setAuthMode("login")); // redirect back to login page
+        break;
+
+      default:
+        break;
+    }
+  }, [success, authMode, user, navigate, dispatch]);
 
   const handleRoleClick = (role) => {
     dispatch(setRole(role));
@@ -26,71 +77,60 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setLoading(true);
+
+    dispatch(clearStatus());
     const form = e.target;
 
-    try {
-      if (authMode === "forgot") {
-        // Implement forgot password API call here if needed
-        dispatch(setAuthMode("otp"));
-        setLoading(false);
-        return;
-      }
-
-      if (authMode === "otp") {
-        // Implement OTP verification API call here if needed
-        dispatch(setAuthMode("setPassword"));
-        setLoading(false);
-        return;
-      }
-
-      if (authMode === "setPassword") {
-        // Implement password reset API call here if needed
-        dispatch(setAuthMode("login"));
-        setLoading(false);
-        return;
-      }
-
-      if (authMode === "login") {
-        const email = form.email.value;
-        const password = form.password.value;
-        const res = await axios.post("/auth/login", { email, password });
-        dispatch(login(res.data.user));
-        setLoading(false);
-
-        // Redirect based on role
-        const role = res.data.user.role;
-        if (role === "patient") navigate("/patient/dashboard");
-        else if (role === "pharmacist") navigate("/pharmacist/dashboard");
-        else if (role === "doctor") navigate("/doctor/dashboard");
-        else if (role === "admin") navigate("/admin/dashboard");
-        else navigate("/dashboard"); // fallback
-        return;
-      }
-
-      if (authMode === "register") {
-        const payload = {
-          name: form.name.value,
-          email: form.email.value,
-          phone: form.phone.value,
-          role: user.role,
-          password: form.password.value,
-          nhis: form.nhis?.value || "",
-          licenseNo: form.license?.value || "",
-        };
-        const res = await axios.post("/auth/register", payload);
-        dispatch(login(res.data.user));
-        navigate("/dashboard");
-        setLoading(false);
-        return;
-      }
-    } catch (err) {
-      setError(
-        err.response?.data?.message || "Something went wrong. Please try again."
-      );
-      setLoading(false);
+    if (authMode === "forgot") {
+      const email = form.email.value;
+      setOtpEmail(email);
+      dispatch(forgotPassword({ email }));
+      return;
     }
+
+    if (authMode === "otp") {
+      const otp = form.otp.value;
+      dispatch(verifyOtp({ otp, email: otpEmail })); // Pass both otp and email
+      return;
+    }
+    if (authMode === "setPassword") {
+      const email = form.email.value;
+      const password = form.password.value;
+      const confirmPassword = form.confirmPassword.value;
+
+      if (password !== confirmPassword) {
+        setError("Passwords do not match");
+        return;
+      }
+
+      dispatch(updatePassword({ email, password }));
+      return;
+    }
+
+    if (authMode === "login") {
+      const email = form.email.value;
+      const password = form.password.value;
+      dispatch(loginUser({ email, password }));
+      return;
+    }
+
+    if (authMode === "register") {
+      const payload = {
+        usertype: user?.usertype,
+        name: form.name?.value || "",
+        email: form.email.value,
+        phone: form.phone.value,
+        password: form.password.value,
+        nhis_id: form.nhis?.value || "",
+        license_number: form.license?.value || "",
+      };
+      dispatch(registerUser(payload));
+      return;
+    }
+  };
+
+  const handleResendOtp = (email) => {
+    dispatch(resendOtp({ email }));
   };
 
   return (
@@ -150,13 +190,14 @@ const Login = () => {
         </h2>
         <img src={frame} alt="" />
 
-        {error && <div className={style.error}>{error}</div>}
-        {loading && <div className={style.loading}>Loading...</div>}
+        {loading && <Loading />}
+
+        <AlertContainer />
 
         {authMode === "register" && (
           <div className={style.selectContainer} id="flexCenter">
             <button
-              className={user.role === "patient" ? style.active : ""}
+              className={user?.usertype === "patient" ? style.active : ""}
               onClick={() => handleRoleClick("patient")}
               type="button"
               id="Text25"
@@ -164,7 +205,7 @@ const Login = () => {
               Join as a patient
             </button>
             <button
-              className={user.role === "pharmacist" ? style.active : ""}
+              className={user?.usertype === "pharmacist" ? style.active : ""}
               onClick={() => handleRoleClick("pharmacist")}
               type="button"
               id="Text25"
@@ -172,7 +213,7 @@ const Login = () => {
               Join as a pharmacist
             </button>
             <button
-              className={user.role === "doctor" ? style.active : ""}
+              className={user?.usertype === "doctor" ? style.active : ""}
               onClick={() => handleRoleClick("doctor")}
               type="button"
               id="Text25"
@@ -191,9 +232,12 @@ const Login = () => {
 
             {authMode === "forgot" && <ForgetPassword />}
 
-            {authMode === "otp" && <Otp />}
-
-            {authMode === "setPassword" && <CreateNewPassword />}
+            {authMode === "otp" && (
+              <Otp email={otpEmail} onResend={handleResendOtp} />
+            )}
+            {authMode === "setPassword" && (
+              <CreateNewPassword email={otpEmail} />
+            )}
 
             <button
               type="submit"
@@ -219,24 +263,7 @@ const Login = () => {
               </h3>
             </button>
 
-            {(authMode === "login" || authMode === "register") && (
-              <div className={style.loginWith} id="flexCenter">
-                <div>
-                  <img
-                    src={google}
-                    alt="google icon"
-                    className={style.Google}
-                  />
-                </div>
-                <div>
-                  <img
-                    src={facebook}
-                    alt="facebook icon"
-                    className={style.Facebook}
-                  />
-                </div>
-              </div>
-            )}
+            <GoogleLogin />
 
             {authMode === "login" ? (
               <>
@@ -244,7 +271,10 @@ const Login = () => {
                   Don’t have an account?{" "}
                   <span
                     className={style.sign}
-                    onClick={() => dispatch(setAuthMode("register"))}
+                    onClick={() => {
+                      dispatch(setAuthMode("register"));
+                      dispatch(setRole("patient"));
+                    }}
                   >
                     Sign up
                   </span>
@@ -256,10 +286,6 @@ const Login = () => {
                   </span>
                 </p>
               </>
-            ) : authMode === "otp" ? (
-              <p className={style.alreadyHaveAccount}>
-                <span>Resend code</span>
-              </p>
             ) : (
               <p className={style.alreadyHaveAccount}>
                 Already have an account?{" "}

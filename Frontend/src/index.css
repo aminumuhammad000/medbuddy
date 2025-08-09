@@ -49,6 +49,10 @@ h5 {
   font-size: 17px;
   background-color: transparent;
 }
+button:disabled {
+  background-color: #ddd;
+  cursor: wait;
+}
 
 h6 {
   font-size: 18px;
@@ -63,9 +67,9 @@ select {
 input:user-invalid {
   outline: 1px solid red;
 }
-input:user-valid {
+/* input:user-valid {
   outline: 1px solid green;
-}
+} */
 #flexCenter {
   display: flex;
   justify-content: center;

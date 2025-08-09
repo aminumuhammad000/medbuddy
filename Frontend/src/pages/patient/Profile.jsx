@@ -4,9 +4,12 @@ import PersonalInformation from "./components/PersonalInformation";
 import MedicalInformation from "./components/MedicalInformation";
 import AccountInformation from "./components/AccountInformation";
 import { useSelector, useDispatch } from "react-redux";
-import { setInformation } from "../../store/slices/patientNavSlice";
+import { setInformation, setPage } from "../../store/slices/patientNavSlice";
+import Loading from "../auth/components/Loading";
 
 const Profile = () => {
+  const { user, loading } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const userInformation = useSelector(
     (state) => state.patientNav.userInformation
@@ -15,6 +18,8 @@ const Profile = () => {
 
   return (
     <div className={style.profile}>
+      {loading && <Loading />}
+      {!user && <div>No profile data available</div>}
       <div className={style.profileHeader} id="flexCenter">
         <ul className={style.profileList} id="flexCenter">
           <li
@@ -45,9 +50,9 @@ const Profile = () => {
         <div className={style.patientCardHeader} id="flexAlignCenter">
           <img src={profile} alt="" loading="lazy" />
           <div className={style.patientInfo}>
-            <h3 className={style.name}>Mustapha Hussein</h3>
+            <h3 className={style.name}>{user?.auth?.name || "N/A"} </h3>
             <p className={style.idNo} id="mediumText">
-              208898680
+              {user?.auth?.nhis_id || "N / A"}
             </p>
           </div>
         </div>

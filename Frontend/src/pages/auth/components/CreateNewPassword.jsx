@@ -1,19 +1,33 @@
 import PasswordInput from "./PasswordInput";
 
-const CreateNewPassword = () => {
+const CreateNewPassword = ({ email }) => {
   return (
     <>
       <p id="text30" style={{ textAlign: "center", marginBottom: "63px" }}>
-        Create your new password, if you forget it then you have to do forget
-        password.{" "}
+        Create your new password.
       </p>
-      <PasswordInput
-        label={"New password"}
-        placeholder="Enter a  new password"
+
+      {/* Hidden email field for form submission */}
+      <input
+        type="email"
+        value={email}
+        name="email"
+        id="email"
+        hidden
+        readOnly
       />
+
+      {/* Password fields */}
       <PasswordInput
-        label={"Confirm password"}
+        label="New password"
+        placeholder="Enter a new password"
+        name="password"
+      />
+
+      <PasswordInput
+        label="Confirm password"
         placeholder="Re-enter password"
+        name="confirmPassword"
       />
     </>
   );

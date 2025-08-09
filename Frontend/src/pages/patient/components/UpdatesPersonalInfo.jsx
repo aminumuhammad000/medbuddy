@@ -11,7 +11,7 @@ const UpdatesPersonalInfo = () => {
             </label>
             <input
               type="text"
-              name="first name"
+              name="fname"
               id="fname"
               placeholder="First Name"
             />
@@ -22,7 +22,7 @@ const UpdatesPersonalInfo = () => {
             </label>
             <input
               type="text"
-              name="last name"
+              name="lname"
               id="lname"
               placeholder="Last Name"
             />
@@ -71,12 +71,12 @@ const UpdatesPersonalInfo = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="NHISID" id="mediumText">
+            <label htmlFor="nhis_id" id="mediumText">
               NHIS ID
             </label>
             <input
               type="text"
-              name="NHISID"
+              name="nhis_id"
               id="NHIS ID"
               placeholder="NHIS ID"
             />
@@ -88,7 +88,7 @@ const UpdatesPersonalInfo = () => {
           </label>
           <input
             type="text"
-            name="address"
+            name="house_address"
             id="address"
             placeholder="House Address"
           />

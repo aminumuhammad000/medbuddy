@@ -1,36 +1,70 @@
 const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+
+// Configure transporter (example for Gmail)
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER, // your email
+    pass: process.env.EMAIL_PASS, // your app password
+  },
+});
 
 // REGISTER
 exports.register = async (req, res) => {
   try {
-    const {
-      usertype,
-      fname,
-      lname,
-      email,
-      phone,
-      password,
-      nhis_id,
-      license_number,
-    } = req.body;
+    const { usertype, name, email, phone, password, nhis_id, license_number } =
+      req.body;
+
+    // Check if email or phone already exists
+    const existingUser = await User.findOne({
+      $or: [{ "auth.email": email }, { "auth.phone": phone }],
+    });
+
+    if (existingUser) {
+      return res.status(409).json({ message: "Email or phone already in use" });
+    }
+
+    // 🔐 Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       usertype,
       auth: {
-        fname,
-        lname,
+        name,
         email,
         phone,
-        password, // NOTE: Hash before saving in production
+        password: hashedPassword, // Store hashed password
         nhis_id,
         license_number,
       },
     });
 
     await newUser.save();
-    res.status(201).json({ message: "User registered successfully." });
+
+    // ✅ Log saved user (safe version)
+    console.log("✅ User saved:", {
+      usertype: newUser.usertype,
+      auth: {
+        name: newUser.auth.name,
+        email: newUser.auth.email,
+        phone: newUser.auth.phone,
+      },
+    });
+
+    // ✅ Generate JWT token
+    const token = jwt.sign(
+      { id: newUser._id, email: newUser.auth.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.status(201).json({ token });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("❌ Register error:", err.message);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -40,12 +74,30 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ "auth.email": email });
 
-    if (!user || user.auth.password !== password) {
+    if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    res.json({ message: "Login successful", user });
+    const isMatch = await bcrypt.compare(password, user.auth.password);
+
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    // Generate token
+    const token = jwt.sign(
+      { id: user._id, email: user.auth.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.json({
+      message: "Login successful",
+      user,
+      token,
+    });
   } catch (err) {
+    console.log("Login error:", err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -56,21 +108,44 @@ exports.forgotPassword = async (req, res) => {
     const { email } = req.body;
     const otpCode = Math.floor(1000 + Math.random() * 9000).toString();
 
+    const transporter = nodemailer.createTransport({
+      host: "sandbox.smtp.mailtrap.io",
+      port: 2525,
+      auth: {
+        user: process.env.EMAIL_USER, // your Mailtrap user
+        pass: process.env.EMAIL_PASS, // your Mailtrap password
+      },
+    });
+
     const user = await User.findOneAndUpdate(
       { "auth.email": email },
       {
         otp: {
           code: otpCode,
-          expires_at: new Date(Date.now() + 10 * 60 * 1000), // 10 mins
+          expires_at: new Date(Date.now() + 10 * 60 * 1000), // 10 minute
         },
       },
       { new: true }
     );
 
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user)
+      return res.status(404).json({
+        message: "If the email is correct, an OTP has been sent.",
+      });
 
-    res.json({ message: "OTP sent", otp: otpCode }); // Replace with real email or SMS service
+    // Send OTP to user's email
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Your OTP Code",
+      text: `Your OTP code is: ${otpCode}`,
+    });
+
+    // TODO: Send otpCode to user's email using a mail service
+    console.log({ message: "OTP sent" });
+    res.json({ message: "OTP sent" }); // For now, returns OTP in response
   } catch (err) {
+    console.log(err.message);
     res.status(500).json({ error: err.message });
   }
 };
@@ -78,8 +153,8 @@ exports.forgotPassword = async (req, res) => {
 // VERIFY OTP
 exports.verifyOtp = async (req, res) => {
   try {
-    const { otp } = req.body;
-    const user = await User.findOne({ "otp.code": otp });
+    const { otp, email } = req.body;
+    const user = await User.findOne({ "auth.email": email, "otp.code": otp });
 
     if (!user || user.otp.expires_at < new Date()) {
       return res.status(400).json({ message: "Invalid or expired OTP" });
@@ -96,17 +171,30 @@ exports.updatePassword = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Validate inputs
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password required" });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Update in database
     const user = await User.findOneAndUpdate(
       { "auth.email": email },
-      { "auth.password": password }, // NOTE: Hash before saving in production
+      { "auth.password": hashedPassword },
       { new: true }
     );
 
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
-    res.json({ message: "Password updated" });
+    console.log("✅ Password updated for:", email);
+    res.json({ message: "Password updated successfully" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("❌ Error updating password:", err);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -126,6 +214,41 @@ exports.updateProfile = async (req, res) => {
     res.json({ message: "Profile updated", user });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+};
+
+exports.updatePersonalInfo = async (req, res) => {
+  try {
+    const userId = req.user._id; // assuming you get user ID from auth middleware
+    const { fname, lname, email, phone, gender, dob, nhis_id, house_address } =
+      req.body;
+
+    // Build update object
+    const updateData = {
+      "auth.name": `${fname} ${lname}`,
+      "auth.email": email,
+      "auth.phone": phone,
+      "auth.nhis_id": nhis_id,
+      "profile.gender": gender,
+      "profile.dob": dob,
+      "profile.house_address": house_address,
+      updated_at: new Date(),
+    };
+
+    // Update user document
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "Profile updated successfully", user: updatedUser });
+  } catch (error) {
+    console.error("Update error:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -178,5 +301,18 @@ exports.updateMedicalInfo = async (req, res) => {
     res.json({ message: "Medical info updated", user });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+};
+
+exports.getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.json({ user: user });
+    console.log({ message: "Profile retrieved", user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
   }
 };

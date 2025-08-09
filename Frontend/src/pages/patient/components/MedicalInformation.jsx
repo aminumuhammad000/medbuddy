@@ -1,8 +1,9 @@
 import style from "./PersonalInformation.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPage, setInformation } from "../../../store/slices/patientNavSlice";
 
 const MedicalInformation = () => {
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const gotoUpdate = () => {
@@ -33,8 +34,10 @@ const MedicalInformation = () => {
               <td className={style.td}>Chronic Conditions</td>
             </tr>
             <tr>
-              <td>Peanut allergy</td>
-              <td>Diabetes</td>
+              <td>{user?.medical_info?.known_allergies || "N/A"}</td>
+              <td>
+                {user?.medical_info?.chronic_conditions.join(", ") || "N/A"}
+              </td>
             </tr>
             <br />
 
@@ -43,17 +46,22 @@ const MedicalInformation = () => {
               <td>Blood Type</td>
             </tr>
             <tr>
-              <td className={style.td}>Metformin</td>
-              <td className={style.td}>O+</td>
+              <td className={style.td}>
+                {user?.medical_info?.current_medications.join(", ") || "N/A"}
+              </td>
+              <td className={style.td}>
+                {user?.medical_info?.blood_type || "N/A"}
+              </td>
             </tr>
             <br />
             <tr>
               <td>Vaccination Records</td>
-              {/* <td>Male</td> */}
             </tr>
             <br />
             <tr>
-              <td className={style.td}>Tetanus</td>
+              <td className={style.td}>
+                {user?.medical_info.vaccination_record.join(", ")}
+              </td>
             </tr>
           </table>
         </div>
