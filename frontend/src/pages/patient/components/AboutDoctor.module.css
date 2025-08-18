@@ -1,0 +1,32 @@
+.AboutDoctor {
+  margin-top: 42px;
+}
+.bio {
+  font-weight: 400;
+  max-width: 1358px;
+  line-height: 40px;
+}
+.cardContainer {
+  gap: 80px;
+  margin-top: 40px;
+}
+.cardContainer div {
+  width: 262px;
+  height: 183.85964965820312px;
+  background-color: var(--white-color);
+  /* padding: 17px 0px 65px 32px; */
+  border-radius: 20px;
+  box-shadow: 1px 6px 4px #ddd;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+.icon {
+  margin-top: 17px;
+}
+.cardContainer div p {
+  margin-top: 24px;
+}
+.cardContainer div h3 {
+  margin-top: 20px;
+}

@@ -1,0 +1,34 @@
+.ConsultPreview {
+  margin-top: 2em;
+  width: 100%;
+}
+.navList {
+  margin-top: 30px;
+  display: flex;
+  gap: 107px;
+}
+.navList li {
+  opacity: 0.6;
+  cursor: pointer;
+  color: #222;
+}
+.navList li button {
+  padding: 0px 12px 0px 12px;
+}
+.navList li.active {
+  border-bottom: 2px solid var(--blue-color);
+  opacity: 1;
+}
+.navList li.active button {
+  font-weight: 700;
+  opacity: 1;
+  color: var(--blue-color);
+}
+p {
+  margin-top: 15px;
+  max-width: 1000px;
+}
+.feedbackCard {
+  gap: 30px;
+  margin-top: 40px;
+}

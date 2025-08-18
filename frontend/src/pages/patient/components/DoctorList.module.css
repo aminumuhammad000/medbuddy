@@ -1,0 +1,13 @@
+.DoctorList {
+  flex-wrap: wrap;
+  gap: 60px;
+}
+.doctorListTitle {
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.moreDoctors {
+  color: var(--blue-color);
+}

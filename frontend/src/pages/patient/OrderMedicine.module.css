@@ -1,0 +1,56 @@
+.OrderMedicine {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  margin-top: 1.25em;
+  padding-bottom: 2em;
+}
+
+.Banner {
+  width: 90%;
+  height: 270px;
+  padding: 1.25em 3.125em;
+  background-color: var(--blue-color);
+  margin-top: 2.5em;
+  box-shadow: 0.0625em 0.0625em 0.25em #ddd;
+  border-radius: 1.25em;
+  color: var(--white-color);
+  margin-inline: auto;
+}
+.medicineBanner {
+  width: 18em;
+}
+.title {
+  font-weight: 900;
+}
+.description {
+  margin-top: 0.625em;
+  margin-bottom: 1.25em;
+}
+.btn {
+  width: 170px;
+  height: 50px;
+  background-color: var(--white-color);
+  color: var(--blue-color);
+  border-radius: 0.9375em;
+  font-weight: 700;
+}
+.AllDrugsContainer,
+.DrugList {
+  flex-wrap: wrap;
+  margin-top: 1.25em;
+  gap: 1em;
+  margin-inline: auto;
+}
+.titleContainer {
+  margin-inline: auto;
+  width: 100%;
+  margin-top: 1.25em;
+}
+.viewAll,
+.pageTitle {
+  font-weight: 700;
+}
+.viewAll {
+  text-decoration: underline;
+}

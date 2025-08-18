@@ -1,0 +1,211 @@
+.Login {
+  width: 100%;
+  position: relative;
+  padding-bottom: 3em;
+}
+.backBtn {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  left: 64px;
+  top: 87px;
+  color: var(--white-color);
+  font-size: 65px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #ffffff9c;
+  box-shadow: 0 8px 32px #00000062;
+}
+.decoration {
+  position: absolute;
+  left: -35px;
+  bottom: unset;
+}
+.logoContainer {
+  width: 150px;
+  position: absolute;
+  top: 18px;
+  left: 64px;
+}
+.logoContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+  top: -50%;
+  z-index: -1;
+}
+.Container {
+  width: 78%;
+  min-height: 1127px;
+  background-color: var(--white-color);
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  margin-top: 87px;
+  align-items: center;
+  gap: 10px;
+}
+.Signup {
+  text-align: center;
+  font-weight: 600;
+  line-height: 53px;
+  margin-top: 22px;
+}
+.selectContainer {
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  gap: 173px;
+  margin-top: 66px;
+  padding-bottom: 8px;
+}
+
+.selectContainer button.active {
+  color: var(--blue-color);
+  font-weight: 600;
+  padding: 0px 10px;
+  border-bottom: 2px solid var(--blue-color);
+}
+.form {
+  width: 70%;
+  margin-top: 36px;
+  padding-bottom: 3em;
+}
+form {
+  width: 100%;
+  gap: 20px;
+}
+form .name,
+form .password,
+form .nhis,
+form .phone,
+form .email,
+form .doc {
+  align-items: baseline;
+}
+form label {
+  font-weight: 400;
+}
+form div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.emailContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.DocInput,
+.emailContainer div {
+  width: 100%;
+}
+
+.headingText {
+  text-align: center;
+}
+.docLabel {
+  cursor: pointer;
+  gap: 15px;
+}
+.uploadIcon {
+  color: var(--blue-color);
+  font-size: 30px;
+}
+.docLabel,
+form div input:not(input[type="checkbox"]),
+.otp input {
+  width: 100%;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #edededcc;
+  padding: 20px 40px;
+  opacity: 0.6;
+}
+.docLabel {
+  opacity: 1;
+}
+.docLabel span {
+  opacity: 0.6;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue-color);
+}
+.SignupBtn {
+  height: 60px;
+  width: 350px;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  border-radius: 30px;
+  margin-inline: auto;
+  margin-top: 64px;
+}
+
+.loginWith {
+  gap: 40px;
+  margin-top: 35px;
+}
+.loginWith .Google,
+.loginWith .Facebook {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.alreadyHaveAccount {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+.otp {
+  gap: 40px;
+  margin-top: 60px;
+}
+.otp .otpInput {
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+}
+.alreadyHaveAccount {
+  font-size: 18px;
+}
+.alreadyHaveAccount span {
+  color: #f00;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .Container {
+    width: 90%;
+    padding: 2px 1em;
+    margin-top: 6em;
+  }
+  .logoContainer {
+    left: 1em;
+  }
+  .emailContainer {
+    flex-direction: column;
+  }
+
+  .selectContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .selectContainer button {
+    margin-bottom: 10px;
+  }
+  form {
+    width: 100%;
+  }
+  .SignupBtn {
+    width: 100%;
+  }
+}

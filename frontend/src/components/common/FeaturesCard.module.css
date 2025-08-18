@@ -1,0 +1,29 @@
+.FeaturesCard {
+  width: 21.7%;
+  height: 293px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid #fff;
+  gap: 16px;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 0px #ddd;
+}
+.icon {
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px #ddd;
+  padding: 20px;
+  font-size: 25px;
+  background-color: var(--white-color);
+  color: var(--blue-color);
+}
+.title {
+  font-weight: 500;
+  color: var(--hover-color);
+}
+.text {
+  margin-top: -4px;
+}
+.title,
+.text {
+  text-align: center;
+}
