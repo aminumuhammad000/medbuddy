@@ -8,6 +8,23 @@ const Overview = () => {
   const { user, loading } = useSelector((state) => state.auth);
   const date = new Date();
 
+  const getAge = (dob) => {
+    if (!dob) return "N/A";
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   const SimpleCard = ({ title, value, unit, icon }) => {
     return (
       <div className={style.div} id="flexColumnCenter">
@@ -52,13 +69,7 @@ const Overview = () => {
             />
             <div className={style.details} id="flexColumn">
               <h4>{user?.auth?.name || "Unknown User"}</h4>
-              <h5>
-                Age:{" "}
-                {user?.profile?.dob
-                  ? date.getFullYear() -
-                    parseInt(user.profile.dob.split("/")[2])
-                  : "N/A"}
-              </h5>
+              <h5>Age: {getAge(user?.profile?.dob)}</h5>
             </div>
 
             <button className={style.btnUpdate} id="mediumText">
@@ -80,9 +91,7 @@ const Overview = () => {
                 </tr>
                 <tr>
                   <td className={style.bold}>Allergies:</td>
-                  <td>
-                    {user?.medical_info?.known_allergies?.join(", ") || "None"}
-                  </td>
+                  <td>{user?.medical_info?.known_allergies || "None"}</td>
                 </tr>
                 <tr>
                   <td className={style.bold}>Diagnosis:</td>
@@ -98,7 +107,7 @@ const Overview = () => {
                 </tr>
                 <tr>
                   <td className={style.bold}>Patient ID:</td>
-                  <td>{user?.patientId || "N/A"}</td>
+                  <td>{user?.auth?.nhis_id || "N/A"}</td>
                 </tr>
               </tbody>
             </table>

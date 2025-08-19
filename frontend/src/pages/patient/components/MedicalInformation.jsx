@@ -35,9 +35,7 @@ const MedicalInformation = () => {
             </tr>
             <tr>
               <td>{user?.medical_info?.known_allergies || "N/A"}</td>
-              <td>
-                {user?.medical_info?.chronic_conditions.join(", ") || "N/A"}
-              </td>
+              <td>{user?.medical_info?.chronic_conditions || "N/A"}</td>
             </tr>
             <br />
 
@@ -47,7 +45,7 @@ const MedicalInformation = () => {
             </tr>
             <tr>
               <td className={style.td}>
-                {user?.medical_info?.current_medications.join(", ") || "N/A"}
+                {user?.medical_info?.current_medications || "N/A"}
               </td>
               <td className={style.td}>
                 {user?.medical_info?.blood_type || "N/A"}
@@ -60,7 +58,7 @@ const MedicalInformation = () => {
             <br />
             <tr>
               <td className={style.td}>
-                {user?.medical_info.vaccination_record.join(", ")}
+                {user?.medical_info?.vaccination_record || "N/A"}
               </td>
             </tr>
           </table>

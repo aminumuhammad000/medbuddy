@@ -40,6 +40,8 @@ const UpdatesPersonalInfo = ({ formData = {}, handleChange }) => {
           </div>
         </div>
 
+        <input type="hidden" name="image" value={user?.profile?.image || ""} />
+
         <div className={style.Email}>
           <div>
             <label htmlFor="firstName" id="mediumText">
@@ -52,6 +54,7 @@ const UpdatesPersonalInfo = ({ formData = {}, handleChange }) => {
               placeholder={user?.auth?.email}
               value={formData.email}
               onChange={handleChange}
+              disabled
             />
           </div>
           <div>

@@ -141,7 +141,7 @@ export const updateMedicalInfo = createAsyncThunk(
   "auth/updateMedicalInfo",
   async (payload, { rejectWithValue }) => {
     try {
-      const res = await axios.put("/user/medical-info", payload);
+      const res = await axios.patch("/user/medical-info", payload);
       return res.data;
     } catch (err) {
       return rejectWithValue(
@@ -364,11 +364,11 @@ const authSlice = createSlice({
       .addCase(updatePersonalInfo.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
-         state.success = action.payload.message || "Profile updated!";
+        state.success = action.payload.message || "Profile updated!";
         state.error = "";
       })
       .addCase(updatePersonalInfo.rejected, (state, action) => {
-          state.loading = false;
+        state.loading = false;
         state.error = action.payload;
         state.success = "";
       });

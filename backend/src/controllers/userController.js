@@ -23,12 +23,14 @@ function publicUser(u) {
 }
 
 // REGISTER
+
+// controllers/userController.js
 exports.register = async (req, res) => {
   try {
     const { usertype, name, email, phone, password, nhis_id, license_number } =
       req.body;
 
-    // Check if email or phone already exists
+    // 🔍 Check if user already exists
     const existingUser = await User.findOne({
       $or: [{ "auth.email": email }, { "auth.phone": phone }],
     });
@@ -40,22 +42,31 @@ exports.register = async (req, res) => {
     // 🔐 Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // 🆕 Create new user
     const newUser = new User({
       usertype,
       auth: {
         name,
         email,
         phone,
-        password: hashedPassword, // Store hashed password
+        password: hashedPassword,
         nhis_id,
         license_number,
+      },
+      medical_info: {
+        known_allergies: "",
+        current_medications: [],
+        vaccination_record: [],
+        chronic_conditions: [],
+        blood_type: "",
       },
     });
 
     await newUser.save();
 
-    // ✅ Log saved user (safe version)
-    console.log("✅ User saved:", {
+    // ✅ Log saved user (safe version, no password)
+    console.log("✅ User registered:", {
+      id: newUser._id,
       usertype: newUser.usertype,
       auth: {
         name: newUser.auth.name,
@@ -64,15 +75,24 @@ exports.register = async (req, res) => {
       },
     });
 
-    // ✅ Generate JWT token
-    const token = jwt.sign(
-      { id: user._id, email: user.auth.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+    // 🎟️ Generate JWT
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
 
-    // res.status(201).json({ token });
-    res.status(201).json({ token, user: publicUser(user) });
+    res.status(201).json({
+      message: "User registered successfully",
+      token,
+      user: {
+        id: newUser._id,
+        usertype: newUser.usertype,
+        auth: {
+          name: newUser.auth.name,
+          email: newUser.auth.email,
+          phone: newUser.auth.phone,
+        },
+      },
+    });
   } catch (err) {
     console.error("❌ Register error:", err.message);
     res.status(500).json({ message: "Server error" });
@@ -216,31 +236,52 @@ exports.updatePassword = async (req, res) => {
 // UPDATE PROFILE
 exports.updatePersonalInfo = async (req, res) => {
   try {
-    const { email, name, phone, dob, gender, house_address, nhis_id } =
-      req.body;
+    const userId = req.user.id;
+    const {
+      name,
+      phone,
+      nhis_id,
+      dob,
+      gender,
+      house_address,
+      image,
+      medical_info,
+    } = req.body;
 
-    const user = await User.findOneAndUpdate(
-      { "auth.email": email },
-      {
-        $set: {
-          "auth.name": name,
-          "auth.phone": phone,
-          "auth.nhis_id": nhis_id,
-          "profile.dob": dob || null,
-          "profile.gender": gender || null,
-          "profile.house_address": house_address || null,
-          updated_at: new Date(),
-        },
-      },
+    // Prepare update object
+    const updateData = {
+      "auth.name": name,
+      "auth.phone": phone,
+      "auth.nhis_id": nhis_id,
+      "profile.dob": dob || null,
+      "profile.gender": gender || null,
+      "profile.house_address": house_address || null,
+      updated_at: new Date(),
+    };
+
+    // ✅ Only update image if included
+    if (image) {
+      updateData["profile.image"] = image;
+    }
+
+    // ✅ Only update medical_info if included
+    if (medical_info) {
+      updateData["medical_info"] = medical_info;
+    }
+
+    // Update by ID
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $set: updateData },
       { new: true }
     );
 
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    res.json({ message: "Profile updated", user: publicUser(user)});
-    console.log({ message: "Profile updated", user: publicUser(user) });
+    res.json({ message: "Profile updated", user: publicUser(user) });
+    console.log("✅ Profile updated:", publicUser(user));
   } catch (err) {
-    console.error({error: err})
+    console.error("❌ Update error:", err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -248,32 +289,29 @@ exports.updatePersonalInfo = async (req, res) => {
 // UPDATE ACCOUNT
 exports.updateAccount = async (req, res) => {
   try {
-    const {
-      email,
-      communication_preference,
-      language_preference,
-      notification,
-      password,
-    } = req.body;
+    const { communication_preference, language_preference, password } =
+      req.body;
+    const userId = req.user.id; // get user ID from auth middleware
 
+    // Prepare update object
     const updateData = {
       "profile.communication_preference": communication_preference,
       "profile.language_preference": language_preference,
-      notification: notification,
       "auth.password": password,
       updated_at: new Date(),
     };
 
-    const user = await User.findOneAndUpdate(
-      { "auth.email": email },
-      updateData,
-      { new: true }
-    );
+    // Update only the logged-in user
+    const user = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+    });
 
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    res.json({ message: "Account updated", user });
+    res.json({ message: "Account updated", user: publicUser(user) });
+    console.log({ message: "Account updated", user: publicUser(user) });
   } catch (err) {
+    console.error({ error: err });
     res.status(500).json({ error: err.message });
   }
 };
@@ -281,18 +319,26 @@ exports.updateAccount = async (req, res) => {
 // UPDATE MEDICAL INFO
 exports.updateMedicalInfo = async (req, res) => {
   try {
-    const { email, ...medical_info } = req.body;
+    const { id } = req.user;
+    const updates = req.body; // contains only fields you want to update
 
-    const user = await User.findOneAndUpdate(
-      { "auth.email": email },
-      { medical_info, updated_at: new Date() },
-      { new: true }
-    );
-
+    const user = await User.findById(id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    res.json({ message: "Medical info updated", user });
+    // Only update provided fields in medical_info
+    Object.keys(updates).forEach((key) => {
+      if (updates[key] !== undefined) {
+        user.medical_info[key] = updates[key];
+      }
+    });
+
+    user.updated_at = new Date();
+    await user.save();
+
+    res.json({ message: "Medical info updated", user: publicUser(user) });
+    console.log("Medical info updated:", publicUser(user));
   } catch (err) {
+    console.error("❌ Error updating medical info:", err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -345,7 +391,7 @@ exports.googleLogin = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
-    console.log({ exists, token, user: publicUser(user) })
+    console.log({ exists, token, user: publicUser(user) });
     res.json({ exists, token, user: publicUser(user) });
   } catch (err) {
     console.error("Google login error:", err);
